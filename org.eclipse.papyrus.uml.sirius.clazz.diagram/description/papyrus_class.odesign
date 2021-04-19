@@ -1,0 +1,1431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="papyrus" version="12.0.0.2017041100">
+  <ownedViewpoints name="ClassDiagram" modelFileExtension="uml">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" documentation="Representation to edit class diagrams" name="Class Diagram" titleExpression="aql:self.name +' Class Diagram'" domainClass="uml.Model" preconditionExpression="" enablePopupBars="true">
+      <metamodel href="platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#/"/>
+      <filters xsi:type="filter:CompositeFilterDescription" name="Show qualified name"/>
+      <filters xsi:type="filter:CompositeFilterDescription" name="Show stereotypes"/>
+      <defaultLayer name="Class">
+        <nodeMappings name="CD_BrokenAssociation" semanticCandidatesExpression="service:getBrokenAssociations" semanticElements="service:getSemanticElements" domainClass="uml.Association">
+          <style xsi:type="style:BundledImageDescription" labelExpression="aql:self.name +' : (Association with missing ends)'" shape="dot">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="CD_Association_NAry" semanticCandidatesExpression="service:getNAryAssociation(diagram)" semanticElements="service:getSemanticElements" domainClass="uml.Association">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:computeUmlLabel" hideLabelByDefault="true" sizeComputationExpression="-1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Comment" semanticCandidatesExpression="service:diagram.getCommentsOnVisibleGraphicalElements" semanticElements="service:getSemanticElements" domainClass="uml.Comment">
+          <deletionDescription href="uml2core.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='existingElements']/@ownedTools[name='DEL_DeleteFromModel']"/>
+          <labelDirectEdit href="uml2core.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='directEdit']/@ownedTools[name='OtherDirectEdit']"/>
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="feature:body" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="16" height="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Constraint" semanticCandidatesExpression="service:diagram.getCommentsOnVisibleGraphicalElements" semanticElements="service:getSemanticElements" domainClass="uml.Comment">
+          <deletionDescription href="uml2core.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='existingElements']/@ownedTools[name='DEL_DeleteFromModel']"/>
+          <labelDirectEdit href="uml2core.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='directEdit']/@ownedTools[name='OtherDirectEdit']"/>
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="feature:body" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="16" height="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="CD_TemplateBinding" semanticCandidatesExpression="service:diagram.getTemplateBindingInverseRefs" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetFinderExpression="aql:self.oclAsType(uml::TemplateBinding).signature.template" sourceFinderExpression="feature:boundElement" domainClass="uml.TemplateBinding" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Target'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Source']">
+          <style lineStyle="dash">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
+            <centerLabelStyleDescription labelExpression="service:computeUmlLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="CD_Generalization" semanticCandidatesExpression="service:diagram.getGeneralizationInverseRefs" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetFinderExpression="feature:general" sourceFinderExpression="feature:owner" targetExpression="var:self" domainClass="uml.Generalization" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Target'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Source']">
+          <style targetArrow="InputClosedArrow" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="CD_Dependency" preconditionExpression="aql:not self.oclIsKindOf(uml::InterfaceRealization)" semanticCandidatesExpression="service:diagram.getDependencyInverseRefs" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Package'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Package'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetFinderExpression="feature:supplier" sourceFinderExpression="feature:client" targetExpression="var:self" domainClass="uml.Dependency" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Target'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Source']">
+          <style lineStyle="dash">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="service:computeUmlLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.oclIsTypeOf(uml::Usage)">
+            <style lineStyle="dash">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="&lt;&lt;use>>">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.oclIsTypeOf(uml::Abstraction)">
+            <style lineStyle="dash">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="&lt;&lt;abstraction>>">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <edgeMappings name="CD_InterfaceRealization" semanticCandidatesExpression="service:diagram.getInterfaceRealizationInverseRefs" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface']" targetFinderExpression="feature:supplier" sourceFinderExpression="feature:client" targetExpression="var:self" domainClass="uml.InterfaceRealization" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Target'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Source']">
+          <style lineStyle="dash" targetArrow="InputClosedArrow">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="service:computeUmlLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="CD_NestedClass" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Delete%20Nested%20Class']" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']" targetFinderExpression="feature:eContainer" targetExpression="var:self">
+          <style targetArrow="OutputFillClosedArrow" foldingStyle="TARGET">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="CD_Association" semanticCandidatesExpression="service:getAssociation(diagram)" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetFinderExpression="service:getTargetType(diagram)" sourceFinderExpression="service:getSourceType(diagram)" targetExpression="var:self" domainClass="uml.Association" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Target'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Source']">
+          <style targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <beginLabelStyleDescription showIcon="false" labelExpression="aql:self.computeAssociationBeginLabel()">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <centerLabelStyleDescription showIcon="false" labelExpression="service:computeUmlLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription showIcon="false" labelExpression="aql:self.computeAssociationEndLabel()">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="CD_AssociationNAryEdge" deletionDescription="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='deleteNAryAssociationLinks']" semanticCandidatesExpression="service:diagram.getAssociationInverseRefs" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_Association_NAry']" targetFinderExpression="var:self" sourceFinderExpression="service:getNAryAssociationSource" targetExpression="var:self" domainClass="uml.Association" useDomainElement="true" reconnections="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Source'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Reconnect%20Target']">
+          <style targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <beginLabelStyleDescription showIcon="false" labelExpression="service:self.computeAssociationNAryBeginLabel(view)">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="CD_BrokenAssociationToClasses" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" targetFinderExpression="service:getTargetBrokenAssociationToClasse" sourceFinderExpression="feature:eContainer" domainClass="Property">
+          <style targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="service:computeUmlLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="CD_BrokenAssociationToAssociation" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_Association_NAry']" targetFinderExpression="var:self" sourceFinderExpression="feature:eContainer" domainClass="Property">
+          <style targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="CD_AssociationClassToAssociation" sourceMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass']" targetMapping="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_Association_NAry']" targetFinderExpression="var:self">
+          <style lineStyle="dash" targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="CD_Class" semanticCandidatesExpression="service:self.getSemanticCandidatesClasses" semanticElements="service:getSemanticElements" synchronizationLock="true" domainClass="uml.Class" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Drop%20Attributes%20or%20Operations']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_Property'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_Operation']" childrenPresentation="VerticalStack">
+          <subContainerMappings name="CD_Operation" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Class" childrenPresentation="List">
+            <subNodeMappings name="CD_Operation" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Class) or self.oclIsKindOf(uml::Interface)) then self.ownedOperation else null endif" semanticElements="service:getSemanticElements" synchronizationLock="true" domainClass="uml.Operation">
+              <style xsi:type="style:SquareDescription" labelExpression="service:computeUmlLabel" labelAlignment="LEFT" sizeComputationExpression="1">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+          </subContainerMappings>
+          <subContainerMappings name="CD_Attribute" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="uml.Class" childrenPresentation="List">
+            <subNodeMappings name="CD_Property" semanticCandidatesExpression="aql:if(self.oclIsKindOf(uml::Class) or self.oclIsKindOf(uml::Interface)) then self.ownedAttribute else null endif" semanticElements="service:getSemanticElements" synchronizationLock="true" domainClass="uml.Property">
+              <style xsi:type="style:SquareDescription" labelExpression="service:computeUmlLabel" labelAlignment="LEFT" sizeComputationExpression="1">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer() &lt;> container">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <containerMappings name="CD_Interface" semanticCandidatesExpression="aql:self.ownedMember" semanticElements="service:getSemanticElements" synchronizationLock="true" domainClass="uml.Interface" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Drop%20Attributes%20or%20Operations']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_Property'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_Operation']" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer() &lt;> container">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <containerMappings name="CD_DataType" preconditionExpression="aql:self.oclIsTypeOf(uml::DataType)" semanticCandidatesExpression="feature:ownedMember" semanticElements="service:getSemanticElements" synchronizationLock="true" domainClass="uml.DataType" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_Property'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_Operation']" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer() &lt;> container">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <containerMappings name="CD_PrimitiveType" semanticCandidatesExpression="feature:ownedMember" semanticElements="service:getSemanticElements" synchronizationLock="true" domainClass="uml.PrimitiveType" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_Property'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_Operation']" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer() &lt;> container">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <containerMappings name="CD_Enumeration" semanticCandidatesExpression="feature:ownedMember" semanticElements="service:getSemanticElements" synchronizationLock="true" domainClass="uml.Enumeration" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_Property'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_Operation']" childrenPresentation="List">
+          <subNodeMappings name="CD_EnumerationLiteral" semanticCandidatesExpression="feature:ownedLiteral" semanticElements="service:getSemanticElements" domainClass="uml.EnumerationLiteral">
+            <style xsi:type="style:SquareDescription" labelExpression="service:computeUmlLabel" labelAlignment="LEFT" sizeComputationExpression="1">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer() &lt;> container">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <containerMappings name="CD_Package" semanticElements="service:getSemanticElements" domainClass="uml.Package" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_Association_NAry']" reusedContainerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Package'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass']">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" labelAlignment="LEFT" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer() &lt;> container">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" labelAlignment="LEFT" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="GradientTopToBottom">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <containerMappings name="CD_Model" semanticCandidatesExpression="feature:ownedMember" semanticElements="service:getSemanticElements" domainClass="uml.Model" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_Association_NAry']" reusedContainerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Model'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_AssociationClass']">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" labelAlignment="LEFT" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer() &lt;> container">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" labelAlignment="LEFT" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="GradientTopToBottom">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <containerMappings name="CD_AssociationClass" semanticCandidatesExpression="aql:diagram.getVisibleAssociationClass(containerView.oclAsType(viewpoint::DSemanticDecorator).target)" semanticElements="service:getSemanticElements" synchronizationLock="true" domainClass="uml.AssociationClass" dropDescriptions="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Drop%20Attributes%20or%20Operations']" reusedNodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_Property'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_Operation']" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer() &lt;> container">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="9" labelExpression="service:computeUmlLabel" tooltipExpression="service:computeTooltip" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <toolSections name="Nodes">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Class" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/Class.gif" extraMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Class" referenceName="ownedType">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Classifier Template Parameter" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/ClassifierTemplateParameter.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new literal" name="Comment" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='Comment']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Comment.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Comment" referenceName="ownedComment">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Component" iconPath="/org.eclipse.papyrus.uml.icons/resource/gif/Component.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Component" referenceName="ownedType">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new literal" name="Constraint" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='Comment']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Comment.gif" extraMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='Constraint']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Comment">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new dataType" name="Data Type" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/DataType.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.DataType" referenceName="ownedType">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Duration Observation" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/DurationObservation.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:container.isNotTypeOfClass">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Class" referenceName="ownedMember">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Class">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext"/>
+                        </initialOperation>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:container.isTypeOfClass">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:container.clearArchetypesKeywords"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Enumeration" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/Enumeration.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Enumeration" referenceName="ownedType">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new literal" name="EnumerationLiteral" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']/@subNodeMappings[name='CD_EnumerationLiteral']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/EnumerationLiteral.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.EnumerationLiteral" referenceName="ownedLiteral">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.LiteralInteger" referenceName="specification">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="aql:self.eContainer().eContainer().eAllContents(uml::EnumerationLiteral)->size() - 1"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Interface" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/Interface.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Interface" referenceName="ownedType">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Instance Specification" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface']" iconPath="/org.eclipse.papyrus.uml.profile/resources/icons/InstanceSpecification.gif" extraMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:container.isNotTypeOfClass">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Class" referenceName="ownedMember">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Class">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext"/>
+                        </initialOperation>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:container.isTypeOfClass">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:container.clearArchetypesKeywords"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new enumeration" name="Information Item" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/InformationItem.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Enumeration" referenceName="ownedMember">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Enumeration">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext"/>
+                      </initialOperation>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                          <subModelOperations xsi:type="tool_1:If" conditionExpression="service:isNameNotSet">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                          </subModelOperations>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </buttons>
+                    <page name="D_CD_CreateEnumeration_DefaultPage" semanticCandidateExpression="var:self"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new primitiveType" name="PrimitiveType" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']" iconPath="/org.eclipse.papyrus.uml.profile/resources/icons/PrimitiveType.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.PrimitiveType" referenceName="ownedType">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Model" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Model']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Model.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Model" referenceName="nestedPackage"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new operation" name="Operation" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_Operation']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/Operation.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:container.createOperation">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Operation">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext"/>
+                    </initialOperation>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:If" conditionExpression="service:isNameNotSet">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                        </subModelOperations>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </buttons>
+                  <page name="D_CD_CreateOperation_DefaultPage" semanticCandidateExpression="var:self"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Operation Template Parameter" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/OperationTemplateParameter.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Package" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Package']" iconPath="/org.eclipse.papyrus.uml.profile/resources/icons/Package.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:container.isNotTypeOfClass">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Class" referenceName="ownedMember">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Class">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext"/>
+                        </initialOperation>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:container.isTypeOfClass">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:container.clearArchetypesKeywords"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new property" name="Property" nodeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_Property']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Property.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Property" referenceName="ownedAttribute" variableName="aProperty">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="lower" valueExpression="0"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="upper" valueExpression="1"/>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:aProperty.findTypeByName('String') &lt;> null">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:self.findTypeByName('String')"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="public"/>
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Property">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext"/>
+                      </initialOperation>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                      </initialOperation>
+                    </buttons>
+                    <page name="D_CD_CreateProperty_DefaultPage" semanticCandidateExpression="var:self"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Reception" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Reception.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Redefinable Template Signature" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/RedefinableTemplateSignature.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Signal" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Signal.gif" extraMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:container.isNotTypeOfClass">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Class" referenceName="ownedMember">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Class">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext"/>
+                        </initialOperation>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:container.isTypeOfClass">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:container.clearArchetypesKeywords"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Slot" iconPath="/org.eclipse.papyrus.uml.icons/resource/gif/Slot.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Template Parameter">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Template Signature" iconPath="/org.eclipse.papyrus.uml.icons/resource/gif/TemplateSignature.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Time Observation" containerMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Interface']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/TimeObservation.gif" extraMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:container.isNotTypeOfClass">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Class" referenceName="ownedMember">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="visibility" valueExpression="aql:uml::VisibilityKind::uml::VisibilityKind::public"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Class">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext"/>
+                        </initialOperation>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:container.isTypeOfClass">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:container.clearArchetypesKeywords"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Connectable Element Template Parameter" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/ConnectableElementTemplateParameter.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation/>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Edges">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Abstraction" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Abstraction.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup">
+            <tools xsi:type="tool:EdgeCreationDescription" name="Association (Directed)" iconPath="/org.eclipse.papyrus.uml.service.types/icons/Association_none_directed.gif">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation/>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" name="Association" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Association_none.gif">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation/>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" name="Composite Association (Directed)" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Association_composite.gif">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation/>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" name="Shared Association (Directed)" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Association_shared.gif">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation/>
+            </tools>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Association Branch" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Association_none.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Association Class">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Containment Link" iconPath="/org.eclipse.papyrus.uml.diagram.clazz/icons/obj16/ContainmentConnection.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Context Link" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Association_none.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Dependency" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Dependency']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Dependency Branch">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Element Import" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/ElementImport.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Generalization" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Generalization.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Generalization Set" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/GeneralizationSet.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Information Flow" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/InformationFlow.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Instance Specification" iconPath="/org.eclipse.papyrus.uml.diagram.clazz/icons/obj16/InstanceLink.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Interface Realization" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_InterfaceRealization']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/InterfaceRealization.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Link" iconPath="/org.eclipse.papyrus.uml.diagram.clazz/icons/obj16/Link.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Package Import" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/PackageImport.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Package Merge" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/PackageMerge.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Profile Application" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/ProfileApplication.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Realization" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Realization.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Substitution" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Substitution.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Template Binding" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_TemplateBinding']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/TemplateBinding.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Usage" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Usage.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Features">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="Drop Attributes or Operations" mappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_Operation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_Property']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(uml::Property)">
+                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedAttribute"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(uml::Operation)">
+                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedOperation"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="undelete">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="QualifierDirectEdit" forceRefresh="true" inputLabelExpression="service:computeUmlDirectEditLabel">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.editQualifierLabel(arg0)"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Relationships">
+          <ownedTools xsi:type="tool:ToolGroup" name="Associations">
+            <tools xsi:type="tool:EdgeCreationDescription" documentation="Create a new association" name="Association" precondition="service:isValidAssociation(preSource, preTarget)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_AssociationNAryEdge']" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_AssociationNAryEdge']" extraTargetMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_AssociationNAryEdge']" connectionStartPrecondition="service:isValidAssociation(preSource)">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createAssociation(source, target, sourceView, targetView)"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" documentation="Create a new reference" name="Reference" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer(uml::Package)">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not source.oclIsKindOf(uml::Association) or source.oclIsKindOf(uml::AssociationClass) or target.oclIsKindOf(uml::AssociationClass)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer(uml::Package)">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Association" referenceName="ownedMember">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="end1">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.name.toLowerFirst()+'s'"/>
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:source"/>
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="lower" valueExpression="0"/>
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="upper" valueExpression="-1"/>
+                        </subModelOperations>
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="end2">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.name.toLowerFirst()+'s'"/>
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:target"/>
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="lower" valueExpression="0"/>
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="upper" valueExpression="-1"/>
+                          <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="navigableOwnedEnd" valueExpression="var:end2"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(uml::Association) or target.oclIsKindOf(uml::Association)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:fixAssociation(source,target)"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" documentation="Create a new composition" name="Composition" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Association_composite.gif" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer(uml::Package)">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not source.oclIsKindOf(uml::Association) or source.oclIsKindOf(uml::AssociationClass) or target.oclIsKindOf(uml::AssociationClass)">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Association" referenceName="ownedMember">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="end1">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.name.toLowerFirst()+'s'"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:source"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="lower" valueExpression="0"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="upper" valueExpression="1"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="end2">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.name.toLowerFirst()+'s'"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:target"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="lower" valueExpression="0"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="upper" valueExpression="-1"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="aggregation" valueExpression="composite"/>
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="navigableOwnedEnd" valueExpression="var:end2"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(uml::Association) or target.oclIsKindOf(uml::Association)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:fixAssociation(source,target)"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" documentation="Create a new aggregation" name="Aggregation" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Association_shared.gif" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer(uml::Package)">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not source.oclIsKindOf(uml::Association) or source.oclIsKindOf(uml::AssociationClass) or target.oclIsKindOf(uml::AssociationClass)">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Association" referenceName="ownedMember">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="end1">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.name.toLowerFirst()+'s'"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:source"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="lower" valueExpression="0"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="upper" valueExpression="-1"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="end2">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.name.toLowerFirst()+'s'"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:target"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="lower" valueExpression="0"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="upper" valueExpression="-1"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="aggregation" valueExpression="shared"/>
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="navigableOwnedEnd" valueExpression="var:end2"/>
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:end1.name+'To'+end2.name.toUpperFirst()"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(uml::Association) or target.oclIsKindOf(uml::Association)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:fixAssociation(source,target)"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" documentation="Create a new association class" name="Association Class" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_AssociationClassToAssociation']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/AssociationClass.gif">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer(uml::Package)">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.AssociationClass" referenceName="ownedMember">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="end1">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.name.toLowerFirst()+'s'"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:source"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="lower" valueExpression="0"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="upper" valueExpression="-1"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Property" referenceName="ownedEnd" variableName="end2">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:target.name.toLowerFirst()+'s'"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:target"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="lower" valueExpression="0"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="upper" valueExpression="-1"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="navigableOwnedEnd" valueExpression="service:getNavigableOwnedEnds"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" documentation="Create a new association" name="NaryAssociation" precondition="service:isValidNaryAssociation(preSource, preTarget)" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_AssociationNAryEdge'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']" extraSourceMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_AssociationNAryEdge']" extraTargetMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_BrokenAssociation'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association'] //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_AssociationNAryEdge']" connectionStartPrecondition="service:isValidAssociation(preSource)">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.openSelectNaryAssociationEndsDialog(target, sourceView)"/>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Create a new generalization" name="Generalization" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Generalization.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Generalization" referenceName="generalization">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="general" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="Dependencies">
+            <tools xsi:type="tool:EdgeCreationDescription" documentation="Create a new interface realization" name="Interface Realization" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_InterfaceRealization']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/InterfaceRealization.gif">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.InterfaceRealization" referenceName="interfaceRealization">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="contract" valueExpression="var:target"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" documentation="Create a new dependency" name="Dependency" precondition="service:preTarget.dependencyCreationCompletePrecondition" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Dependency']" connectionStartPrecondition="service:preSource.dependencyCreationStartPrecondition">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer(uml::Package)">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Dependency" referenceName="ownedMember">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="client" valueExpression="var:source"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="supplier" valueExpression="var:target"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" documentation="Create a new usage" name="Usage" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Dependency']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Usage.gif">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer(uml::Package)">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Usage" referenceName="ownedMember">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="supplier" valueExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="client" valueExpression="var:source"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" documentation="Create a new abstraction" name="Abstraction" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Dependency']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Abstraction.gif">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer(uml::Package)">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.Abstraction" referenceName="ownedMember">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="client" valueExpression="var:source"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="supplier" valueExpression="var:target"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Reconnect Source" precondition="service:element.reconnectSourcePrecondition(source, target)" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.reconnectEdge(edgeView, sourceView, targetView, source, target)"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Reconnect Target" precondition="service:element.reconnectTargetPrecondition(source, target)">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.reconnectEdge(edgeView, sourceView, targetView, source, target)"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Create a new nest classifier" name="Nest Classifier" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_NestedClass']" iconPath="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Connector.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not (target.ancestors()->including(target))->includes(source)">
+                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:target" featureName="nestedClassifier"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Create a new binding" name="Binding" precondition="aql:preTarget.eContents()->filter(uml::RedefinableElement)->size()&lt;>0" edgeMappings="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_TemplateBinding']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.TemplateBinding" referenceName="templateBinding" variableName="newTemplateBinding">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="signature" valueExpression="aql:target.ownedTemplateSignature"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:ownedTemplateSignature">
+                      <subModelOperations xsi:type="tool_1:For" expression="feature:ownedParameter" iteratorName="ownedParameter">
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newTemplateBinding">
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="uml.TemplateParameterSubstitution" referenceName="parameterSubstitution">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="formal" valueExpression="var:ownedParameter"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Nested Class">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="aql:element.eContainer(uml::Package)" featureName="ownedMember"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:PopupMenu" name="Name Expression">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add String Expression" precondition="aql:self.oclIsTypeOf(uml::Property) and self.oclAsType(uml::Property).nameExpression = null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/StringExpression.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="aql:views.oclAsType(viewpoint::DSemanticDecorator).target">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:i">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="StringExpression" referenceName="nameExpression"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Remove" precondition="aql:self.oclIsTypeOf(uml::Property) and self.nameExpression &lt;> null">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(uml::Property).nameExpression">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:PopupMenu" name="Default Value">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Remove" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue &lt;> null">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="aql:views.oclAsType(viewpoint::DSemanticDecorator).target->filter(uml::Property).defaultValue">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:i">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add Duration" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue = null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Duration.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Duration" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add Duration Interval" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/DurationInterval.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="DurationInterval" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add Expression" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Expression.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Expression" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add Instance Value" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/InstanceValue.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="InstanceValue" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add Interval" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/Interval.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Interval" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add Literal Boolean" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralBoolean.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LiteralBoolean" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add Literal Integer" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralInteger.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LiteralInteger" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add Literal Null" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralNull.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LiteralNull" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add Literal String" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralString.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LiteralString" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add Literal Unlimited Natural" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/LiteralUnlimitedNatural.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LiteralUnlimitedNatural" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add Opaque Expression" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/OpaqueExpression.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="OpaqueExpression" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add String Expression" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/StringExpression.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="StringExpression" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Add Time Interval" precondition="aql:self.oclIsTypeOf(uml::Property) and self.defaultValue =null" icon="/org.eclipse.papyrus.uml.diagram.common/icons/obj16/TimeInterval.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:For" expression="var:views">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i.oclAsType(viewpoint::DSemanticDecorator).target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="TimeInterval" referenceName="defaultValue"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="deleteNAryAssociationLinks">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteNAryAssociation(elementView)">
+                  <subModelOperations xsi:type="tool_1:ChangeContext"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:targetIsNavigable">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style" attributeName="targetArrow" value="aql:diagram::EdgeArrows::InputArrow"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:sourceIsShared">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style" attributeName="targetArrow" value="aql:diagram::EdgeArrows::Diamond"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:sourceIsComposite">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style" attributeName="targetArrow" value="aql:diagram::EdgeArrows::FillDiamond"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:targetIsNavigableAndSourceIsShared">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style" attributeName="targetArrow" value="aql:diagram::EdgeArrows::InputArrowWithDiamond"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:targetIsNavigableAndSourceIsComposite">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style" attributeName="targetArrow" value="aql:diagram::EdgeArrows::InputArrowWithFillDiamond"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:sourceIsNavigable(view)">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_AssociationNAryEdge']/@style" attributeName="sourceArrow" value="aql:diagram::EdgeArrows::InputArrow"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:targetIsShared">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style" attributeName="sourceArrow" value="aql:diagram::EdgeArrows::Diamond"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:targetIsComposite">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style" attributeName="sourceArrow" value="aql:diagram::EdgeArrows::FillDiamond"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:sourceIsNavigableAndTargetIsShared">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style" attributeName="sourceArrow" value="aql:diagram::EdgeArrows::InputArrowWithDiamond"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:sourceIsNavigableAndTargetIsComposite">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']/@style" attributeName="sourceArrow" value="aql:diagram::EdgeArrows::InputArrowWithFillDiamond"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="feature:isAbstract">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@conditionnalStyles.0/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_DataType']/@conditionnalStyles.0/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Enumeration']/@conditionnalStyles.0/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_PrimitiveType']/@conditionnalStyles.0/@style" attributeName="labelFormat" value="service:self.getAbstractBoldLabelFormat"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_Operation']/@style" attributeName="labelFormat" value="service:self.getAbstractItalicLabelFormat"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:isStatic">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Operation']/@subNodeMappings[name='CD_Operation']/@style //@ownedViewpoints[name='ClassDiagram']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subContainerMappings[name='CD_Attribute']/@subNodeMappings[name='CD_Property']/@style" attributeName="labelFormat" value="aql:viewpoint::FontFormat::underline"/>
+          </vsmElementCustomizations>
+        </customization>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.PackageHierarchyServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.ClassDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.ArchetypeServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.ComponentDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.PackageContainmentServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.core.services.AbstractDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.core.services.ReusedDescriptionServices"/>
+  </ownedViewpoints>
+</description:Group>

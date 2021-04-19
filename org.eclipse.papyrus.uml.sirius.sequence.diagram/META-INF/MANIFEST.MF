@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Sequence Diagram
+Bundle-SymbolicName: org.eclipse.papyrus.uml.sirius.sequence.diagram;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: org.eclipse.papyrus.sirius.sequence.diagram
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.sirius;bundle-version="6.4.1",
+ org.eclipse.sirius.diagram;bundle-version="6.4.1",
+ org.eclipse.ui;bundle-version="3.118.100",
+ org.eclipse.core.runtime;bundle-version="3.20.0",
+ org.eclipse.uml2.uml;bundle-version="5.5.0",
+ com.google.guava;bundle-version="27.1.0",
+ org.eclipse.sirius.ecore.extender,
+ org.eclipse.emf.transaction;bundle-version="1.9.1",
+ org.eclipse.sirius.common
+Bundle-Activator: org.eclipse.papyrus.uml.sirius.sequence.diagram.Activator
+Bundle-ActivationPolicy: lazy

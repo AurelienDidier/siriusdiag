@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/sequence/description/tool/2.0.0" xmlns:tool_2="http://www.eclipse.org/sirius/description/tool/1.1.0" name="papyrus_sequence" version="12.0.0.2017041100">
+  <ownedViewpoints name="SequenceDiagram" modelFileExtension="uml">
+    <ownedRepresentations xsi:type="description_1:SequenceDiagramDescription" documentation="@generated" name="Sequence Diagram" titleExpression="service:getSequenceDiagramName" initialisation="true" domainClass="uml.Model" enablePopupBars="true" endsOrdering="service:getEndsOrdering(eventEnds)" instanceRolesOrdering="feature:lifeline">
+      <metamodel href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+      <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
+      <metamodel href="http://www.eclipse.org/sirius/1.1.0#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings xsi:type="description_1:InstanceRoleMapping" name="SD_Lifeline Instance Role" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='edit']/@ownedTools[name='DEL_Lifeline']" semanticCandidatesExpression="feature:lifeline" semanticElements="service:getClientDependencies" documentation="@generated" domainClass="uml.Lifeline">
+          <navigationDescriptions xsi:type="tool:DiagramNavigationDescription" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='navigations']/@subSections[name='Sequence%20diagram']/@ownedTools[name='Open%20sequence%20diagram%20from%20lifeline']"/>
+          <labelDirectEdit href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='directEdit']/@ownedTools[name='NamedElementServiceDirectEdit']"/>
+          <borderedNodeMappings xsi:type="description_1:ExecutionMapping" name="SD_Lifeline Execution" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='edit']/@ownedTools[name='DEL_Lifeline']" semanticCandidatesExpression="var:self" documentation="@generated" domainClass="uml.Lifeline" startingEndFinderExpression="var:self" finishingEndFinderExpression="var:self">
+            <borderedNodeMappings xsi:type="description_1:ExecutionMapping" name="SD_Execution" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='edit']/@ownedTools[name='DEL_Execution']" semanticCandidatesExpression="service:executionSemanticCandidates" semanticElements="service:executionSemanticCandidateOccurences" documentation="@generated" domainClass="uml.ExecutionSpecification" reusedBorderedNodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution']/@borderedNodeMappings[name='SD_Execution']" startingEndFinderExpression="feature:start" finishingEndFinderExpression="feature:finish">
+              <navigationDescriptions xsi:type="tool:DiagramNavigationDescription" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='navigations']/@subSections[name='Sequence%20diagram']/@ownedTools[name='Open%20sequence%20diagram%20from%20execution']"/>
+              <labelDirectEdit href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='directEdit']/@ownedTools[name='NamedElementServiceDirectEdit']"/>
+              <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="service:computeUmlLabel" resizeKind="NORTH_SOUTH" width="2" height="3">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </borderedNodeMappings>
+            <borderedNodeMappings xsi:type="description_1:EndOfLifeMapping" name="SD_Lifeline EOL" preconditionExpression="service:inactive" semanticCandidatesExpression="var:self" semanticElements="var:self" documentation="@generated" domainClass="uml.Lifeline">
+              <style xsi:type="style:EllipseNodeDescription" horizontalDiameterComputationExpression="1" verticalDiameterComputationExpression="1">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </borderedNodeMappings>
+            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelPosition="node" resizeKind="NSEW" width="1" height="40">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:computeUmlLabel" labelPosition="node" resizeKind="NSEW" width="10" height="4">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="service:isRepresentingProperty">
+            <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="service:computeUmlLabel" labelPosition="node" resizeKind="NSEW" width="10" height="4">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <edgeMappings xsi:type="description_1:BasicMessageMapping" name="SD_Message" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='edit']/@ownedTools[name='DEL_Message']" semanticCandidatesExpression="feature:message" semanticElements="service:getSemanticElements" documentation="@generated" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution']/@borderedNodeMappings[name='SD_Execution']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution']/@borderedNodeMappings[name='SD_Execution']" targetFinderExpression="service:findOccurrenceSpecificationContextForReceiveEvent" sourceFinderExpression="service:findOccurrenceSpecificationContextForSendEvent" domainClass="uml.Message" useDomainElement="true" sendingEndFinderExpression="feature:sendEvent" receivingEndFinderExpression="feature:receiveEvent">
+          <labelDirectEdit href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='directEdit']/@ownedTools[name='NamedElementServiceDirectEdit']"/>
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelExpression="service:computeUmlLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="service:isSynchCall">
+            <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <centerLabelStyleDescription labelExpression="service:computeUmlLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:isReply">
+            <style lineStyle="dash" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <centerLabelStyleDescription labelExpression="service:computeUmlLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <reusedMappings xsi:type="description_2:NodeMapping" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
+        <toolSections name="Tools">
+          <subSections name="edit">
+            <ownedTools xsi:type="tool_1:InstanceRoleReorderTool" name="REO_Lifeline" mappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']">
+              <predecessorBefore name="predecessorBefore"/>
+              <predecessorAfter name="predecessorAfter"/>
+              <instanceRoleMoved>
+                <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="service:reorderLifeline(predecessorBefore, predecessorAfter)"/>
+              </instanceRoleMoved>
+            </ownedTools>
+            <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_Execution">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <containerView name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:self"/>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_Message">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <containerView name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_2:If" conditionExpression="service:element.isNotReply">
+                    <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:element">
+                      <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="service:delete"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool_1:ReorderTool" name="REO_Fragment" mappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution']/@borderedNodeMappings[name='SD_Execution'] //@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_Message']">
+              <startingEndPredecessorAfter name="startingEndPredecessorAfter"/>
+              <finishingEndPredecessorAfter name="finishingEndPredecessorAfter"/>
+              <onEventMovedOperation>
+                <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="service:reorderFragment(startingEndPredecessorAfter,finishingEndPredecessorAfter)"/>
+              </onEventMovedOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_Lifeline">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <containerView name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="service:delete"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+          </subSections>
+          <reusedTools xsi:type="tool_2:PopupMenu" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='popup%20menu']/@ownedTools[name='EAnnotation']"/>
+        </toolSections>
+        <toolSections documentation="Use existing elements" name="SD_ExistingElements" label="Existing Elements">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Add an existing class to the diagram" name="CR_ClassLifeline" label="Class" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']">
+            <variable name="container">
+              <subVariables xsi:type="tool_2:SelectModelElementVariable" name="property" candidatesExpression="service:getAllClassesAndContainers" tree="true" rootExpression="service:getAllAvailableRootPackages" childrenExpression="feature:eContents" message="Select an instance or a property associated to the new lifeline"/>
+            </variable>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="service:container.createLifeline(property)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Add an existing actor to the diagram" name="CR_ActorLifeline" label="Actor" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']">
+            <variable name="container">
+              <subVariables xsi:type="tool_2:SelectModelElementVariable" name="property" candidatesExpression="service:getAllActorsAndContainers" tree="true" rootExpression="service:getAllAvailableRootPackages" childrenExpression="feature:eContents" message="Select an instance or a property associated to the new lifeline"/>
+            </variable>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="service:container.createLifeline(property)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:MessageCreationTool" documentation="Use an existing operation to create a synchronous message" name="CR_SynchronousMessage" label="Synchronous Message" precondition="aql:preTarget.oclAsType(uml::Lifeline).represents.type->filter(uml::Class).ownedOperation->size() > 0" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.obeonetwork.dsl.uml2.design/icons/Message_synchCall.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution']">
+            <sourceVariable name="source">
+              <subVariables xsi:type="tool_2:AcceleoVariable" name="sourceContainer" computationExpression="aql:source.eContainer(uml::Interaction)"/>
+            </sourceVariable>
+            <targetVariable name="target">
+              <subVariables xsi:type="tool_2:SelectModelElementVariable" name="operation" candidatesExpression="aql:target.represents.type->filter(uml::Class).ownedOperation" message="Select an operation"/>
+            </targetVariable>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="service:sourceContainer.createSynchronousMessageWithExecution(source, target, startingEndPredecessor, finishingEndPredecessor, operation)"/>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:MessageCreationTool" documentation="Use an existing operation to create an asynchronous message" name="CR_AsynchronousMessage" label="Asynchronous Message" precondition="aql:preTarget.oclAsType(uml::Lifeline).represents.type->filter(uml::Class).ownedOperation->size() > 0" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.obeonetwork.dsl.uml2.design/icons/Message_asynchCall.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution']">
+            <sourceVariable name="source">
+              <subVariables xsi:type="tool_2:AcceleoVariable" name="sourceContainer" computationExpression="aql:source.eContainer(uml::Interaction)"/>
+            </sourceVariable>
+            <targetVariable name="target">
+              <subVariables xsi:type="tool_2:SelectModelElementVariable" name="operation" candidatesExpression="aql:target.represents.type->filter(uml::Class).ownedOperation" message="Select an operation"/>
+            </targetVariable>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="service:sourceContainer.createAsynchronousMessageWithExecution(source,target,startingEndPredecessor,finishingEndPredecessor, operation)"/>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <reusedTools xsi:type="tool_2:PopupMenu" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='popup%20menu']/@ownedTools[name='Delete']"/>
+        </toolSections>
+        <toolSections documentation="Create new elements" name="SD_Create" label="Create">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new class" name="CR_Lifeline" label="Class" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']" iconPath="/org.obeonetwork.dsl.uml2.design/icons/LifelineCreation.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="aql:self.getNearestPackage()">
+                  <subModelOperations xsi:type="tool_2:CreateInstance" typeName="uml.Class" referenceName="packagedElement" variableName="class">
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="service:computeDefaultName">
+                      <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:container">
+                        <subModelOperations xsi:type="tool_2:CreateInstance" typeName="uml.Lifeline" referenceName="lifeline" variableName="lifeline">
+                          <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:class.name"/>
+                        </subModelOperations>
+                        <subModelOperations xsi:type="tool_2:CreateInstance" typeName="uml.Property" referenceName="ownedAttribute" variableName="property">
+                          <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:class.name"/>
+                          <subModelOperations xsi:type="tool_2:SetValue" featureName="type" valueExpression="var:class"/>
+                        </subModelOperations>
+                        <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:lifeline">
+                          <subModelOperations xsi:type="tool_2:SetValue" featureName="represents" valueExpression="var:property"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Class">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_2:ChangeContext"/>
+                        </initialOperation>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:self"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="D_SD_CreateClass_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='CR_Lifeline']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.1/@groups.0"/>
+                      <groups name="D_SD_CreateClass_GeneralGroup" semanticCandidateExpression="var:self">
+                        <extends href="../../org.obeonetwork.dsl.uml2.core.design/description/uml2core.odesign#//@extensions.0/@categories.0/@groups.0"/>
+                      </groups>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new actor" name="CR_Actor" label="Actor" nodeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']" iconPath="/org.obeonetwork.dsl.uml2.design/icons/LifelineCreation.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="aql:container.getNearestPackage()">
+                <subModelOperations xsi:type="tool_2:CreateInstance" typeName="uml.Actor" referenceName="packagedElement" variableName="actor">
+                  <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="service:computeDefaultName"/>
+                  <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:container">
+                    <subModelOperations xsi:type="tool_2:CreateInstance" typeName="uml.Lifeline" referenceName="lifeline" variableName="lifeline">
+                      <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:actor.name"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_2:CreateInstance" typeName="uml.Property" referenceName="ownedAttribute" variableName="property">
+                      <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="aql:actor.name"/>
+                      <subModelOperations xsi:type="tool_2:SetValue" featureName="type" valueExpression="var:actor"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:lifeline">
+                      <subModelOperations xsi:type="tool_2:SetValue" featureName="represents" valueExpression="var:property"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Actor">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_2:ChangeContext"/>
+                      </initialOperation>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:instance"/>
+                      </initialOperation>
+                    </buttons>
+                    <page name="D_SD_CreateActor_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='CR_Actor']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                    <groups name="D_SD_CreateActor_GeneralGroup" semanticCandidateExpression="var:self">
+                      <extends href="../../org.obeonetwork.dsl.uml2.core.design/description/uml2core.odesign#//@extensions.0/@categories.0/@groups.0"/>
+                    </groups>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:MessageCreationTool" documentation="Create a new synchronous operation" name="CR_Synchronous_Operation" label="Synchronous Message" precondition="service:preTarget.isValidMessageEnd" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.obeonetwork.dsl.uml2.design/icons/MessageSynchCallCreation.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="service:target.createOperationAndSynchMessage(source,startingEndPredecessor,finishingEndPredecessor)"/>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:MessageCreationTool" documentation="Create a new asynchronous operation" name="CR_Asynchronous_Operation" label="Asynchronous Message" precondition="service:preTarget.isValidMessageEnd" edgeMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_Message']" iconPath="/org.obeonetwork.dsl.uml2.design/icons/MessageAsynchCallCreation.gif" extraSourceMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution']" extraTargetMappings="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']/@borderedNodeMappings[name='SD_Lifeline%20Execution']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="service:target.createOperationAndAsynchMessage(source,startingEndPredecessor,finishingEndPredecessor)"/>
+            </initialOperation>
+            <startingEndPredecessor name="startingEndPredecessor"/>
+            <finishingEndPredecessor name="finishingEndPredecessor"/>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+      <additionalLayers name="Comments">
+        <reusedMappings xsi:type="description_2:NodeMapping" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@nodeMappings[name='RED_Comment']"/>
+        <reusedMappings xsi:type="description_2:EdgeMapping" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@edgeMappings[name='RED_CommentLink']"/>
+        <toolSections name="Comments">
+          <reusedTools xsi:type="tool_2:ToolDescription" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='comments']/@ownedTools[name='CRE_Comment']"/>
+          <reusedTools xsi:type="tool:EdgeCreationDescription" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='comments']/@ownedTools[name='CRE_CommentLink']"/>
+        </toolSections>
+      </additionalLayers>
+      <additionalLayers name="Informations" icon="/org.eclipse.sirius.ui/icons/full/others/information.gif">
+        <nodeMappings name="LifelineComment" preconditionExpression="aql:self.clientDependency->size()>0 or self.represents.eContainer()->size() > 0" deletionDescription="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@additionalLayers[name='Informations']/@toolSections.0/@ownedTools[name='LifelineCommentDelete']" labelDirectEdit="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@additionalLayers[name='Informations']/@toolSections.0/@ownedTools[name='LifelineCommentEditLabel']" semanticCandidatesExpression="feature:lifeline" semanticElements="var:self" domainClass="uml.Lifeline">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="service:computeLifelineCommentLabel" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="16" height="5">
+            <borderColor xsi:type="description:UserFixedColor" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@userColorsPalettes[name='UMLPalette']/@entries[name='InformationBorder']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:UserFixedColor" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@userColorsPalettes[name='UMLPalette']/@entries[name='InformationBackground']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="LifelineCommentLink" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@additionalLayers[name='Informations']/@nodeMappings[name='LifelineComment']" targetMapping="//@ownedViewpoints[name='SequenceDiagram']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Lifeline%20Instance%20Role']" targetFinderExpression="var:self">
+          <deletionDescription href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='comments']/@ownedTools[name='DEL_CommentLink_PreventDeletion']"/>
+          <style lineStyle="dot" targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <reconnections href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='comments']/@ownedTools[name='REC_CommentLink_Target']"/>
+          <reconnections href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='comments']/@ownedTools[name='REC_CommentLink_Source']"/>
+        </edgeMappings>
+        <toolSections name="Informations">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="LifelineCommentEditLabel">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="LifelineCommentDelete">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:element"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.PackageHierarchyServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.ClassDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.ArchetypeServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.ComponentDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.PackageContainmentServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.core.services.AbstractDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.core.services.ReusedDescriptionServices"/>
+  </ownedViewpoints>
+</description:Group>
