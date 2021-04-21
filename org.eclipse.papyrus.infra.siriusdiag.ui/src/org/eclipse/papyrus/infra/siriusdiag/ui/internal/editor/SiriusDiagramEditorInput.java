@@ -28,7 +28,7 @@ import org.eclipse.ui.IPersistableElement;
 public class SiriusDiagramEditorInput implements IEditorInput {
 
 	/** The input for the Document widget */
-	private final DSemanticDiagram documentInstance;
+	private final DSemanticDiagram diagramInstance;
 
 	/**
 	 *
@@ -38,7 +38,7 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	 *            the document template to edit
 	 */
 	public SiriusDiagramEditorInput(final DSemanticDiagram documentTemplate) {
-		this.documentInstance = documentTemplate;
+		this.diagramInstance = documentTemplate;
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	 *         the document template for which we are opening an editor
 	 */
 	public DSemanticDiagram getDSemanticDiagram() {
-		return this.documentInstance;
+		return this.diagramInstance;
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	 */
 	@Override
 	public String getName() {
-		final String name = this.documentInstance.getName();
+		final String name = this.diagramInstance.getName();
 		return name == null || name.isEmpty() ? Messages.DocumentStructureTemplateEditorInput_NoName : name;
 	}
 
@@ -101,7 +101,7 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	 *         the description
 	 */
 	private String getDescription() {
-		final String description = this.documentInstance.getDocumentation();
+		final String description = this.diagramInstance.getDocumentation();
 		return description == null || description.isEmpty() ? Messages.DocumentStructureTemplateEditorInput_NoDescription : description;
 	}
 
@@ -128,10 +128,10 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	@Override
 	public <T> T getAdapter(Class<T> adapter) {
 		if (adapter == URI.class) {
-			return adapter.cast(this.documentInstance.eResource().getURI());
+			return adapter.cast(this.diagramInstance.eResource().getURI());
 		}
 		if (adapter == DSemanticDiagram.class) {
-			return adapter.cast(this.documentInstance);
+			return adapter.cast(this.diagramInstance);
 		}
 		return null;
 	}

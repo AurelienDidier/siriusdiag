@@ -79,8 +79,8 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		super();
 		this.diagram = rawModel;
 		this.servicesRegistry = servicesRegistry;
-		Assert.isNotNull(this.diagram, "The edited DSemanticDiagram is null. The DocumentStructureTemplate Editor creation failed"); //$NON-NLS-1$
-		Assert.isNotNull(this.servicesRegistry, "The papyrus ServicesRegistry is null. The DocumentStructureTemplate Editor creation failed."); //$NON-NLS-1$
+		Assert.isNotNull(this.diagram, "The edited diagram is null. The Diagram Editor creation failed"); //$NON-NLS-1$
+		Assert.isNotNull(this.servicesRegistry, "The papyrus ServicesRegistry is null. The Diagram Editor creation failed."); //$NON-NLS-1$
 		initializeEditingDomain();
 	}
 

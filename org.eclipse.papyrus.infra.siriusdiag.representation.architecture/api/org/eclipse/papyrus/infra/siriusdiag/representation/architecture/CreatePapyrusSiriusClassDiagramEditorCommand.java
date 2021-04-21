@@ -39,7 +39,7 @@ public class CreatePapyrusSiriusClassDiagramEditorCommand extends AbstractCreate
 	 */
 	private String askName(final ViewPrototype prototype, final EObject semanticContext) {
 		final String defaultName = getDefaultName(prototype, semanticContext);
-		return askDocumentName(Messages.CreatePapyrusSiriusDiagramEditorCommand_CreateSiriusDiagramDialogTitle, defaultName);
+		return askDiagramName(Messages.CreatePapyrusSiriusDiagramEditorCommand_CreateSiriusDiagramDialogTitle, defaultName);
 	}
 
 	/**
@@ -92,12 +92,13 @@ public class CreatePapyrusSiriusClassDiagramEditorCommand extends AbstractCreate
 			final PapyrusRepresentationKind representation = prototype.getRepresentationKind();
 			Assert.isTrue(representation instanceof SiriusDiagramPrototype, "The representation associated to the PapyrusDSemanticDiagramViewPrototype must be an instanceof SiriusDiagramPrototype."); //$NON-NLS-1$
 			SiriusDiagramPrototype docProto = (SiriusDiagramPrototype) representation;
+			DSemanticDiagram diagram = docProto.getSiriusDiagramPrototype();
 			final String documentName = (name == null || name.isEmpty()) ? askName(prototype, semanticContext) : name;
 			if (null == documentName) {
 				return null; // the creation is cancelled
 			}
 
-			return super.execute(docProto, documentName, graphicalContext, semanticContext, openAfterCreation);
+			return super.execute(diagram, documentName, graphicalContext, semanticContext, openAfterCreation);
 		}
 		return null;
 	};

@@ -27,7 +27,6 @@ import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.emf.utils.ServiceUtilsForEObject;
 import org.eclipse.papyrus.infra.siriusdiag.architecture.internal.messages.Messages;
 import org.eclipse.papyrus.infra.siriusdiag.representation.ICreateSiriusDiagramEditorCommand;
-import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
 import org.eclipse.papyrus.infra.siriusdiag.representation.architecture.commands.CreateSiriusDiagramEditorViewCommand;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.swt.widgets.Display;
@@ -46,7 +45,7 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 * @return
 	 *         the name entered by the user, or <code>null</code> in case of cancel
 	 */
-	protected String askDocumentName(final String dialogTitle, final String proposedName) {
+	protected String askDiagramName(final String dialogTitle, final String proposedName) {
 		final InputDialog dialog = new InputDialog(Display.getCurrent().getActiveShell(), dialogTitle, Messages.AbstractCreateSiriusDiagramEditorCommand_DialogMessage, proposedName, null);
 		if (dialog.open() == Window.OK) {
 			return dialog.getValue();
@@ -56,10 +55,10 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 
 	/**
 	 *
-	 * @param documentTemplatePrototype
-	 *            the document template prototype used to create the {@link DSemanticDiagram}
-	 * @param documentName
-	 *            the name of the created document
+	 * @param diagramTemplatePrototype
+	 *            the diagram template prototype used to create the {@link DSemanticDiagram}
+	 * @param diagramName
+	 *            the name of the created diagram
 	 * @param semanticContext
 	 *            the semantic context used for the creation of the {@link DSemanticDiagram}
 	 * @param openAfterCreation
@@ -67,16 +66,16 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 * @return
 	 *         the created {@link DSemanticDiagram}
 	 */
-	protected DSemanticDiagram execute(final SiriusDiagramPrototype documentTemplatePrototype, final String documentName, final EObject semanticContext, final boolean openAfterCreation) {
-		return execute(documentTemplatePrototype, documentName, semanticContext, semanticContext, openAfterCreation);
+	protected DSemanticDiagram execute(final DSemanticDiagram diagramTemplatePrototype, final String diagramName, final EObject semanticContext, final boolean openAfterCreation) {
+		return execute(diagramTemplatePrototype, diagramName, semanticContext, semanticContext, openAfterCreation);
 	}
 
 	/**
 	 *
-	 * @param docTemplateProto
-	 *            the document template prototype used to create the {@link DSemanticDiagram}
-	 * @param documentName
-	 *            the name of the created document
+	 * @param diagram
+	 *            the diagram template prototype used to create the {@link DSemanticDiagram}
+	 * @param diagramName
+	 *            the name of the created diagram
 	 * @param semanticContext
 	 *            the semantic context used for the creation of the {@link DSemanticDiagram}
 	 * @param graphicalContext
@@ -86,11 +85,11 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 * @return
 	 *         the created {@link DSemanticDiagram}
 	 */
-	protected DSemanticDiagram execute(final SiriusDiagramPrototype docTemplateProto, final String documentName, final EObject semanticContext, final EObject graphicalContext, final boolean openAfterCreation) {
+	public DSemanticDiagram execute(final DSemanticDiagram diagram, final String diagramName, final EObject semanticContext, final EObject graphicalContext, final boolean openAfterCreation) {
 		final Resource res = semanticContext.eResource();
 		final URI semanticURI = res.getURI();
 		if (semanticURI.isPlatformPlugin()) {
-			Activator.log.error(new UnsupportedOperationException("Documentation for element stored as platform plugin is not yet supported")); //$NON-NLS-1$
+			Activator.log.error(new UnsupportedOperationException("Diagram for element stored as platform plugin is not yet supported")); //$NON-NLS-1$
 			return null;
 		}
 
@@ -99,7 +98,8 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 			return null;
 		}
 		final String siriusDiagramMainTitle = getSiriusDiagramMainTitle(semanticContext);
-		final CreateSiriusDiagramEditorViewCommand command = createDSemanticDiagramEditorCreationCommand(domain, docTemplateProto, documentName, siriusDiagramMainTitle, semanticContext, openAfterCreation);
+
+		final CreateSiriusDiagramEditorViewCommand command = createDSemanticDiagramEditorCreationCommand(domain, diagram, diagramName, siriusDiagramMainTitle, semanticContext, openAfterCreation);
 		domain.getCommandStack().execute(command);
 		return command.getCreatedEditorView();
 	}
@@ -109,12 +109,12 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 *
 	 * @param editingDomain
 	 *            the editing domain to use for the command
-	 * @param documentPrototype
-	 *            * the document template prototype used to create the {@link DSemanticDiagram}
-	 * @param documentName
-	 *            the name of the created document
-	 * @param documentMainTitle
-	 *            the main title of the document
+	 * @param diagramPrototype
+	 *            * the diagram template prototype used to create the {@link DSemanticDiagram}
+	 * @param diagramName
+	 *            the name of the created diagram
+	 * @param diagramMainTitle
+	 *            the main title of the diagram
 	 * @param semanticContext
 	 *            the semantic context used for the creation of the {@link DSemanticDiagram}
 	 * @param graphicalContext
@@ -125,25 +125,25 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 *         the created {@link DSemanticDiagram}
 	 */
 	public CreateSiriusDiagramEditorViewCommand createDSemanticDiagramEditorCreationCommand(final TransactionalEditingDomain editingDomain,
-			final SiriusDiagramPrototype documentPrototype,
-			final String documentName,
-			final String documentMainTitle,
+			final DSemanticDiagram diagramPrototype,
+			final String diagramName,
+			final String diagramMainTitle,
 			final EObject semanticContext,
 			final EObject graphicalContext,
 			final boolean openAfterCreation) {
-		return new CreateSiriusDiagramEditorViewCommand(editingDomain, documentPrototype, documentName, documentMainTitle, semanticContext, graphicalContext, openAfterCreation);
+		return new CreateSiriusDiagramEditorViewCommand(editingDomain, diagramPrototype, diagramName, diagramMainTitle, semanticContext, graphicalContext, openAfterCreation);
 	}
 
 	/**
 	 *
 	 * @param editingDomain
 	 *            the editing domain to use for the command
-	 * @param documentPrototype
-	 *            * the document template prototype used to create the {@link DSemanticDiagram}
-	 * @param documentName
-	 *            the name of the created document
-	 * @param documentMainTitle
-	 *            the main title of the document
+	 * @param diagramPrototype
+	 *            * the diagram template prototype used to create the {@link DSemanticDiagram}
+	 * @param diagramName
+	 *            the name of the created diagram
+	 * @param diagramMainTitle
+	 *            the main title of the diagram
 	 * @param semanticContext
 	 *            the semantic context used for the creation of the {@link DSemanticDiagram}
 	 * @param openAfterCreation
@@ -152,12 +152,12 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 *         the created {@link DSemanticDiagram}
 	 */
 	public CreateSiriusDiagramEditorViewCommand createDSemanticDiagramEditorCreationCommand(final TransactionalEditingDomain editingDomain,
-			final SiriusDiagramPrototype documentPrototype,
-			final String documentName,
-			final String documentMainTitle,
+			final DSemanticDiagram diagramPrototype,
+			final String diagramName,
+			final String diagramMainTitle,
 			final EObject semanticContext,
 			final boolean openAfterCreation) {
-		return new CreateSiriusDiagramEditorViewCommand(editingDomain, documentPrototype, documentName, documentMainTitle, semanticContext, openAfterCreation);
+		return new CreateSiriusDiagramEditorViewCommand(editingDomain, diagramPrototype, diagramName, diagramMainTitle, semanticContext, openAfterCreation);
 	}
 
 	/**
@@ -201,7 +201,7 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 * @param semanticContext
 	 *            the semantic context for the create DSemanticDiagram
 	 * @return
-	 *         the label to use as main title for the generated document
+	 *         the label to use as main title for the generated diagram
 	 */
 	protected String getSiriusDiagramMainTitle(final EObject semanticContext) {
 		return DelegatingToEMFLabelProvider.INSTANCE.getText(semanticContext);

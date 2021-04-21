@@ -69,7 +69,7 @@ public class SiriusDiagramEditorFactory extends AbstractEditorFactory {
 		ILabelProvider labels = ServiceUtils.getInstance().tryService(services, LabelProviderService.class)
 				.map(lps -> lps.getLabelProvider(pageIdentifier))
 				.orElseGet(SiriusDiagramLabelProvider::new);
-		return new DocumentViewEditorModel(pageIdentifier, services, labels);
+		return new DiagramViewEditorModel(pageIdentifier, services, labels);
 
 	}
 
@@ -88,7 +88,7 @@ public class SiriusDiagramEditorFactory extends AbstractEditorFactory {
 	 * IEditorModel used internally by the SashContainer. This model know how to handle IEditor creation.
 	 *
 	 */
-	private class DocumentViewEditorModel extends AbstractPageModel implements IEditorModel {
+	private class DiagramViewEditorModel extends AbstractPageModel implements IEditorModel {
 
 
 		/**
@@ -110,7 +110,7 @@ public class SiriusDiagramEditorFactory extends AbstractEditorFactory {
 		 *
 		 * Constructor.
 		 */
-		public DocumentViewEditorModel(Object pageIdentifier, ServicesRegistry servicesRegistry, ILabelProvider labels) {
+		public DiagramViewEditorModel(Object pageIdentifier, ServicesRegistry servicesRegistry, ILabelProvider labels) {
 			super(labels);
 
 			this.rawModel = (DSemanticDiagram) pageIdentifier;

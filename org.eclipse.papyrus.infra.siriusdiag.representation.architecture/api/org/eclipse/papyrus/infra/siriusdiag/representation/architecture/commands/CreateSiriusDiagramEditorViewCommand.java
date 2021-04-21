@@ -37,7 +37,7 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 	/**
 	 * the {@link SiriusDiagramPrototype} used to create the {@link DSemanticDiagram} model and its editor view
 	 */
-	private final SiriusDiagramPrototype prototype;
+	private final DSemanticDiagram prototype;
 
 	/**
 	 * the main title of the created {@link DSemanticDiagram}
@@ -49,18 +49,18 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 	 * Constructor.
 	 *
 	 * @param domain
-	 * @param documentTemplatePrototype
-	 * @param documentName
-	 * @param documentMainTitle
+	 * @param diagramTemplatePrototype
+	 * @param diagramName
+	 * @param diagramMainTitle
 	 * @param semanticContext
 	 * @param graphicalContext
 	 * @param openAfterCreation
 	 */
-	public CreateSiriusDiagramEditorViewCommand(final TransactionalEditingDomain domain, final SiriusDiagramPrototype documentTemplatePrototype, final String documentName, final String documentMainTitle, final EObject semanticContext,
+	public CreateSiriusDiagramEditorViewCommand(final TransactionalEditingDomain domain, final DSemanticDiagram diagramTemplatePrototype, final String diagramName, final String diagramMainTitle, final EObject semanticContext,
 			final EObject graphicalContext, final boolean openAfterCreation) {
-		super(domain, "Create new Sirius Diagram", documentName, semanticContext, graphicalContext, openAfterCreation); //$NON-NLS-1$
-		this.prototype = documentTemplatePrototype;
-		this.mainTitle = documentMainTitle;
+		super(domain, "Create new Sirius Diagram", diagramName, semanticContext, graphicalContext, openAfterCreation); //$NON-NLS-1$
+		this.prototype = diagramTemplatePrototype;
+		this.mainTitle = diagramMainTitle;
 	}
 
 	/**
@@ -68,15 +68,15 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 	 * Constructor.
 	 *
 	 * @param domain
-	 * @param documentTemplatePrototype
-	 * @param documentName
-	 * @param documentMainTitle
+	 * @param diagramTemplatePrototype
+	 * @param diagramName
+	 * @param diagramMainTitle
 	 * @param semanticContext
 	 * @param openAfterCreation
 	 */
-	public CreateSiriusDiagramEditorViewCommand(final TransactionalEditingDomain domain, final SiriusDiagramPrototype documentTemplatePrototype, final String documentName, final String documentMainTitle, final EObject semanticContext,
+	public CreateSiriusDiagramEditorViewCommand(final TransactionalEditingDomain domain, final DSemanticDiagram diagramTemplatePrototype, final String diagramName, final String diagramMainTitle, final EObject semanticContext,
 			final boolean openAfterCreation) {
-		this(domain, documentTemplatePrototype, documentName, documentMainTitle, semanticContext, null, openAfterCreation);
+		this(domain, diagramTemplatePrototype, diagramName, diagramMainTitle, semanticContext, null, openAfterCreation);
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 	 */
 	@Override
 	protected void doExecute() {
-		final DSemanticDiagram diag = this.prototype.getSiriusDiagramPrototype();
+		final DSemanticDiagram diag = this.prototype;
 
 		final DSemanticDiagram newInstance = EcoreUtil.copy(diag);
 

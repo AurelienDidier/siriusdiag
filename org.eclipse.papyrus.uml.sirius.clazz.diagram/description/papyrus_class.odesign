@@ -20,8 +20,6 @@
           </style>
         </nodeMappings>
         <nodeMappings name="Comment" semanticCandidatesExpression="service:diagram.getCommentsOnVisibleGraphicalElements" semanticElements="service:getSemanticElements" domainClass="uml.Comment">
-          <deletionDescription href="uml2core.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='existingElements']/@ownedTools[name='DEL_DeleteFromModel']"/>
-          <labelDirectEdit href="uml2core.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='directEdit']/@ownedTools[name='OtherDirectEdit']"/>
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="feature:body" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="16" height="5">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -29,8 +27,6 @@
           </style>
         </nodeMappings>
         <nodeMappings name="Constraint" semanticCandidatesExpression="service:diagram.getCommentsOnVisibleGraphicalElements" semanticElements="service:getSemanticElements" domainClass="uml.Comment">
-          <deletionDescription href="uml2core.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='existingElements']/@ownedTools[name='DEL_DeleteFromModel']"/>
-          <labelDirectEdit href="uml2core.odesign#//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@subSections[name='directEdit']/@ownedTools[name='OtherDirectEdit']"/>
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="feature:body" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="16" height="5">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

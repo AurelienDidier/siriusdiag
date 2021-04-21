@@ -77,14 +77,14 @@ public class CreateSiriusDiagramViewTypeCommandHelper implements IViewTypeHelper
 			return null;
 		}
 
-		SiriusDiagramPrototype papyrusDocument = (SiriusDiagramPrototype) kind;
+		SiriusDiagramPrototype siriusDiagram = (SiriusDiagramPrototype) kind;
 		if (cache == null) {
 			cache = new HashMap<>();
 		}
-		if (cache.containsKey(papyrusDocument)) {
-			return cache.get(papyrusDocument);
+		if (cache.containsKey(siriusDiagram)) {
+			return cache.get(siriusDiagram);
 		}
-		String creationCommandClassName = papyrusDocument.getCreationCommandClass();
+		String creationCommandClassName = siriusDiagram.getCreationCommandClass();
 		if (creationCommandClassName == null || creationCommandClassName.isEmpty()) {
 			return null;
 		}
@@ -96,8 +96,8 @@ public class CreateSiriusDiagramViewTypeCommandHelper implements IViewTypeHelper
 				Object newInstance = constructor.newInstance();
 				if (newInstance instanceof ICreateSiriusDiagramEditorCommand) {
 					ICreateSiriusDiagramEditorCommand command = (ICreateSiriusDiagramEditorCommand) newInstance;
-					SiriusDiagramViewPrototype proto = new SiriusDiagramViewPrototype(papyrusDocument, command);
-					cache.put(papyrusDocument, proto);
+					SiriusDiagramViewPrototype proto = new SiriusDiagramViewPrototype(siriusDiagram, command);
+					cache.put(siriusDiagram, proto);
 					return proto;
 				}
 			} catch (InstantiationException | IllegalAccessException | NoSuchMethodException | SecurityException e) {

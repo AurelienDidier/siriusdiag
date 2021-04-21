@@ -37,8 +37,8 @@ public class SiriusDiagramViewAdapterFactory implements IAdapterFactory {
 	public Object getAdapter(Object adaptableObject, Class adapterType) {
 		if (adapterType == IOpenable.class) {
 			if (adaptableObject instanceof DSemanticDiagram) {
-				DSemanticDiagram document = (DSemanticDiagram) adaptableObject;
-				return new IOpenableWithContainer.Openable(adaptableObject, document.getTarget());
+				DSemanticDiagram diagram = (DSemanticDiagram) adaptableObject;
+				return new IOpenableWithContainer.Openable(adaptableObject, diagram.getTarget());
 			}
 		}
 
