@@ -15,7 +15,8 @@ package org.eclipse.papyrus.infra.siriusdiag.modelexplorer.internal.commands;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.papyrus.infra.siriusdiag.internationalization.utils.LabelInternationalizationUtils;
+import org.eclipse.papyrus.infra.internationalization.utils.utils.LabelInternationalizationUtils;
+//import org.eclipse.papyrus.infra.siriusdiag.internationalization.utils.LabelInternationalizationUtils;
 import org.eclipse.papyrus.views.modelexplorer.commands.RenameLabelCommand;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 

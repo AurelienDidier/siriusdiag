@@ -17,8 +17,10 @@ import org.eclipse.papyrus.emf.facet.efacet.core.IFacetManager;
 import org.eclipse.papyrus.emf.facet.efacet.core.exception.DerivedTypedElementException;
 import org.eclipse.papyrus.emf.facet.query.java.core.IJavaQuery2;
 import org.eclipse.papyrus.emf.facet.query.java.core.IParameterValueList2;
-import org.eclipse.papyrus.infra.siriusdiag.internationalization.utils.LabelInternationalizationPreferencesUtils;
-import org.eclipse.papyrus.infra.siriusdiag.internationalization.utils.LabelInternationalizationUtils;
+import org.eclipse.papyrus.infra.internationalization.utils.utils.LabelInternationalizationPreferencesUtils;
+import org.eclipse.papyrus.infra.internationalization.utils.utils.LabelInternationalizationUtils;
+//import org.eclipse.papyrus.infra.internationalization.utils.utils.LabelInternationalizationPreferencesUtils;
+//import org.eclipse.papyrus.infra.internationalization.utils.utils.LabelInternationalizationUtils;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 /**

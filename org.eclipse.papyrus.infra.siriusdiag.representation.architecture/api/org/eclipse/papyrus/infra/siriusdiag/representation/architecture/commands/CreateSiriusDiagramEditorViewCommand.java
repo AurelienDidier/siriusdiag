@@ -86,9 +86,9 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 	 */
 	@Override
 	protected void doExecute() {
-		final DSemanticDiagram template = this.prototype.getSiriusDiagramPrototype();
+		final DSemanticDiagram diag = this.prototype.getSiriusDiagramPrototype();
 
-		final DSemanticDiagram newInstance = EcoreUtil.copy(template);
+		final DSemanticDiagram newInstance = EcoreUtil.copy(diag);
 
 		attachToResource(semanticContext, newInstance);
 		// if (SiriusDiagramPrototype instanceof DDiagram) {

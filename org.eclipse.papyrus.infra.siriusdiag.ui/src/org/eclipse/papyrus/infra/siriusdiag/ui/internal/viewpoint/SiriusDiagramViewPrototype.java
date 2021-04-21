@@ -105,7 +105,7 @@ public class SiriusDiagramViewPrototype extends ViewPrototype implements Extende
 				Activator.log.error(ex);
 				return false;
 			}
-			Object result = this.command.execute(UNAVAILABLE_VIEW, name, owner, isOwnerReassignable());
+			Object result = this.command.execute(modelSet, name, owner, isOwnerReassignable());
 			return result != null;
 		}
 		return false;

@@ -15,8 +15,10 @@ package org.eclipse.papyrus.infra.siriusdiag.modelexplorer.internal.directeditor
 
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.configuration.AbstractBasicDirectEditorConfiguration;
-import org.eclipse.papyrus.infra.siriusdiag.internationalization.utils.LabelInternationalizationPreferencesUtils;
-import org.eclipse.papyrus.infra.siriusdiag.internationalization.utils.LabelInternationalizationUtils;
+import org.eclipse.papyrus.infra.internationalization.utils.utils.LabelInternationalizationPreferencesUtils;
+import org.eclipse.papyrus.infra.internationalization.utils.utils.LabelInternationalizationUtils;
+//import org.eclipse.papyrus.infra.siriusdiag.internationalization.utils.LabelInternationalizationPreferencesUtils;
+//import org.eclipse.papyrus.infra.siriusdiag.internationalization.utils.LabelInternationalizationUtils;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 /**
