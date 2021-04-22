@@ -119,10 +119,10 @@ public abstract class AbstractCreatePapyrusEditorViewCommand<T extends EObject> 
 	 *
 	 * @param modelElement
 	 *            an element of the edited model
-	 * @param docTemplate
+	 * @param diagram
 	 *            the document template to save
 	 */
-	protected final void attachToResource(final EObject modelElement, final DSemanticDiagram docTemplate) {
+	protected final void attachToResource(final EObject modelElement, final DSemanticDiagram diagram) {
 		final ServicesRegistry sReg = getServiceRegistry(modelElement);
 		if (sReg == null) {
 			return;
@@ -139,7 +139,7 @@ public abstract class AbstractCreatePapyrusEditorViewCommand<T extends EObject> 
 			Activator.log.error("SiriusDiagramModel not found", e); //$NON-NLS-1$
 			return;
 		}
-		model.addDiagram(docTemplate, modelElement);
+		model.addDiagram(diagram, modelElement);
 	}
 
 	/**

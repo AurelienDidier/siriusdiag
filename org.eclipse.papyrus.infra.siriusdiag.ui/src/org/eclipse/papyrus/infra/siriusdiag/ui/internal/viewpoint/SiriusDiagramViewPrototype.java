@@ -138,7 +138,7 @@ public class SiriusDiagramViewPrototype extends ViewPrototype implements Extende
 	}
 
 	/**
-	 * @see org.eclipse.papyrus.sirius.integration.emf.siriusdiagram.ui.internal.viewpoint.ExtendedViewPrototype#instantiateOn(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, java.lang.String, boolean)
+	 * @see org.eclipse.papyrus.infra.siriusdiag.ui.internal.viewpoint.ExtendedViewPrototype#instantiateOn(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, java.lang.String, boolean)
 	 *
 	 * @param semanticOwner
 	 * @param graphicalOwner
