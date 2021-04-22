@@ -1416,12 +1416,12 @@
         </customization>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.PackageHierarchyServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.ClassDiagramServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.ArchetypeServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.ComponentDiagramServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.services.PackageContainmentServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.core.services.AbstractDiagramServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.sirius.common.diagram.core.services.ReusedDescriptionServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.services.PackageHierarchyServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.services.ClassDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.services.ArchetypeServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.services.ComponentDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.services.PackageContainmentServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.core.services.AbstractDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.papyrus.uml.sirius.common.diagram.core.services.ReusedDescriptionServices"/>
   </ownedViewpoints>
 </description:Group>

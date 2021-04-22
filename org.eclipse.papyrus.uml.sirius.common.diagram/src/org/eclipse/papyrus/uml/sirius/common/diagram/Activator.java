@@ -1,17 +1,17 @@
 /******************************************************************************
  * Copyright (c) 2021 CEA LIST, Artal Technologies
- * 
+ *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
- * https://www.eclipse.org/legal/epl-2.0/ 
- * 
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
  * SPDX-License-Identifier: EPL-2.0
  *
- * Contributors: 
+ * Contributors:
  *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Bug 569174
  *****************************************************************************/
-package org.eclipse.papyrus.uml.sirius.sequence.diagram;
+package org.eclipse.papyrus.uml.sirius.common.diagram;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -27,7 +27,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 	
     // The plug-in ID
-    public static final String PLUGIN_ID = "org.eclipse.papyrus.uml.sirius.sequence.diagram";
+    public static final String PLUGIN_ID = "org.eclipse.papyrus.uml.sirius.common.diagram";
 
     // The shared instance
     private static Activator plugin;
@@ -45,29 +45,14 @@ public class Activator extends AbstractUIPlugin {
      * 
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
      */
-    public void start(BundleContext context) throws Exception {
-      super.start(context);
-	  plugin = this;
-	  viewpoints = new HashSet<Viewpoint>();
-	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/papyrus_sequence.odesign")); 
-    }
+    public void start(BundleContext context) throws Exception {}
 
     /*
      * (non-Javadoc)
      * 
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
      */
-    public void stop(BundleContext context) throws Exception {
-	plugin = null;
-	if (viewpoints != null) {
-	    for (final Viewpoint viewpoint: viewpoints) {
-		ViewpointRegistry.getInstance().disposeFromPlugin(viewpoint);
-	    }
-	    viewpoints.clear();
-	    viewpoints = null; 
-	}
-	super.stop(context);
-    }
+    public void stop(BundleContext context) throws Exception {}
 
     /**
      * Returns the shared instance
