@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/sequence/description/tool/2.0.0" xmlns:tool_2="http://www.eclipse.org/sirius/description/tool/1.1.0" name="papyrus_sequence" version="12.0.0.2017041100">
   <ownedViewpoints name="SequenceDiagram" modelFileExtension="uml">
-    <ownedRepresentations xsi:type="description_1:SequenceDiagramDescription" documentation="@generated" name="Sequence Diagram" titleExpression="service:getSequenceDiagramName" initialisation="true" domainClass="uml.Model" enablePopupBars="true" endsOrdering="service:getEndsOrdering(eventEnds)" instanceRolesOrdering="feature:lifeline">
+    <ownedRepresentations xsi:type="description_1:SequenceDiagramDescription" documentation="@generated" name="Sequence Diagram" titleExpression="service:getSequenceDiagramName" domainClass="uml.Model" enablePopupBars="true" endsOrdering="service:getEndsOrdering(eventEnds)" instanceRolesOrdering="feature:lifeline">
       <metamodel href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
       <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
       <metamodel href="http://www.eclipse.org/sirius/1.1.0#/"/>
