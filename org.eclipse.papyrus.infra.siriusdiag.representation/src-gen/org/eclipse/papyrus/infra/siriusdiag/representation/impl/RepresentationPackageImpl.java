@@ -31,7 +31,23 @@ import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototyp
 import org.eclipse.papyrus.infra.siriusdiag.representation.util.RepresentationValidator;
 import org.eclipse.papyrus.infra.types.ElementTypesConfigurationsPackage;
 import org.eclipse.sirius.diagram.DiagramPackage;
+import org.eclipse.sirius.diagram.description.DescriptionPackage;
+import org.eclipse.sirius.diagram.description.concern.ConcernPackage;
+import org.eclipse.sirius.diagram.description.concern.impl.ConcernPackageImpl;
+import org.eclipse.sirius.diagram.description.filter.FilterPackage;
+import org.eclipse.sirius.diagram.description.filter.impl.FilterPackageImpl;
+import org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl;
+import org.eclipse.sirius.diagram.description.style.StylePackage;
+import org.eclipse.sirius.diagram.description.style.impl.StylePackageImpl;
+import org.eclipse.sirius.diagram.description.tool.ToolPackage;
+import org.eclipse.sirius.diagram.description.tool.impl.ToolPackageImpl;
+import org.eclipse.sirius.diagram.impl.DiagramPackageImpl;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.eclipse.sirius.viewpoint.description.audit.AuditPackage;
+import org.eclipse.sirius.viewpoint.description.audit.impl.AuditPackageImpl;
+import org.eclipse.sirius.viewpoint.description.validation.ValidationPackage;
+import org.eclipse.sirius.viewpoint.description.validation.impl.ValidationPackageImpl;
+import org.eclipse.sirius.viewpoint.impl.ViewpointPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -106,8 +122,6 @@ public class RepresentationPackageImpl extends EPackageImpl implements Represent
 		// Initialize simple dependencies
 		ArchitecturePackage.eINSTANCE.eClass();
 		ConstraintsPackage.eINSTANCE.eClass();
-		DiagramPackage.eINSTANCE.eClass();
-		ViewpointPackage.eINSTANCE.eClass();
 		EcorePackage.eINSTANCE.eClass();
 		ElementTypesConfigurationsPackage.eINSTANCE.eClass();
 		org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage.eINSTANCE.eClass();
@@ -176,6 +190,28 @@ public class RepresentationPackageImpl extends EPackageImpl implements Represent
 	 * @generated
 	 */
 	@Override
+	public EAttribute getSiriusDiagramPrototype_ViewpointName() {
+		return (EAttribute) siriusDiagramPrototypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSiriusDiagramPrototype_DiagramName() {
+		return (EAttribute) siriusDiagramPrototypeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
 	public EOperation getSiriusDiagramPrototype__IsValidClass__DiagnosticChain_Map() {
 		return siriusDiagramPrototypeEClass.getEOperations().get(0);
 	}
@@ -217,6 +253,8 @@ public class RepresentationPackageImpl extends EPackageImpl implements Represent
 		siriusDiagramPrototypeEClass = createEClass(SIRIUS_DIAGRAM_PROTOTYPE);
 		createEReference(siriusDiagramPrototypeEClass, SIRIUS_DIAGRAM_PROTOTYPE__SIRIUS_DIAGRAM_PROTOTYPE);
 		createEAttribute(siriusDiagramPrototypeEClass, SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS);
+		createEAttribute(siriusDiagramPrototypeEClass, SIRIUS_DIAGRAM_PROTOTYPE__VIEWPOINT_NAME);
+		createEAttribute(siriusDiagramPrototypeEClass, SIRIUS_DIAGRAM_PROTOTYPE__DIAGRAM_NAME);
 		createEOperation(siriusDiagramPrototypeEClass, SIRIUS_DIAGRAM_PROTOTYPE___IS_VALID_CLASS__DIAGNOSTICCHAIN_MAP);
 	}
 
@@ -250,7 +288,7 @@ public class RepresentationPackageImpl extends EPackageImpl implements Represent
 		// Obtain other dependent packages
 		org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage theRepresentationPackage_1 = (org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage) EPackage.Registry.INSTANCE
 				.getEPackage(org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage.eNS_URI);
-		RepresentationPackage theDiagramPackage = (RepresentationPackage) EPackage.Registry.INSTANCE.getEPackage(RepresentationPackage.eNS_URI);
+		DiagramPackage theDiagramPackage = (DiagramPackage) EPackage.Registry.INSTANCE.getEPackage(DiagramPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
@@ -262,10 +300,12 @@ public class RepresentationPackageImpl extends EPackageImpl implements Represent
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(siriusDiagramPrototypeEClass, SiriusDiagramPrototype.class, "SiriusDiagramPrototype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getSiriusDiagramPrototype_SiriusDiagramPrototype(), theDiagramPackage.getSiriusDiagramPrototype(), null, "siriusDiagramPrototype", null, 1, 1, SiriusDiagramPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, //$NON-NLS-1$
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSiriusDiagramPrototype_CreationCommandClass(), theEcorePackage.getEString(), "creationCommandClass", null, 1, 1, SiriusDiagramPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, //$NON-NLS-1$
-				!IS_DERIVED, IS_ORDERED);
+		initEReference(getSiriusDiagramPrototype_SiriusDiagramPrototype(), theDiagramPackage.getDSemanticDiagram(), null, "siriusDiagramPrototype", null, 1, 1, SiriusDiagramPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, //$NON-NLS-1$
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSiriusDiagramPrototype_CreationCommandClass(), theEcorePackage.getEString(), "creationCommandClass", null, 1, 1, SiriusDiagramPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, //$NON-NLS-1$
+				IS_ORDERED);
+		initEAttribute(getSiriusDiagramPrototype_ViewpointName(), theEcorePackage.getEString(), "viewpointName", null, 0, 1, SiriusDiagramPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getSiriusDiagramPrototype_DiagramName(), theEcorePackage.getEString(), "diagramName", null, 0, 1, SiriusDiagramPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		EOperation op = initEOperation(getSiriusDiagramPrototype__IsValidClass__DiagnosticChain_Map(), theEcorePackage.getEBoolean(), "isValidClass", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$

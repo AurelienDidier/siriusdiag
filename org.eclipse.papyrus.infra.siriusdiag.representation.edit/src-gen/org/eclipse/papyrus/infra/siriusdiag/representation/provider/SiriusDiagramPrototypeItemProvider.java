@@ -60,6 +60,8 @@ public class SiriusDiagramPrototypeItemProvider extends PapyrusRepresentationKin
 
 			addSiriusDiagramPrototypePropertyDescriptor(object);
 			addCreationCommandClassPropertyDescriptor(object);
+			addViewpointNamePropertyDescriptor(object);
+			addDiagramNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,8 +76,8 @@ public class SiriusDiagramPrototypeItemProvider extends PapyrusRepresentationKin
 	protected void addSiriusDiagramPrototypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
-				getString("_UI_SiriusDiagramPrototype_documentTemplatePrototype_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_SiriusDiagramPrototype_documentTemplatePrototype_feature", "_UI_SiriusDiagramPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				getString("_UI_SiriusDiagramPrototype_siriusDiagramPrototype_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_SiriusDiagramPrototype_siriusDiagramPrototype_feature", "_UI_SiriusDiagramPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				RepresentationPackage.Literals.SIRIUS_DIAGRAM_PROTOTYPE__SIRIUS_DIAGRAM_PROTOTYPE,
 				true,
 				false,
@@ -98,6 +100,48 @@ public class SiriusDiagramPrototypeItemProvider extends PapyrusRepresentationKin
 				getString("_UI_SiriusDiagramPrototype_creationCommandClass_feature"), //$NON-NLS-1$
 				getString("_UI_PropertyDescriptor_description", "_UI_SiriusDiagramPrototype_creationCommandClass_feature", "_UI_SiriusDiagramPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				RepresentationPackage.Literals.SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Viewpoint Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	protected void addViewpointNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_SiriusDiagramPrototype_viewpointName_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_SiriusDiagramPrototype_viewpointName_feature", "_UI_SiriusDiagramPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				RepresentationPackage.Literals.SIRIUS_DIAGRAM_PROTOTYPE__VIEWPOINT_NAME,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Diagram Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	protected void addDiagramNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_SiriusDiagramPrototype_diagramName_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_SiriusDiagramPrototype_diagramName_feature", "_UI_SiriusDiagramPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				RepresentationPackage.Literals.SIRIUS_DIAGRAM_PROTOTYPE__DIAGRAM_NAME,
 				true,
 				false,
 				false,
@@ -158,6 +202,8 @@ public class SiriusDiagramPrototypeItemProvider extends PapyrusRepresentationKin
 
 		switch (notification.getFeatureID(SiriusDiagramPrototype.class)) {
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS:
+		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__VIEWPOINT_NAME:
+		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__DIAGRAM_NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

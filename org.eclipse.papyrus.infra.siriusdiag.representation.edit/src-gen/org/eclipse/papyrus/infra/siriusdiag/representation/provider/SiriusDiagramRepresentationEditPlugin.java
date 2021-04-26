@@ -24,7 +24,7 @@ import org.eclipse.papyrus.infra.types.provider.TypesConfigurationsEditPlugin;
 import org.osgi.framework.BundleActivator;
 
 /**
- * This is the central singleton for the DocumentStructureTemplateRepresentation edit plugin.
+ * This is the central singleton for the SiriusDiagramRepresentation edit plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  *

@@ -42,6 +42,8 @@ import org.eclipse.sirius.diagram.DSemanticDiagram;
  * <ul>
  * <li>{@link org.eclipse.papyrus.infra.siriusdiag.representation.impl.SiriusDiagramPrototypeImpl#getSiriusDiagramPrototype <em>Sirius Diagram Prototype</em>}</li>
  * <li>{@link org.eclipse.papyrus.infra.siriusdiag.representation.impl.SiriusDiagramPrototypeImpl#getCreationCommandClass <em>Creation Command Class</em>}</li>
+ * <li>{@link org.eclipse.papyrus.infra.siriusdiag.representation.impl.SiriusDiagramPrototypeImpl#getViewpointName <em>Viewpoint Name</em>}</li>
+ * <li>{@link org.eclipse.papyrus.infra.siriusdiag.representation.impl.SiriusDiagramPrototypeImpl#getDiagramName <em>Diagram Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,6 +81,50 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 * @ordered
 	 */
 	protected String creationCommandClass = CREATION_COMMAND_CLASS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getViewpointName() <em>Viewpoint Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getViewpointName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VIEWPOINT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getViewpointName() <em>Viewpoint Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getViewpointName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String viewpointName = VIEWPOINT_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDiagramName() <em>Diagram Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getDiagramName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DIAGRAM_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDiagramName() <em>Diagram Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getDiagramName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String diagramName = DIAGRAM_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,6 +225,58 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 * @generated
 	 */
 	@Override
+	public String getViewpointName() {
+		return viewpointName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
+	public void setViewpointName(String newViewpointName) {
+		String oldViewpointName = viewpointName;
+		viewpointName = newViewpointName;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__VIEWPOINT_NAME, oldViewpointName, viewpointName));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
+	public String getDiagramName() {
+		return diagramName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
+	public void setDiagramName(String newDiagramName) {
+		String oldDiagramName = diagramName;
+		diagramName = newDiagramName;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__DIAGRAM_NAME, oldDiagramName, diagramName));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
 	public boolean isValidClass(DiagnosticChain chain, Map<Object, Object> context) {
 		// TODO: implement this method
 		// -> specify the condition that violates the invariant
@@ -213,6 +311,10 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 			return basicGetSiriusDiagramPrototype();
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS:
 			return getCreationCommandClass();
+		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__VIEWPOINT_NAME:
+			return getViewpointName();
+		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__DIAGRAM_NAME:
+			return getDiagramName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -233,6 +335,12 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS:
 			setCreationCommandClass((String) newValue);
 			return;
+		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__VIEWPOINT_NAME:
+			setViewpointName((String) newValue);
+			return;
+		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__DIAGRAM_NAME:
+			setDiagramName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -252,6 +360,12 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS:
 			setCreationCommandClass(CREATION_COMMAND_CLASS_EDEFAULT);
 			return;
+		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__VIEWPOINT_NAME:
+			setViewpointName(VIEWPOINT_NAME_EDEFAULT);
+			return;
+		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__DIAGRAM_NAME:
+			setDiagramName(DIAGRAM_NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -269,6 +383,10 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 			return siriusDiagramPrototype != null;
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS:
 			return CREATION_COMMAND_CLASS_EDEFAULT == null ? creationCommandClass != null : !CREATION_COMMAND_CLASS_EDEFAULT.equals(creationCommandClass);
+		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__VIEWPOINT_NAME:
+			return VIEWPOINT_NAME_EDEFAULT == null ? viewpointName != null : !VIEWPOINT_NAME_EDEFAULT.equals(viewpointName);
+		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__DIAGRAM_NAME:
+			return DIAGRAM_NAME_EDEFAULT == null ? diagramName != null : !DIAGRAM_NAME_EDEFAULT.equals(diagramName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -304,6 +422,10 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (creationCommandClass: "); //$NON-NLS-1$
 		result.append(creationCommandClass);
+		result.append(", viewpointName: "); //$NON-NLS-1$
+		result.append(viewpointName);
+		result.append(", diagramName: "); //$NON-NLS-1$
+		result.append(diagramName);
 		result.append(')');
 		return result.toString();
 	}

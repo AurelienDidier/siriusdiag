@@ -29,140 +29,160 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/diagram/1.1.0"
-            class="diagram.DiagramPackage"/>
+            class="diagram.DiagramPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/diagram/description/1.1.0"
-            class="diagram.description.DescriptionPackage"/>
+            class="diagram.description.DescriptionPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/diagram/description/style/1.1.0"
-            class="diagram.description.style.StylePackage"/>
+            class="diagram.description.style.StylePackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0"
-            class="diagram.description.tool.ToolPackage"/>
+            class="diagram.description.tool.ToolPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0"
-            class="diagram.description.filter.FilterPackage"/>
+            class="diagram.description.filter.FilterPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/diagram/description/concern/1.1.0"
-            class="diagram.description.concern.ConcernPackage"/>
+            class="diagram.description.concern.ConcernPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/1.1.0"
-            class="viewpoint.ViewpointPackage"/>
+            class="viewpoint.ViewpointPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/1.1.0"
-            class="viewpoint.description.DescriptionPackage"/>
+            class="viewpoint.description.DescriptionPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/style/1.1.0"
-            class="viewpoint.description.style.StylePackage"/>
+            class="viewpoint.description.style.StylePackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/tool/1.1.0"
-            class="viewpoint.description.tool.ToolPackage"/>
+            class="viewpoint.description.tool.ToolPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/validation/1.1.0"
-            class="viewpoint.description.validation.ValidationPackage"/>
+            class="viewpoint.description.validation.ValidationPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/audit/1.1.0"
-            class="viewpoint.description.audit.AuditPackage"/>
+            class="viewpoint.description.audit.AuditPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/1.1.0"
-            class="description.DescriptionPackage"/>
+            class="description.DescriptionPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/style/1.1.0"
-            class="description.style.StylePackage"/>
+            class="description.style.StylePackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/tool/1.1.0"
-            class="description.tool.ToolPackage"/>
+            class="description.tool.ToolPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/validation/1.1.0"
-            class="description.validation.ValidationPackage"/>
+            class="description.validation.ValidationPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/audit/1.1.0"
-            class="description.audit.AuditPackage"/>
+            class="description.audit.AuditPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/validation/1.1.0"
-            class="validation.ValidationPackage"/>
+            class="validation.ValidationPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/style/1.1.0"
-            class="style.StylePackage"/>
+            class="style.StylePackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/tool/1.1.0"
-            class="tool.ToolPackage"/>
+            class="tool.ToolPackage"
+            genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
 </plugin>

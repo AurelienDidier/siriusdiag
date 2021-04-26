@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.EReference;
  * </ul>
  * <!-- end-user-doc -->
  * <!-- begin-model-doc -->
- * This package contains the elements allowing to integrate the DocumentStructureTemplate metamodel into the Papyrus ArchitectureFramework
+ * This package contains the elements allowing to integrate the DDiagram metamodel into the Papyrus ArchitectureFramework
  * <!-- end-model-doc -->
  *
  * @see org.eclipse.papyrus.infra.siriusdiag.representation.RepresentationFactory
@@ -228,6 +228,26 @@ public interface RepresentationPackage extends EPackage {
 	int SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS = org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage.PAPYRUS_REPRESENTATION_KIND_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Viewpoint Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 * @ordered
+	 */
+	int SIRIUS_DIAGRAM_PROTOTYPE__VIEWPOINT_NAME = org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage.PAPYRUS_REPRESENTATION_KIND_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Diagram Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 * @ordered
+	 */
+	int SIRIUS_DIAGRAM_PROTOTYPE__DIAGRAM_NAME = org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage.PAPYRUS_REPRESENTATION_KIND_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Sirius Diagram Prototype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -235,7 +255,7 @@ public interface RepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIRIUS_DIAGRAM_PROTOTYPE_FEATURE_COUNT = org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage.PAPYRUS_REPRESENTATION_KIND_FEATURE_COUNT + 2;
+	int SIRIUS_DIAGRAM_PROTOTYPE_FEATURE_COUNT = org.eclipse.papyrus.infra.architecture.representation.RepresentationPackage.PAPYRUS_REPRESENTATION_KIND_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Is Valid Class</em>' operation.
@@ -294,8 +314,31 @@ public interface RepresentationPackage extends EPackage {
 	EAttribute getSiriusDiagramPrototype_CreationCommandClass();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#isValidClass(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Is Valid Class</em>}'
-	 * operation.
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getViewpointName <em>Viewpoint Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @return the meta object for the attribute '<em>Viewpoint Name</em>'.
+	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getViewpointName()
+	 * @see #getSiriusDiagramPrototype()
+	 * @generated
+	 */
+	EAttribute getSiriusDiagramPrototype_ViewpointName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getDiagramName <em>Diagram Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @return the meta object for the attribute '<em>Diagram Name</em>'.
+	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getDiagramName()
+	 * @see #getSiriusDiagramPrototype()
+	 * @generated
+	 */
+	EAttribute getSiriusDiagramPrototype_DiagramName();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#isValidClass(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Is Valid Class</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
@@ -358,6 +401,24 @@ public interface RepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS = eINSTANCE.getSiriusDiagramPrototype_CreationCommandClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Viewpoint Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 *
+		 * @generated
+		 */
+		EAttribute SIRIUS_DIAGRAM_PROTOTYPE__VIEWPOINT_NAME = eINSTANCE.getSiriusDiagramPrototype_ViewpointName();
+
+		/**
+		 * The meta object literal for the '<em><b>Diagram Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 *
+		 * @generated
+		 */
+		EAttribute SIRIUS_DIAGRAM_PROTOTYPE__DIAGRAM_NAME = eINSTANCE.getSiriusDiagramPrototype_DiagramName();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid Class</b></em>' operation.

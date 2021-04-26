@@ -84,8 +84,8 @@ public class RepresentationFactoryImpl extends EFactoryImpl implements Represent
 	 */
 	@Override
 	public SiriusDiagramPrototype createSiriusDiagramPrototype() {
-		SiriusDiagramPrototypeImpl papyrusDocumentPrototype = new SiriusDiagramPrototypeImpl();
-		return papyrusDocumentPrototype;
+		SiriusDiagramPrototypeImpl siriusDiagramPrototype = new SiriusDiagramPrototypeImpl();
+		return siriusDiagramPrototype;
 	}
 
 	/**
