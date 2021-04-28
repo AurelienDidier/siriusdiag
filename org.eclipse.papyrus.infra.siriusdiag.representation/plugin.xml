@@ -16,7 +16,6 @@
 -->
 
 <plugin>
-
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated siriusdiagramRepresentation -->
       <package
@@ -29,7 +28,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/diagram/1.1.0"
-            class="diagram.DiagramPackage"
+            class="org.eclipse.sirius.diagram.DiagramPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -37,7 +36,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/diagram/description/1.1.0"
-            class="diagram.description.DescriptionPackage"
+            class="org.eclipse.sirius.diagram.description.DescriptionPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -45,7 +44,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/diagram/description/style/1.1.0"
-            class="diagram.description.style.StylePackage"
+            class="org.eclipse.sirius.diagram.description.style.StylePackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -53,7 +52,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0"
-            class="diagram.description.tool.ToolPackage"
+            class="org.eclipse.sirius.diagram.description.tool.ToolPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -61,7 +60,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0"
-            class="diagram.description.filter.FilterPackage"
+            class="org.eclipse.sirius.diagram.description.filter.FilterPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -69,7 +68,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/diagram/description/concern/1.1.0"
-            class="diagram.description.concern.ConcernPackage"
+            class="org.eclipse.sirius.diagram.description.concern.ConcernPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -77,7 +76,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/1.1.0"
-            class="viewpoint.ViewpointPackage"
+            class="org.eclipse.sirius.viewpoint.ViewpointPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -85,7 +84,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/1.1.0"
-            class="viewpoint.description.DescriptionPackage"
+            class="org.eclipse.sirius.viewpoint.description.DescriptionPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -93,7 +92,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/style/1.1.0"
-            class="viewpoint.description.style.StylePackage"
+            class="org.eclipse.sirius.viewpoint.description.style.StylePackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -101,7 +100,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/tool/1.1.0"
-            class="viewpoint.description.tool.ToolPackage"
+            class="org.eclipse.sirius.viewpoint.description.tool.ToolPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -109,7 +108,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/validation/1.1.0"
-            class="viewpoint.description.validation.ValidationPackage"
+            class="org.eclipse.sirius.viewpoint.description.validation.ValidationPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -117,7 +116,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/audit/1.1.0"
-            class="viewpoint.description.audit.AuditPackage"
+            class="org.eclipse.sirius.viewpoint.description.audit.AuditPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -125,7 +124,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/1.1.0"
-            class="description.DescriptionPackage"
+            class="org.eclipse.sirius.diagram.description.DescriptionPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -133,7 +132,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/style/1.1.0"
-            class="description.style.StylePackage"
+            class="org.eclipse.sirius.diagram.description.style.StylePackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -141,7 +140,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/tool/1.1.0"
-            class="description.tool.ToolPackage"
+            class="org.eclipse.sirius.diagram.description.tool.ToolPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -149,7 +148,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/validation/1.1.0"
-            class="description.validation.ValidationPackage"
+            class="org.eclipse.sirius.viewpoint.description.validation.ValidationPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -157,7 +156,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/audit/1.1.0"
-            class="description.audit.AuditPackage"
+            class="org.eclipse.sirius.viewpoint.description.audit.AuditPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -165,7 +164,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/validation/1.1.0"
-            class="validation.ValidationPackage"
+            class="org.eclipse.sirius.viewpoint.description.validation.ValidationPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -173,7 +172,7 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/style/1.1.0"
-            class="style.StylePackage"
+            class="org.eclipse.sirius.viewpoint.description.style.StylePackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
    </extension>
 
@@ -181,8 +180,16 @@
       <!-- @generated SiriusDiagramRepresentation -->
       <package
             uri="http://www.eclipse.org/sirius/description/tool/1.1.0"
-            class="tool.ToolPackage"
+            class="org.eclipse.sirius.viewpoint.description.tool.ToolPackage"
             genModel="model/SiriusDiagramRepresentation.genmodel"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.emf.ecore.factory_override">
+      <factory
+            class="org.eclipse.papyrus.infra.siriusdiag.representation.internal.custom.CustomRepresentationFactoryImpl"
+            uri="http://www.eclipse.org/papyrus/sirius/integration/1.0.0/emf/siriusdiagram/representation">
+      </factory>
    </extension>
 
 </plugin>
