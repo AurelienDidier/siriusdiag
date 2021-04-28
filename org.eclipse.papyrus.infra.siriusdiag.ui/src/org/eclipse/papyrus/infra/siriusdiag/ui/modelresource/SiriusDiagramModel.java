@@ -151,8 +151,7 @@ public class SiriusDiagramModel extends AbstractDynamicModel<DSemanticDiagram> {
 						});
 
 				session.save(new NullProgressMonitor());
-				session.close(new NullProgressMonitor());
-
+				// session.close(new NullProgressMonitor());
 			}
 		}
 	}

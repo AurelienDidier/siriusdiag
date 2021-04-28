@@ -35,6 +35,9 @@ import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.siriusdiag.ui.Activator;
+import org.eclipse.papyrus.infra.widgets.util.IRevealSemanticElement;
+import org.eclipse.papyrus.infra.widgets.util.NavigationTarget;
+import org.eclipse.papyrus.uml.diagram.common.part.IInternationalizationEditor;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.provider.DiagramItemProviderAdapterFactory;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl;
@@ -49,7 +52,7 @@ import org.eclipse.ui.IEditorSite;
  * In order to get the new child menu, we register the action bar contribution using this same extension point and we use if for this editor.
  */
 @SuppressWarnings("restriction")
-public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements IEditingDomainProvider {
+public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements IEditingDomainProvider, IInternationalizationEditor, IRevealSemanticElement, NavigationTarget {
 
 
 	/** the service registry */

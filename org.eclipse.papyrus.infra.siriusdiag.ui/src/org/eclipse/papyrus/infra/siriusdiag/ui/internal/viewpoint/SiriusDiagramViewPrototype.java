@@ -23,9 +23,9 @@ import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.emf.utils.ServiceUtilsForEObject;
 import org.eclipse.papyrus.infra.siriusdiag.representation.ICreateSiriusDiagramEditorCommand;
 import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
+import org.eclipse.papyrus.infra.siriusdiag.ui.Activator;
 import org.eclipse.papyrus.infra.viewpoints.policy.ViewPrototype;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
-import org.eclipse.papyrus.infra.siriusdiag.ui.Activator;
 
 /**
  * Represents a prototype of Sirius Diagram View for the viewpoints infrastructure.
@@ -90,25 +90,26 @@ public class SiriusDiagramViewPrototype extends ViewPrototype implements Extende
 	 */
 	@Override
 	public boolean instantiateOn(EObject owner, String name) {
-		 if (this.command != null) {
-		 ServicesRegistry registry;
-		 try {
-		 registry = ServiceUtilsForEObject.getInstance().getServiceRegistry(owner);
-		 } catch (ServiceException ex) {
-		 Activator.log.error(ex);
-		 return false;
-		 }
-		 ModelSet modelSet;
-		 try {
-		 modelSet = registry.getService(ModelSet.class);
-		 } catch (ServiceException ex) {
-		 Activator.log.error(ex);
-		 return false;
-		 }
-//		 Object result = this.command.execute(UNAVAILABLE_VIEW, name, owner, isOwnerReassignable());
-//		 return result != null;
-//		 }
-//		 return false;
+		if (this.command != null) {
+			ServicesRegistry registry;
+			try {
+				registry = ServiceUtilsForEObject.getInstance().getServiceRegistry(owner);
+			} catch (ServiceException ex) {
+				Activator.log.error(ex);
+				return false;
+			}
+			ModelSet modelSet;
+			try {
+				modelSet = registry.getService(ModelSet.class);
+			} catch (ServiceException ex) {
+				Activator.log.error(ex);
+				return false;
+			}
+			// Object result = this.command.execute(UNAVAILABLE_VIEW, name, owner, isOwnerReassignable());
+			// return result != null;
+			// }
+			// return false;
+		}
 		return instantiateOn(owner, name, true);
 
 	}
