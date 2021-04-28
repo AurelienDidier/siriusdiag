@@ -113,6 +113,7 @@ import org.eclipse.sirius.common.tools.api.query.IllegalStateExceptionQuery;
 import org.eclipse.sirius.common.tools.api.util.ReflectionHelper;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.common.ui.tools.api.util.IObjectActionDelegateWrapper;
+import org.eclipse.sirius.diagram.ui.tools.internal.editor.DOperationHistoryListener;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
@@ -250,6 +251,9 @@ import org.eclipse.ui.part.IPage;
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.papyrus.infra.internationalization.common.editor.IInternationalizationEditor;
+
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Sets;
 
 /**
  * DocumenView Editor.
@@ -440,23 +444,23 @@ public class NestedSiriusDiagramViewEditor extends SiriusDiagramEditor implement
 	private Optional<Boolean> isLastRefreshSucceeded = Optional.empty();
 
 	/**
-	     * Create a new instance.
-	     */
-	    public DDiagramEditorImpl() {
-	        super();
-	        operationHistoryListener = new DOperationHistoryListener(this);
-	    }
+	 * Create a new instance.
+	 */
+	public NestedSiriusDiagramViewEditor() {
+		super();
+		operationHistoryListener = new DOperationHistoryListener(this);
+	}
 
 	/**
-	     * Create a new instance with a given {@link IOperationHistoryListener}.
-	     *
-	     * @param operationHistoryListener
-	     *            a specific {@link IOperationHistoryListener}.
-	     */
-	    public DDiagramEditorImpl(IOperationHistoryListener operationHistoryListener) {
-	        super();
-	        this.operationHistoryListener = operationHistoryListener;
-	    }
+	 * Create a new instance with a given {@link IOperationHistoryListener}.
+	 *
+	 * @param operationHistoryListener
+	 *            a specific {@link IOperationHistoryListener}.
+	 */
+	public NestedSiriusDiagramViewEditor(IOperationHistoryListener operationHistoryListener) {
+		super();
+		this.operationHistoryListener = operationHistoryListener;
+	}
 
 	@Override
 	public Optional<Boolean> isLastRepresentationRefreshSucceeded() {
