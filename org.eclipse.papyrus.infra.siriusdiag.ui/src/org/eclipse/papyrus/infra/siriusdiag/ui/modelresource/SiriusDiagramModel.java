@@ -14,6 +14,7 @@
 
 package org.eclipse.papyrus.infra.siriusdiag.ui.modelresource;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -22,9 +23,13 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.papyrus.infra.core.resource.AbstractDynamicModel;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
+import org.eclipse.sirius.business.api.session.DefaultLocalSessionCreationOperation;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionCreationOperation;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.business.internal.session.SessionTransientAttachment;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 
@@ -126,8 +131,18 @@ public class SiriusDiagramModel extends AbstractDynamicModel<DSemanticDiagram> {
 				uri = uri.appendFileExtension(getModelFileExtension());
 
 				// URI airdUri = URI.createURI(uri);
-				final Session session = SessionManager.INSTANCE.getSession(uri, new NullProgressMonitor());
-				session.open(new NullProgressMonitor());
+				// final Session session = SessionManager.INSTANCE.getSession(uri, new NullProgressMonitor());
+				SessionCreationOperation o = new DefaultLocalSessionCreationOperation(uri, new NullProgressMonitor());
+				try {
+					o.execute();
+				} catch (CoreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Session session = o.getCreatedSession();
+				context.eAdapters().add(new SessionTransientAttachment(session));
+
+				// session.open(new NullProgressMonitor());
 				session.getTransactionalEditingDomain().getCommandStack()
 						.execute(new RecordingCommand(session.getTransactionalEditingDomain()) {
 							@Override
@@ -139,17 +154,24 @@ public class SiriusDiagramModel extends AbstractDynamicModel<DSemanticDiagram> {
 								}
 								selected.selectViewpoint(
 										ViewpointRegistry.getInstance()
-												.getViewpoint(URI.createURI("viewpoint:/org.eclipse.papyrus.sirius.sequence.diagram/SequenceDiagram")),
+												.getViewpoint(URI.createURI("viewpoint:/org.eclipse.papyrus.uml.sirius.sequence.diagram/SequenceDiagram")),
 										session, new NullProgressMonitor());
 								selected.selectViewpoint(
 										ViewpointRegistry.getInstance()
-												.getViewpoint(URI.createURI("viewpoint:/org.eclipse.papyrus.sirius.clazz.diagram/ClassDiagram")),
+												.getViewpoint(URI.createURI("viewpoint:/org.eclipse.papyrus.uml.sirius.clazz.diagram/ClassDiagram")),
 										session, new NullProgressMonitor());
 
 							}
-
+							// selected.selectViewpoint(
+							// ViewpointRegistry.getInstance()
+							// .getViewpoint(URI.createURI("viewpoint:/org.eclipse.papyrus.uml.sirius.clazz.diagram/ClassDiagram")),
+							// session, new NullProgressMonitor());
+							//
+							// }
 						});
-
+				session.open(new NullProgressMonitor());
+				SessionManager.INSTANCE.add(session);
+				SessionUIManager.INSTANCE.getOrCreateUISession(session);
 				session.save(new NullProgressMonitor());
 				// session.close(new NullProgressMonitor());
 			}

@@ -20,7 +20,7 @@
       </owningRules>
     </representationKinds>
     <metamodel xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
-    <representationKinds xmi:type="representation:PapyrusDocumentPrototype" xmi:id="_v6j60Ci7EeuXVsN3JsOSRg" id="org.eclipse.papyrus.uml.sirius.diagram.architecture.clazz" name="New Class Diagram" description="Create a new class diagram." icon="platform:/plugin/org.eclipse.papyrus.sirius.clazz.diagram/icons/NotFound.png" grayedIcon="" implementationID="ClassDiagramID" creationCommandClass="org.eclipse.papyrus.infra.siriusdiag.representation.architecture.CreatePapyrusSiriusClassDiagramEditorCommand">
+    <representationKinds xmi:type="representation:PapyrusDocumentPrototype" xmi:id="_v6j60Ci7EeuXVsN3JsOSRg" id="org.eclipse.papyrus.uml.sirius.diagram.architecture.clazz" name="New Class Diagram" description="Create a new class diagram." icon="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/icons/NotFound.png" grayedIcon="" implementationID="ClassDiagramID" creationCommandClass="org.eclipse.papyrus.infra.siriusdiag.representation.architecture.CreatePapyrusSiriusClassDiagramEditorCommand">
       <modelRules xmi:type="representation_1:ModelRule" xmi:id="_yQX7oCi7EeuXVsN3JsOSRg" permit="true" elementMultiplicity="1" multiplicity="-1">
         <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
       </modelRules>
@@ -28,7 +28,7 @@
         <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
       </owningRules>
     </representationKinds>
-    <representationKinds xmi:type="representation:PapyrusDocumentPrototype" xmi:id="_oRVPMKZoEeuKxaOU6J4aOw" id="org.eclipse.papyrus.uml.sirius.diagram.architecture.sequence" name="New Sequence Diagram" description="Create a new sequence diagram." icon="platform:/plugin/org.eclipse.papyrus.sirius.sequence.diagram/icons/NotFound.png" grayedIcon="" implementationID="SequenceDiagramID" creationCommandClass="org.eclipse.papyrus.infra.siriusdiag.representation.architecture.CreatePapyrusSiriusSequenceDiagramEditorCommand">
+    <representationKinds xmi:type="representation:PapyrusDocumentPrototype" xmi:id="_oRVPMKZoEeuKxaOU6J4aOw" id="org.eclipse.papyrus.uml.sirius.diagram.architecture.sequence" name="New Sequence Diagram" description="Create a new sequence diagram." icon="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/NotFound.png" grayedIcon="" implementationID="SequenceDiagramID" creationCommandClass="org.eclipse.papyrus.infra.siriusdiag.representation.architecture.CreatePapyrusSiriusSequenceDiagramEditorCommand">
       <modelRules xmi:type="representation_1:ModelRule" xmi:id="_oRVPMaZoEeuKxaOU6J4aOw" permit="true" elementMultiplicity="1" multiplicity="-1">
         <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
       </modelRules>

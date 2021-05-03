@@ -25,8 +25,6 @@ import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
-import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
-import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 
 /**
@@ -95,14 +93,33 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 
 		// TODO get Session
 		Session session = SessionManager.INSTANCE.getSessions().iterator().next();
+
+		// Create diagram
+		// Session session = SessionManager.INSTANCE.getSession(semanticContext);
+		// System.out.println(SessionManager.INSTANCE.getSessions().toString());
+
+		// for (RepresentationDescription rd : DialectManager.INSTANCE.getAvailableRepresentationDescriptions(ViewpointRegistry.getInstance().getViewpoints(), semanticContext)) {
+		// DSemanticDiagram diagram = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation("ClassDiagram", semanticContext, rd, session, new NullProgressMonitor());
+		// /* Todo: */System.out.println("Diagram créé");
+		// break;
+		// }
+
 		// Get Representation
 		EObject model = this.semanticContext;
 		Collection<RepresentationDescription> descs = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), model);
 		for (RepresentationDescription desc : descs) {
 			if (DialectManager.INSTANCE.canCreate(model, desc)) {
-				DRepresentation rep = DialectManager.INSTANCE.createRepresentation(session.toString()/* Mettre le path du aird ici */, model, desc, session, new NullProgressMonitor());
-				DialectUIManager.INSTANCE.openEditor(session, rep, new NullProgressMonitor());
+				DSemanticDiagram rep = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation("ClassDiagram", model, desc, session, new NullProgressMonitor());
 				session.save(new NullProgressMonitor());
+				// DialectUIManager.INSTANCE.openEditor(session, rep, new NullProgressMonitor());
+
+				if (this.openAfterCreation) {
+					openEditor(newInstance);
+				}
+				if (newInstance.eResource() != null) {
+					// we suppose all is ok
+					this.createdEditorView = newInstance;
+				}
 			}
 		}
 
@@ -123,13 +140,6 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 		// newInstance.setGraphicalContext(this.graphicalContext);
 		// newInstance.setSemanticContext(this.semanticContext);
 		// newInstance.setName(this.editorViewName);
-		if (this.openAfterCreation) {
-			openEditor(newInstance);
-		}
-		if (newInstance.eResource() != null) {
-			// we suppose all is ok
-			this.createdEditorView = newInstance;
-		}
 
 	}
 

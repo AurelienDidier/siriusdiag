@@ -97,6 +97,7 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 		if (null == domain) {
 			return null;
 		}
+		// Todo: Changer le nom du diagram
 		final String siriusDiagramMainTitle = getSiriusDiagramMainTitle(semanticContext);
 
 		final CreateSiriusDiagramEditorViewCommand command = createDSemanticDiagramEditorCreationCommand(domain, diagram, diagramName, siriusDiagramMainTitle, semanticContext, openAfterCreation);

@@ -9,27 +9,7 @@ Bundle-Activator: org.eclipse.papyrus.infra.siriusdiag.representation.provider.S
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: description.audit.provider,
- description.provider,
- description.style.provider,
- description.tool.provider,
- description.validation.provider,
- diagram.description.concern.provider,
- diagram.description.filter.provider,
- diagram.description.provider,
- diagram.description.style.provider,
- diagram.description.tool.provider,
- diagram.provider,
- org.eclipse.papyrus.infra.siriusdiag.representation.provider,
- style.provider,
- tool.provider,
- validation.provider,
- viewpoint.description.audit.provider,
- viewpoint.description.provider,
- viewpoint.description.style.provider,
- viewpoint.description.tool.provider,
- viewpoint.description.validation.provider,
- viewpoint.provider
+Export-Package: org.eclipse.papyrus.infra.siriusdiag.representation.provider
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.20.0,4.0.0)";x-installation:=greedy;resolution:=optional,
  org.eclipse.papyrus.infra.siriusdiag.representation;bundle-version="1.0.0";visibility:=reexport,
  org.eclipse.emf.edit;bundle-version="[2.16.0,3.0.0)";visibility:=reexport,
