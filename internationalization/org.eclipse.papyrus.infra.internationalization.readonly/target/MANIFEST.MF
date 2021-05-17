@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.papyrus.infra.internationalization.read
+ only;singleton:=true
+Bundle-Version: 2.0.0.202101080755
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.gmf.runtime.emf.type.core;bundle-version="[1
+ .9.0,2.0.0)",org.eclipse.papyrus.infra.core;bundle-version="[4.0.0,5.0.
+ 0)",org.eclipse.papyrus.infra.internationalization;bundle-version="[2.0
+ .0,3.0.0)",org.eclipse.uml2.types;bundle-version="[2.5.0,3.0.0)"
+Bundle-ActivationPolicy: lazy
+Import-Package: com.google.common.base;version="[27.1.0, 28.0.0)"
+Automatic-Module-Name: org.eclipse.papyrus.infra.internationalization.re
+ adonly
+Eclipse-SourceReferences: scm:git:git://git.eclipse.org/gitroot/papyrus/
+ org.eclipse.papyrus.git;path="plugins/infra/internationalization/org.ec
+ lipse.papyrus.infra.internationalization.readonly";commitId=a5b2bf8a788
+ 8b27dd97a10615736d1018497df17
+

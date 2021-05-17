@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="org.eclipse.papyrus.infra.internationalization.ui.handlers.InternationalizationCommandHandler"
+            description="This allows to internationalize the NamedElements, Diagrams and Tables"
+            id="org.eclipse.papyrus.infra.internationalization.activeInternationalization"
+            name="Configure internationalization">
+         <!--state
+               class="org.eclipse.papyrus.infra.internationalization.ui.handlers.InternationalizationToggleState"
+               id="org.eclipse.ui.commands.toggleState">
+         </state-->
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
+            class="org.eclipse.papyrus.infra.internationalization.ui.preferences.pages.InternationalizationPreferencePage"
+            id="org.eclipse.papyrus.infra.internationalization.ui.internationalizationPreferencePage"
+            name="Internationalization">
+      </page>
+   </extension>
+
+</plugin>

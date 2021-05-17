@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2016 CEA LIST and others.&#xA;&#xA; All rights reserved. This program and the accompanying materials&#xA; are made available under the terms of the Eclipse Public License 2.0&#xA; which accompanies this distribution, and is available at&#xA; https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA; SPDX-License-Identifier: EPL-2.0&#xA;&#xA; Contributors:&#xA; Nicolas FAUVERGUE (ALL4TEC) nicolas.fauvergue@all4tec.net - Initial API and implementation"
+    modelDirectory="/org.eclipse.papyrus.infra.internationalization/src-gen" editDirectory="/org.eclipse.papyrus.infra.internationalization.edit/src-gen"
+    modelPluginID="org.eclipse.papyrus.infra.internationalization" modelName="Internationalization"
+    nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" providerRootExtendsClass="" operationReflection="true"
+    importOrganizing="true" cleanup="true">
+  <foreignModel>Internationalization.ecore</foreignModel>
+  <genPackages prefix="Internationalization" basePackage="org.eclipse.papyrus.infra"
+      disposableProviderFactory="true" ecorePackage="Internationalization.ecore#/">
+    <genClasses ecoreClass="Internationalization.ecore#//InternationalizationLibrary">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Internationalization.ecore#//InternationalizationLibrary/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="Internationalization.ecore#//InternationalizationEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Internationalization.ecore#//InternationalizationEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Internationalization.ecore#//InternationalizationEntry/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

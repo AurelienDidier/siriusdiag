@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<contexts:Context xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:constraints="http://www.eclipse.org/papyrus/constraints/0.9" xmlns:contexts="http://www.eclipse.org/papyrus/properties/contexts/0.9" xmi:id="_MPALcI7eEeWNa5T2Agi7uA" name="welcome-internationalization" label="Internationalization">
+  <tabs xmi:id="_SsfbQcElEeS_u7hIvAIReA" label="Internationalization" id="internationalization" category="org.eclipse.papyrus" priority="75">
+    <sections xmi:id="_SsgCV8ElEeS_u7hIvAIReA" name="Single Languages" sectionFile="ui/SingleInternationalization.xwt">
+      <widget href="ui/SingleInternationalization.xwt#/"/>
+    </sections>
+  </tabs>
+  <views xmi:id="_Ssiem8ElEeS_u7hIvAIReA" name="Single Languages" sections="_SsgCV8ElEeS_u7hIvAIReA" automaticContext="true" datacontexts="_SsmJGsElEeS_u7hIvAIReA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_SskT2cElEeS_u7hIvAIReA" name="isWelcomeElement">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.infra.editor.welcome/model/environment.xmi#//@constraintTypes.0"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_SskT2sElEeS_u7hIvAIReA" name="metaclassName" value="Welcome"/>
+    </constraints>
+  </views>
+  <dataContexts xmi:id="_SsmI-cElEeS_u7hIvAIReA" name="welcomeInternationalization" label="Welcome">
+    <elements xmi:id="_SsmJGsElEeS_u7hIvAIReA" name="Internationalization">
+      <properties xmi:id="_SsmJG8ElEeS_u7hIvAIReA" name="privateStorage" label="Private storage" type="Boolean" description="Determinates where the internationalization preference must be stored"/>
+      <properties xmi:id="_SsmJG8ElEeS_u7hIvAIReB" name="useInternationalization" label="Use internationalization" type="Boolean" description="Determinates if the internationalization must be used in the papyrus project"/>
+      <properties xmi:id="_SsmJG8ElEeS_u7hIvAIReC" name="language" label="Language" description="The language used for the internationalization"/>
+    </elements>
+    <modelElementFactory href="ppe:/environment/org.eclipse.papyrus.infra.editor.welcome.internationalization/model/environment.xmi#//@modelElementFactories.0"/>
+  </dataContexts>
+</contexts:Context>

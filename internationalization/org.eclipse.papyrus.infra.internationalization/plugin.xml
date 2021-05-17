@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Internationalization -->
+      <package
+            uri="http://www.eclipse.org/papyrus/internationalization/model"
+            class="org.eclipse.papyrus.infra.internationalization.InternationalizationPackage"
+            genModel="model/Internationalization.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.infra.core.model">
+      <model
+            classname="org.eclipse.papyrus.infra.internationalization.modelresource.InternationalizationPreferenceModel"
+            description="Model for internationalization preference"
+            fileExtension="internationalization">
+      </model>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="org.eclipse.papyrus.infra.internationalization.resource.InternationalizationResourceFactory"
+            type="properties">
+      </parser>
+   </extension>
+   
+   <extension-point id="internationalizationPreferenceModelProvider" name="Internationalization Preference Model Providers" schema="schema/internationalizationPreferenceModelProvider.exsd"/>
+
+</plugin>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+
+<plugin>
+   <extension
+         point="org.eclipse.papyrus.infra.properties.contexts">
+      <context
+            contextModel="model/general/internationalization.ctx">
+      </context>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.infra.properties.environments">
+      <environment
+            environmentModel="model/environment.xmi">
+      </environment>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.infra.properties.ui.context">
+      <preferencePageBinding
+            context="welcome-internationalization"
+            page="org.eclipse.papyrus.infra.editor.welcome.content">
+      </preferencePageBinding>
+   </extension>
+</plugin>
