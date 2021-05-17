@@ -245,7 +245,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		setPartName(LabelInternationalization.getInstance().getDiagramLabel(getDiagram()));
+		setPartName(LabelInternationalization.getInstance().getDiagramLabel(getDiagram()));// TODO
 		// titleImage = DIAG_IMG_DESC.createImage();
 		// setTitleImage(titleImage);
 	}

@@ -16,3 +16,6 @@ Require-Bundle: org.eclipse.sirius;bundle-version="6.4.1",
  org.eclipse.sirius.common
 Bundle-Activator: org.eclipse.papyrus.uml.sirius.common.diagram.Activator
 Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.papyrus.uml.sirius.common.diagram,
+ org.eclipse.papyrus.uml.sirius.common.diagram.core.services,
+ org.eclipse.papyrus.uml.sirius.common.diagram.services

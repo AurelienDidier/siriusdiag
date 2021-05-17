@@ -32,7 +32,6 @@ import org.eclipse.papyrus.infra.internationalization.InternationalizationEntry;
 import org.eclipse.papyrus.infra.internationalization.common.editor.IInternationalizationEditor;
 import org.eclipse.papyrus.infra.internationalization.common.utils.InternationalizationPreferencesUtils;
 import org.eclipse.papyrus.infra.internationalization.modelresource.InternationalizationModelResource;
-import org.eclipse.papyrus.infra.internationalization.utils.QualifiedNameUtils;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 

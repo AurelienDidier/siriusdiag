@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>org.eclipse.papyrus.infra</artifactId>
+		<groupId>org.eclipse.papyrus</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>org.eclipse.papyrus.infra-internationalization</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Papyrus Internationalization</name>
+	<description>Papyrus Internationalization plugins.</description>
+
+	<modules>
+		<module>org.eclipse.papyrus.infra.internationalization</module>
+		<module>org.eclipse.papyrus.infra.internationalization.edit</module>
+		<module>org.eclipse.papyrus.infra.internationalization.utils</module>
+		<module>org.eclipse.papyrus.infra.internationalization.ui</module>
+		<module>org.eclipse.papyrus.infra.internationalization.controlmode</module>
+		<module>org.eclipse.papyrus.infra.internationalization.common</module>
+		<module>org.eclipse.papyrus.infra.internationalization.readonly</module>
+		<module>org.eclipse.papyrus.infra.editor.welcome.internationalization</module>
+	</modules>
+
+
+</project>

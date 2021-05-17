@@ -17,8 +17,6 @@ import java.util.Locale;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.papyrus.infra.internationalization.common.utils.InternationalizationPreferencesUtils;
-import org.eclipse.papyrus.infra.internationalization.utils.QualifiedNameUtils;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 /**
