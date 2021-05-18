@@ -17,8 +17,9 @@ package org.eclipse.papyrus.infra.internationalization.gmf.utils;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.papyrus.infra.internationalization.common.utils.InternationalizationPreferencesUtils;
+//import org.eclipse.papyrus.infra.nattable.model.nattable.Table;
+import org.eclipse.papyrus.infra.nattable.model.nattable.Table;
 
 /**
  * Open the label internationalization preferences to the others plugins with the utils plugin.
@@ -34,11 +35,8 @@ public class LabelInternationalizationPreferencesUtils {
 	 *            The new preference value.
 	 */
 	public static void setInternationalizationPreference(final EObject eObject, final boolean value) {
-		// if (eObject instanceof Table) {
-		// LabelInternationalization.getInstance().setInternationalizationPreference((Table) eObject, value);
-		// } else
-		if (eObject instanceof Diagram) {
-			LabelInternationalization.getInstance().setInternationalizationPreference((Diagram) eObject, value);
+		if (eObject instanceof Table) {
+			LabelInternationalization.getInstance().setInternationalizationPreference((Table) eObject, value);
 		} else {
 			InternationalizationPreferencesUtils.setInternationalizationPreference(eObject, value);
 		}
@@ -65,11 +63,8 @@ public class LabelInternationalizationPreferencesUtils {
 	 */
 	public static boolean getInternationalizationPreference(final EObject eObject) {
 		boolean result = false;
-		// if (eObject instanceof Table) {
-		// result = LabelInternationalization.getInstance().getInternationalizationPreference((Table) eObject);
-		// } else
-		if (eObject instanceof Diagram) {
-			result = LabelInternationalization.getInstance().getInternationalizationPreference((Diagram) eObject);
+		if (eObject instanceof Table) {
+			result = LabelInternationalization.getInstance().getInternationalizationPreference((Table) eObject);
 		} else {
 			result = InternationalizationPreferencesUtils.getInternationalizationPreference(eObject);
 		}

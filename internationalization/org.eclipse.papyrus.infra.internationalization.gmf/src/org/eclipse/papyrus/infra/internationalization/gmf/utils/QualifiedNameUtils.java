@@ -24,8 +24,6 @@ import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.gmf.runtime.notation.Diagram;
 //import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Style;
-//import org.eclipse.papyrus.infra.nattable.model.nattable.Table;
-import org.eclipse.papyrus.infra.nattable.model.nattable.Table;
 
 /**
  * The utils methods corresponding to the qualified name calculation for the
@@ -202,35 +200,35 @@ public class QualifiedNameUtils {
 		return null;
 	}
 
-	/**
-	 * Get a table by its name.
-	 *
-	 * @param model
-	 *            The EMF logical model.
-	 * @param tableName
-	 *            Name of the table. This is the name set by the user.
-	 * @param qualifiedName
-	 *            The qualified name representing the table owner or
-	 *            <code>null</code>.
-	 * @return The found diagram or <code>null</code>.
-	 */
-	public static Table getTable(final Resource resource, final String tableName, final String qualifiedName) {
-		if (null != tableName && !tableName.isEmpty()) {
-			for (final EObject element : resource.getContents()) {
-				if (element instanceof Table) {
-					final Table table = (Table) element;
-
-					if (tableName.equals(table.getName())) {
-						// Found
-						if (null == qualifiedName || qualifiedName.isEmpty()
-								|| getQualifiedName(table.getOwner()).equals(qualifiedName)) {
-							return table;
-						}
-					}
-				}
-			}
-		}
-		// not found
-		return null;
-	}
+	// /**
+	// * Get a table by its name.
+	// *
+	// * @param model
+	// * The EMF logical model.
+	// * @param tableName
+	// * Name of the table. This is the name set by the user.
+	// * @param qualifiedName
+	// * The qualified name representing the table owner or
+	// * <code>null</code>.
+	// * @return The found diagram or <code>null</code>.
+	// */
+	// public static Table getTable(final Resource resource, final String tableName, final String qualifiedName) {
+	// if (null != tableName && !tableName.isEmpty()) {
+	// for (final EObject element : resource.getContents()) {
+	// if (element instanceof Table) {
+	// final Table table = (Table) element;
+	//
+	// if (tableName.equals(table.getName())) {
+	// // Found
+	// if (null == qualifiedName || qualifiedName.isEmpty()
+	// || getQualifiedName(table.getOwner()).equals(qualifiedName)) {
+	// return table;
+	// }
+	// }
+	// }
+	// }
+	// }
+	// // not found
+	// return null;
+	// }
 }

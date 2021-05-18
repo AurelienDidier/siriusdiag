@@ -13,7 +13,7 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.infra.internationalization.gmf;
+package org.eclipse.papyrus.infra.internationalization.nattable;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -45,8 +45,6 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
@@ -64,13 +62,14 @@ import org.eclipse.papyrus.infra.internationalization.common.editor.IInternation
 import org.eclipse.papyrus.infra.internationalization.common.utils.InternationalizationPreferencesConstants;
 import org.eclipse.papyrus.infra.internationalization.common.utils.InternationalizationPreferencesUtils;
 import org.eclipse.papyrus.infra.internationalization.common.utils.LocaleNameResolver;
-import org.eclipse.papyrus.infra.internationalization.gmf.utils.QualifiedNameUtils;
 import org.eclipse.papyrus.infra.internationalization.helper.InternationalizationResourceHelper;
 import org.eclipse.papyrus.infra.internationalization.resource.InternationalizationResource;
 import org.eclipse.papyrus.infra.internationalization.utils.EntryPartLabelSynchronizer;
 import org.eclipse.papyrus.infra.internationalization.utils.InternationalizationResourceOptionsConstants;
 import org.eclipse.papyrus.infra.internationalization.utils.PropertiesFilesUtils;
 import org.eclipse.papyrus.infra.internationalization.utils.ResourceBundleAndURI;
+import org.eclipse.papyrus.infra.nattable.model.nattable.Table;
+import org.eclipse.papyrus.infra.nattable.model.nattable.nattableconfiguration.NattableconfigurationPackage;
 
 /**
  * This allows to manage the internationalization resource.
@@ -1119,25 +1118,15 @@ public class InternationalizationModelResource extends org.eclipse.papyrus.infra
 
 		// Change name for diagram
 		if (domain instanceof TransactionalEditingDomain) {
-			if (eObject instanceof Diagram) {
-				result = new GMFtoEMFCommandWrapper(new ResetNameTransactionalCommand(
-						(TransactionalEditingDomain) domain, eObject, NotationPackage.eINSTANCE.getDiagram_Name()));
-
-				// Change name for table
+			if (eObject instanceof Table) {
+				result = new GMFtoEMFCommandWrapper(
+						new ResetNameTransactionalCommand((TransactionalEditingDomain) domain, eObject,
+								NattableconfigurationPackage.eINSTANCE.getTableNamedElement_Name()));
 			}
-			// else if (eObject instanceof Table) {
-			// result = new GMFtoEMFCommandWrapper(
-			// new ResetNameTransactionalCommand((TransactionalEditingDomain) domain, eObject,
-			// NattableconfigurationPackage.eINSTANCE.getTableNamedElement_Name()));
-			// }
 		} else {
-			if (eObject instanceof Diagram) {
-				result = new ResetNameCommand(domain, eObject, NotationPackage.eINSTANCE.getDiagram_Name());
-
-				// Change name for table
-				// } else if (eObject instanceof Table) {
-				// result = new ResetNameCommand(domain, eObject,
-				// NattableconfigurationPackage.eINSTANCE.getTableNamedElement_Name());
+			if (eObject instanceof Table) {
+				result = new ResetNameCommand(domain, eObject,
+						NattableconfigurationPackage.eINSTANCE.getTableNamedElement_Name());
 			}
 		}
 
@@ -1156,19 +1145,12 @@ public class InternationalizationModelResource extends org.eclipse.papyrus.infra
 	@Override
 	protected void setNameValue(final EObject eObject) {
 
-		// Change name for diagram
-		if (eObject instanceof Diagram) {
-			final String oldName = ((Diagram) eObject).getName();
-			((Diagram) eObject).setName(""); //$NON-NLS-1$
-			((Diagram) eObject).setName(oldName);
-
-			// Change name for table
+		// Change name for table
+		if (eObject instanceof Table) {
+			final String oldName = ((Table) eObject).getName();
+			((Table) eObject).setName(""); //$NON-NLS-1$
+			((Table) eObject).setName(oldName);
 		}
-		// else if (eObject instanceof Table) {
-		// final String oldName = ((Table) eObject).getName();
-		// ((Table) eObject).setName(""); //$NON-NLS-1$
-		// ((Table) eObject).setName(oldName);
-		// }
 	}
 
 	/**
@@ -1312,15 +1294,12 @@ public class InternationalizationModelResource extends org.eclipse.papyrus.infra
 
 	{
 		EObject parentEObject = eObject;
-		// if (eObject instanceof Table) {
-		// if (null != ((Table) eObject).getOwner()) {
-		// parentEObject = ((Table) eObject).getOwner();
-		// } else {
-		// parentEObject = ((Table) eObject).getContext();
-		// }
-		// } else
-		if (eObject instanceof Diagram) {
-			parentEObject = QualifiedNameUtils.getOwner((Diagram) eObject);
+		if (eObject instanceof Table) {
+			if (null != ((Table) eObject).getOwner()) {
+				parentEObject = ((Table) eObject).getOwner();
+			} else {
+				parentEObject = ((Table) eObject).getContext();
+			}
 		}
 		return parentEObject;
 	}

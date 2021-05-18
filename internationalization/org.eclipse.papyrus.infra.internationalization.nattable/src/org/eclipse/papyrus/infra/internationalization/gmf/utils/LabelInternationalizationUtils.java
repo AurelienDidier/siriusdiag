@@ -24,7 +24,6 @@ import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.papyrus.infra.core.resource.ModelSet;
 import org.eclipse.papyrus.infra.core.resource.NotFoundException;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
@@ -35,6 +34,7 @@ import org.eclipse.papyrus.infra.internationalization.InternationalizationEntry;
 import org.eclipse.papyrus.infra.internationalization.common.editor.IInternationalizationEditor;
 import org.eclipse.papyrus.infra.internationalization.common.utils.InternationalizationPreferencesUtils;
 import org.eclipse.papyrus.infra.internationalization.modelresource.InternationalizationModelResource;
+import org.eclipse.papyrus.infra.nattable.model.nattable.Table;
 
 /**
  * This allows to manage the utils methods for the internationalization.
@@ -233,7 +233,7 @@ public class LabelInternationalizationUtils {
 	 * corresponding to the editor part.
 	 *
 	 * @param eObject
-	 *            The EObject (seems to be Table or Diagram).
+	 *            The EObject (seems to be Table).
 	 * @param editorPart
 	 *            The editor part corresponding to the EObject.
 	 */
@@ -258,14 +258,11 @@ public class LabelInternationalizationUtils {
 	 */
 	protected static EObject getParentEObject(final EObject eObject) {
 		EObject parentEObject = eObject;
-		// if (eObject instanceof Table) {
-		// parentEObject = ((Table) eObject).getOwner();
-		// if (null == parentEObject) {
-		// parentEObject = ((Table) eObject).getContext();
-		// }
-		// } else
-		if (eObject instanceof Diagram) {
-			parentEObject = QualifiedNameUtils.getOwner((Diagram) eObject);
+		if (eObject instanceof Table) {
+			parentEObject = ((Table) eObject).getOwner();
+			if (null == parentEObject) {
+				parentEObject = ((Table) eObject).getContext();
+			}
 		}
 		return parentEObject;
 	}

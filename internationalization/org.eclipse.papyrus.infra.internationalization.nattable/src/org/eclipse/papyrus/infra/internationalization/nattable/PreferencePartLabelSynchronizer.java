@@ -13,17 +13,16 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.infra.internationalization.gmf;
+package org.eclipse.papyrus.infra.internationalization.nattable;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.papyrus.infra.internationalization.common.editor.IInternationalizationEditor;
 import org.eclipse.papyrus.infra.internationalization.common.utils.InternationalizationPreferencesConstants;
 import org.eclipse.papyrus.infra.internationalization.common.utils.InternationalizationPreferencesUtils;
-import org.eclipse.papyrus.infra.internationalization.gmf.utils.QualifiedNameUtils;
+import org.eclipse.papyrus.infra.nattable.model.nattable.Table;
 
 /**
  * A class taking in charge the synchronization of the partName and the label.
@@ -130,49 +129,31 @@ public class PreferencePartLabelSynchronizer {
 	 */
 	protected String getLabel(final EObject object) {
 		String value = ""; //$NON-NLS-1$
-		// if (object instanceof Table) {
-		// value = getTableLabel((Table) object);
-		// } else
-		if (object instanceof Diagram) {
-			value = getDiagramLabel((Diagram) object);
+		if (object instanceof Table) {
+			value = getTableLabel((Table) object);
 		}
 		return value;
 	}
 
-	// /**
-	// * This allows to get the table label from the model resource.
-	// *
-	// * @param table
-	// * The table to get its label (name if label returns
-	// * <code>null</code>).
-	// * @return The table label or table name if label returns <code>null</code>.
-	// */
-	// protected String getTableLabel(final Table table) {
-	// String result = null;
-	// EObject tableOwner = table.getOwner();
-	// if (null == tableOwner) {
-	// tableOwner = table.getContext();
-	// }
-	// if (InternationalizationPreferencesUtils.getInternationalizationPreference(tableOwner)) {
-	// result = modelResource.getValueForEntryKey(tableOwner.eResource().getURI(), table);
-	// }
-	// return null != result ? result : table.getName();
-	// }
-
 	/**
-	 * This allows to get the diagram label from the model resource.
+	 * This allows to get the table label from the model resource.
 	 *
-	 * @param diagram
-	 *            The diagram to get its label (name if label returns
+	 * @param table
+	 *            The table to get its label (name if label returns
 	 *            <code>null</code>).
-	 * @return The diagram label or diagram name if label returns
-	 *         <code>null</code>.
+	 * @return The table label or table name if label returns <code>null</code>.
 	 */
-	protected String getDiagramLabel(final Diagram diagram) {
+	protected String getTableLabel(final Table table) {
 		String result = null;
-		if (InternationalizationPreferencesUtils.getInternationalizationPreference(QualifiedNameUtils.getOwner(diagram))) {
-			result = modelResource.getValueForEntryKey(diagram.eResource().getURI(), diagram);
+		EObject tableOwner = table.getOwner();
+		if (null == tableOwner) {
+			tableOwner = table.getContext();
 		}
-		return null != result ? result : diagram.getName();
+		if (InternationalizationPreferencesUtils.getInternationalizationPreference(tableOwner)) {
+			result = modelResource.getValueForEntryKey(tableOwner.eResource().getURI(), table);
+		}
+		return null != result ? result : table.getName();
 	}
+
+
 }

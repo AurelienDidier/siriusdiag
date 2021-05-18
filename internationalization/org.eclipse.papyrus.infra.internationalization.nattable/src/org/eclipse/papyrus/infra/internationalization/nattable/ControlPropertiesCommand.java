@@ -14,10 +14,11 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.infra.internationalization.gmf;
+package org.eclipse.papyrus.infra.internationalization.nattable;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -33,9 +34,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
-import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.papyrus.infra.gmfdiag.common.model.NotationModel;
-import org.eclipse.papyrus.infra.gmfdiag.common.model.NotationUtils;
 //import org.eclipse.papyrus.infra.gmfdiag.common.model.NotationModel;
 import org.eclipse.papyrus.infra.internationalization.InternationalizationEntry;
 import org.eclipse.papyrus.infra.internationalization.InternationalizationFactory;
@@ -43,6 +42,7 @@ import org.eclipse.papyrus.infra.internationalization.InternationalizationLibrar
 import org.eclipse.papyrus.infra.internationalization.controlmode.utils.ControlPropertiesUtils;
 import org.eclipse.papyrus.infra.internationalization.modelresource.InternationalizationModelResource;
 import org.eclipse.papyrus.infra.internationalization.utils.PropertiesFilesUtils;
+import org.eclipse.papyrus.infra.nattable.model.nattable.Table;
 //import org.eclipse.papyrus.infra.nattable.model.nattable.Table;
 import org.eclipse.papyrus.infra.services.controlmode.ControlModeRequest;
 import org.eclipse.papyrus.infra.services.controlmode.commands.AbstractControlCommand;
@@ -197,51 +197,43 @@ public class ControlPropertiesCommand extends AbstractControlCommand {
 
 			final Resource oldNotationResource = getOldNotationResource();
 
-			// Search the diagrams labels to control
-			for (final Diagram diagram : NotationUtils.getDiagrams(oldNotationResource,
-					getRequest().getTargetObject())) {
-				entryForKey = internationalizationModelResource.getEntryForKey(getOldPropertiesURI(), diagram, locale);
+
+			// Search the tables labels to control
+			for (final Table table : getTables(oldNotationResource, getRequest().getTargetObject())) {
+				entryForKey = internationalizationModelResource.getEntryForKey(getOldPropertiesURI(), table, locale);
 				if (null != entryForKey) {
 					entries.add(entryForKey);
 				}
 			}
-
-			// Search the tables labels to control
-			// for (final Table table : getTables(oldNotationResource, getRequest().getTargetObject())) {
-			// entryForKey = internationalizationModelResource.getEntryForKey(getOldPropertiesURI(), table, locale);
-			// if (null != entryForKey) {
-			// entries.add(entryForKey);
-			// }
-			// }
 		}
 
 		return entries;
 	}
 
-	// /**
-	// * Gets the all the tables contained in the specified ancestor eObject.
-	// *
-	// * @param notationResource
-	// * The notation resource where search tables.
-	// * @param eObject
-	// * The table to search in notation resource.
-	// *
-	// * @return all the contained tables.
-	// */
-	// protected List<Table> getTables(final Resource notationResource, final EObject eObject) {
-	// final List<Table> tables = new LinkedList<>();
-	// if (null != notationResource) {
-	// for (final EObject obj : notationResource.getContents()) {
-	// if (obj instanceof Table) {
-	// Table table = (Table) obj;
-	// if (EcoreUtil.isAncestor(eObject, table.getOwner())) {
-	// tables.add(table);
-	// }
-	// }
-	// }
-	// }
-	// return tables;
-	// }
+	/**
+	 * Gets the all the tables contained in the specified ancestor eObject.
+	 *
+	 * @param notationResource
+	 *            The notation resource where search tables.
+	 * @param eObject
+	 *            The table to search in notation resource.
+	 *
+	 * @return all the contained tables.
+	 */
+	protected List<Table> getTables(final Resource notationResource, final EObject eObject) {
+		final List<Table> tables = new LinkedList<>();
+		if (null != notationResource) {
+			for (final EObject obj : notationResource.getContents()) {
+				if (obj instanceof Table) {
+					Table table = (Table) obj;
+					if (EcoreUtil.isAncestor(eObject, table.getOwner())) {
+						tables.add(table);
+					}
+				}
+			}
+		}
+		return tables;
+	}
 
 	/**
 	 * Gets the old internationalization model resource.
