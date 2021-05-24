@@ -124,7 +124,6 @@ public class SiriusDiagramModel extends AbstractDynamicModel<DSemanticDiagram> {
 				targetResource = getResource();
 			}
 			if (targetResource != null) {
-				// // TODO add getSession from AirdResource
 				// targetResource.getContents().add(newInstance);
 				URI uri = contextResource.getURI();
 				uri = uri.trimFileExtension();

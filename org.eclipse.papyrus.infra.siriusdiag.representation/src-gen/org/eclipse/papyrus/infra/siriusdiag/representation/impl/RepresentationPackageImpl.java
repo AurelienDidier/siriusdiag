@@ -31,23 +31,6 @@ import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototyp
 import org.eclipse.papyrus.infra.siriusdiag.representation.util.RepresentationValidator;
 import org.eclipse.papyrus.infra.types.ElementTypesConfigurationsPackage;
 import org.eclipse.sirius.diagram.DiagramPackage;
-import org.eclipse.sirius.diagram.description.DescriptionPackage;
-import org.eclipse.sirius.diagram.description.concern.ConcernPackage;
-import org.eclipse.sirius.diagram.description.concern.impl.ConcernPackageImpl;
-import org.eclipse.sirius.diagram.description.filter.FilterPackage;
-import org.eclipse.sirius.diagram.description.filter.impl.FilterPackageImpl;
-import org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl;
-import org.eclipse.sirius.diagram.description.style.StylePackage;
-import org.eclipse.sirius.diagram.description.style.impl.StylePackageImpl;
-import org.eclipse.sirius.diagram.description.tool.ToolPackage;
-import org.eclipse.sirius.diagram.description.tool.impl.ToolPackageImpl;
-import org.eclipse.sirius.diagram.impl.DiagramPackageImpl;
-import org.eclipse.sirius.viewpoint.ViewpointPackage;
-import org.eclipse.sirius.viewpoint.description.audit.AuditPackage;
-import org.eclipse.sirius.viewpoint.description.audit.impl.AuditPackageImpl;
-import org.eclipse.sirius.viewpoint.description.validation.ValidationPackage;
-import org.eclipse.sirius.viewpoint.description.validation.impl.ValidationPackageImpl;
-import org.eclipse.sirius.viewpoint.impl.ViewpointPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

@@ -123,6 +123,7 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 						// for example: set a new name
 						DSemanticDiagram rep = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation("ClassDiagram", model, desc, session, new NullProgressMonitor());
 						session.save(new NullProgressMonitor());
+						// TODO: Doit on garder ca.
 						DialectUIManager.INSTANCE.openEditor(session, rep, new NullProgressMonitor());
 
 					}
