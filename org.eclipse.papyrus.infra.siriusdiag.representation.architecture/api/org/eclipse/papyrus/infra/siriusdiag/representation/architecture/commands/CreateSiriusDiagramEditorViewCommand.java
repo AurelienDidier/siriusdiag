@@ -18,7 +18,6 @@ import java.util.Collection;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
@@ -26,7 +25,6 @@ import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
-import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 
 /**
@@ -37,7 +35,9 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 	/**
 	 * the {@link SiriusDiagramPrototype} used to create the {@link DSemanticDiagram} model and its editor view
 	 */
+	// TODO: A supprimer le prototype sert a rien en fait.
 	private final DSemanticDiagram prototype;
+	private DSemanticDiagram newInstance;
 
 	/**
 	 * the main title of the created {@link DSemanticDiagram}
@@ -88,8 +88,6 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 	protected void doExecute() {
 		final DSemanticDiagram diag = this.prototype;
 
-		final DSemanticDiagram newInstance = EcoreUtil.copy(diag);
-
 		attachToResource(semanticContext, newInstance);
 		// if (SiriusDiagramPrototype instanceof DDiagram) {
 
@@ -121,10 +119,10 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 					protected void doExecute() {
 						// Implement your write operations here,
 						// for example: set a new name
-						DSemanticDiagram rep = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation("ClassDiagram", model, desc, session, new NullProgressMonitor());
+						newInstance = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation("ClassDiagram", model, desc, session, new NullProgressMonitor());
 						session.save(new NullProgressMonitor());
 						// TODO: Doit on garder ca.
-						DialectUIManager.INSTANCE.openEditor(session, rep, new NullProgressMonitor());
+						// DialectUIManager.INSTANCE.openEditor(session, newInstance, new NullProgressMonitor());
 
 					}
 				});

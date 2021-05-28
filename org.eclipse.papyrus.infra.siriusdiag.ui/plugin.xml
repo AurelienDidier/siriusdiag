@@ -10,7 +10,7 @@
                icon="icons/new_document.png"
                id="org.eclipse.papyrus.infra.siriusdiag.ui.popupmenu.createsiriusdiagram"
                label="New Sirius Diagram"
-               tooltip="The Sirius Diagram Template Menu">
+               tooltip="The Sirius Diagram Menu">
             <dynamic
                   class="org.eclipse.papyrus.infra.siriusdiag.ui.internal.menus.SiriusDiagramDynamicContribution"
                   id="org.eclipse.papyrus.infra.siriusdiag.ui.internal.menus.DSemanticDiagramDynamicContribution">

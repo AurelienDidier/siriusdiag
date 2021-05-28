@@ -125,35 +125,7 @@ public class RepresentationValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSiriusDiagramPrototype(SiriusDiagramPrototype siriusDiagramPrototype, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(siriusDiagramPrototype, diagnostics, context)) {
-			return false;
-		}
-		boolean result = validate_EveryMultiplicityConforms(siriusDiagramPrototype, diagnostics, context);
-		if (result || diagnostics != null) {
-			result &= validate_EveryDataValueConforms(siriusDiagramPrototype, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryReferenceIsContained(siriusDiagramPrototype, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryBidirectionalReferenceIsPaired(siriusDiagramPrototype, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryProxyResolves(siriusDiagramPrototype, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_UniqueID(siriusDiagramPrototype, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryKeyUnique(siriusDiagramPrototype, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryMapEntryUnique(siriusDiagramPrototype, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validateSiriusDiagramPrototype_isValidClass(siriusDiagramPrototype, diagnostics, context);
-		}
-		return result;
+		return true;
 	}
 
 	/**

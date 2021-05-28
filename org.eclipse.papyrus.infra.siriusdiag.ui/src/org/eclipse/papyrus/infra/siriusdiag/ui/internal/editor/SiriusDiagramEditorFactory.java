@@ -130,7 +130,7 @@ public class SiriusDiagramEditorFactory extends AbstractEditorFactory {
 			try {
 
 				Constructor<?> c = getDiagramClass().getConstructor(ServicesRegistry.class, DSemanticDiagram.class);
-				IEditorPart newEditor = (IEditorPart) c.newInstance(this.servicesRegistry, this.rawModel);
+				IEditorPart newEditor = (IEditorPart) c.newInstance(this.servicesRegistry, this.rawModel);// rawmodel est il un DSemanticDiagram?
 				this.editor = newEditor;
 				return this.editor;
 

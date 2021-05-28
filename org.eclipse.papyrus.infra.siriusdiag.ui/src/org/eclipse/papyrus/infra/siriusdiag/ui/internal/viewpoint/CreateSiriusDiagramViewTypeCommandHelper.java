@@ -124,7 +124,7 @@ public class CreateSiriusDiagramViewTypeCommandHelper implements IViewTypeHelper
 		}
 		PolicyChecker checker = PolicyChecker.getFor(view);
 		ArchitectureDomainManager manager = ArchitectureDomainManager.getInstance();
-		SiriusDiagramPrototype repKind = (SiriusDiagramPrototype) manager.getRepresentationKindById(((DSemanticDiagram) view).getUid());// getRepresentationKindById(((Document) view)
+		SiriusDiagramPrototype repKind = (SiriusDiagramPrototype) manager.getRepresentationKindById("");// getRepresentationKindById(((Document) view)
 		if (null != repKind && checker.isInViewpoint(repKind)) {
 			return getPrototypeFor(repKind);
 		}
