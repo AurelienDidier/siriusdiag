@@ -34,11 +34,11 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	 *
 	 * Constructor.
 	 *
-	 * @param documentTemplate
+	 * @param siriusDiagram
 	 *            the document template to edit
 	 */
-	public SiriusDiagramEditorInput(final DSemanticDiagram documentTemplate) {
-		this.diagramInstance = documentTemplate;
+	public SiriusDiagramEditorInput(final DSemanticDiagram siriusDiagram) {
+		this.diagramInstance = siriusDiagram;
 	}
 
 	/**

@@ -106,6 +106,7 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 
 		// Get Representation
 		EObject model = this.semanticContext;
+		String diagramName = this.editorViewName;
 		Collection<RepresentationDescription> descs = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), model);
 		for (RepresentationDescription desc : descs) {
 			if (DialectManager.INSTANCE.canCreate(model, desc)) {
@@ -119,9 +120,10 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 					protected void doExecute() {
 						// Implement your write operations here,
 						// for example: set a new name
-						newInstance = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation("ClassDiagram", model, desc, session, new NullProgressMonitor());
+						// TODO: Récupérer le nom
+						newInstance = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation(diagramName, model, desc, session, new NullProgressMonitor());
 						session.save(new NullProgressMonitor());
-						// TODO: Doit on garder ca.
+						// TODO: A supprimer.
 						// DialectUIManager.INSTANCE.openEditor(session, newInstance, new NullProgressMonitor());
 
 					}

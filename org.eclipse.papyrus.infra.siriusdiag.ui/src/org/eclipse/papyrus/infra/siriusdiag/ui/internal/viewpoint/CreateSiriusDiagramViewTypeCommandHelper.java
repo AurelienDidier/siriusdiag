@@ -124,7 +124,8 @@ public class CreateSiriusDiagramViewTypeCommandHelper implements IViewTypeHelper
 		}
 		PolicyChecker checker = PolicyChecker.getFor(view);
 		ArchitectureDomainManager manager = ArchitectureDomainManager.getInstance();
-		SiriusDiagramPrototype repKind = (SiriusDiagramPrototype) manager.getRepresentationKindById("");// getRepresentationKindById(((Document) view)
+		// TODO: Make it generic or create other command.
+		SiriusDiagramPrototype repKind = (SiriusDiagramPrototype) manager.getRepresentationKindById("org.eclipse.papyrus.infra.siriusdiag.class");// getRepresentationKindById(((Document) view)
 		if (null != repKind && checker.isInViewpoint(repKind)) {
 			return getPrototypeFor(repKind);
 		}

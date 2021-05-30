@@ -46,7 +46,6 @@ import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.internationalization.common.editor.IInternationalizationEditor;
-import org.eclipse.papyrus.infra.internationalization.utils.utils.LabelInternationalization;
 import org.eclipse.papyrus.infra.internationalization.utils.utils.LabelInternationalizationUtils;
 import org.eclipse.papyrus.infra.siriusdiag.ui.Activator;
 import org.eclipse.papyrus.infra.ui.lifecycleevents.ISaveAndDirtyService;
@@ -240,12 +239,14 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	@Override
 	public void init(IEditorSite site, IEditorInput input) {// throws PartInitException {
 		try {
-			super.init(site, input);
+			final SiriusDiagramEditorInput diagramEditorInput = new SiriusDiagramEditorInput(this.diagram);
+			super.init(site, diagramEditorInput);
 		} catch (PartInitException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		setPartName(LabelInternationalization.getInstance().getDiagramLabel(getDiagram()));// TODO
+		// TODO: change with internationalization commit
+		setPartName(this.diagram.getName());// TODO
 		// titleImage = DIAG_IMG_DESC.createImage();
 		// setTitleImage(titleImage);
 	}
@@ -257,7 +258,6 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 *
 	 * @return
 	 */
-	// @Override
 	// @Override
 	// public boolean isDirty() {
 	// // manage by the Papyrus main editor
