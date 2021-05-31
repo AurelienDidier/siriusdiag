@@ -22,9 +22,9 @@ import org.eclipse.osgi.util.NLS;
  */
 public class Messages extends NLS {
 	private static final String BUNDLE_NAME = "org.eclipse.papyrus.infra.siriusdiag.ui.internal.messages.messages"; //$NON-NLS-1$
-	public static String DocumentStructureTemplateEditorInput_NoName;
-	public static String DocumentStructureTemplateEditorInput_NoDescription;
-	public static String DocumentStructureTemplateEditorInput_Tooltip;
+	public static String SiriusDiagramEditorInput_NoName;
+	public static String SiriusDiagramEditorInput_NoDescription;
+	public static String SiriusDiagramEditorInput_Tooltip;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

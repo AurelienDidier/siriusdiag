@@ -20,13 +20,17 @@ import java.util.EventObject;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -40,6 +44,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.GraphicalViewer;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
@@ -58,10 +63,12 @@ import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.provider.DiagramItemProviderAdapterFactory;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl;
 import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.part.FileEditorInput;
 
 /**
  * DocumenView Editor.
@@ -239,8 +246,16 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	@Override
 	public void init(IEditorSite site, IEditorInput input) {// throws PartInitException {
 		try {
-			final SiriusDiagramEditorInput diagramEditorInput = new SiriusDiagramEditorInput(this.diagram);
-			super.init(site, diagramEditorInput);
+			Resource eResource = this.diagram.eResource();
+			URI eUri = eResource.getURI();
+			if (eUri.isPlatformResource()) {
+				String platformString = eUri.toPlatformString(true);
+				IFile file = (IFile) ResourcesPlugin.getWorkspace().getRoot().findMember(platformString);
+
+				final FileEditorInput diagramEditorInput = new FileEditorInput(file);
+				this.setDocumentProvider(diagramEditorInput);
+				super.init(site, diagramEditorInput);
+			}
 		} catch (PartInitException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -251,6 +266,30 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		// setTitleImage(titleImage);
 	}
 
+	@Override
+	public void setInput(IEditorInput input) {
+		try {
+			// Provide an URI with fragment in order to reuse the same Resource
+			// and set the diagram to the fragment.
+			// URIEditorInput uriInput = new URIEditorInput(EcoreUtil.getURI(getDiagram()));
+			doSetInput(input, true);
+		} catch (CoreException x) {
+			String title = "Problem opening"; //$NON-NLS-1$
+			String msg = "Cannot open input element:"; //$NON-NLS-1$
+			Shell shell = getSite().getShell();
+			ErrorDialog.openError(shell, title, msg, x.getStatus());
+		}
+	}
+
+	@Override
+	public void doSetInput(IEditorInput input, boolean releaseEditorContents) throws CoreException {
+		super.doSetInput(input, releaseEditorContents);
+		// if (getDiagram() != null && !DiagramVersioningUtils.isOfCurrentPapyrusVersion(getDiagram())) {
+		// new ReconcileHelper(getEditingDomain()).reconcileDiagram(getDiagram());
+		// }
+	}
+
+
 
 	/**
 	 *
@@ -258,11 +297,11 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 *
 	 * @return
 	 */
-	// @Override
-	// public boolean isDirty() {
-	// // manage by the Papyrus main editor
-	// return false;
-	// }
+	@Override
+	public boolean isDirty() {
+		// manage by the Papyrus main editor
+		return false;
+	}
 
 	/**
 	 *
@@ -270,11 +309,11 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 *
 	 * @return
 	 */
-	// @Override
-	// public boolean isSaveAsAllowed() {
-	// // manage by the Papyrus main editor
-	// return false;
-	// }
+	@Override
+	public boolean isSaveAsAllowed() {
+		// manage by the Papyrus main editor
+		return false;
+	}
 
 
 	// /**

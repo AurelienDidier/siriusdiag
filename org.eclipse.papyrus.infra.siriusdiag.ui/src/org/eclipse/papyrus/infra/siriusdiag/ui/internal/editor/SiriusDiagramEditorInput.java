@@ -37,6 +37,7 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	 * @param siriusDiagram
 	 *            the document template to edit
 	 */
+	// TODO:Essayer sans la classe SiriusDiagramEditorInput
 	public SiriusDiagramEditorInput(final DSemanticDiagram siriusDiagram) {
 		this.diagramInstance = siriusDiagram;
 	}
@@ -81,7 +82,7 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	@Override
 	public String getName() {
 		final String name = this.diagramInstance.getName();
-		return name == null || name.isEmpty() ? Messages.DocumentStructureTemplateEditorInput_NoName : name;
+		return name == null || name.isEmpty() ? Messages.SiriusDiagramEditorInput_NoName : name;
 	}
 
 	/**
@@ -102,7 +103,7 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	 */
 	private String getDescription() {
 		final String description = this.diagramInstance.getDocumentation();
-		return description == null || description.isEmpty() ? Messages.DocumentStructureTemplateEditorInput_NoDescription : description;
+		return description == null || description.isEmpty() ? Messages.SiriusDiagramEditorInput_NoDescription : description;
 	}
 
 	/**
@@ -113,7 +114,7 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	 */
 	@Override
 	public String getToolTipText() {
-		return NLS.bind(Messages.DocumentStructureTemplateEditorInput_Tooltip, getName(), getDescription());
+		return NLS.bind(Messages.SiriusDiagramEditorInput_Tooltip, getName(), getDescription());
 	}
 
 	/**
