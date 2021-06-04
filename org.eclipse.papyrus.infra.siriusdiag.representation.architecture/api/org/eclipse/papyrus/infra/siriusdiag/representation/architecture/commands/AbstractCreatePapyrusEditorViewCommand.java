@@ -57,6 +57,11 @@ public abstract class AbstractCreatePapyrusEditorViewCommand<T extends EObject> 
 	protected final String editorViewName;
 
 	/**
+	 * the editor name
+	 */
+	protected final String diagramId;
+
+	/**
 	 * The created editor view
 	 */
 	protected T createdEditorView;
@@ -78,12 +83,13 @@ public abstract class AbstractCreatePapyrusEditorViewCommand<T extends EObject> 
 	 * @param openAfterCreation
 	 *            if <code>true</code> the created editor will be opened after its creation
 	 */
-	public AbstractCreatePapyrusEditorViewCommand(final TransactionalEditingDomain domain, final String label, final String editorViewName, final EObject semanticContext, final EObject graphicalContext, final boolean openAfterCreation) {
+	public AbstractCreatePapyrusEditorViewCommand(final TransactionalEditingDomain domain, final String label, final String editorViewName, final EObject semanticContext, final EObject graphicalContext, final boolean openAfterCreation, final String id) {
 		super(domain, label);
 		this.semanticContext = semanticContext;
 		this.graphicalContext = graphicalContext != null ? graphicalContext : semanticContext;
 		this.openAfterCreation = openAfterCreation;
 		this.editorViewName = editorViewName;
+		this.diagramId = id;
 	}
 
 	/**
@@ -101,8 +107,8 @@ public abstract class AbstractCreatePapyrusEditorViewCommand<T extends EObject> 
 	 * @param openAfterCreation
 	 *            if <code>true</code> the created editor will be opened after its creation
 	 */
-	public AbstractCreatePapyrusEditorViewCommand(final TransactionalEditingDomain domain, final String label, final String editorViewName, final EObject semanticContext, final boolean openAfterCreation) {
-		this(domain, label, editorViewName, semanticContext, null, openAfterCreation);
+	public AbstractCreatePapyrusEditorViewCommand(final TransactionalEditingDomain domain, final String label, final String editorViewName, final EObject semanticContext, final boolean openAfterCreation, final String diagramId) {
+		this(domain, label, editorViewName, semanticContext, null, openAfterCreation, diagramId);
 	}
 
 

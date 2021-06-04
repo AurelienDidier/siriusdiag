@@ -3,7 +3,7 @@
   <contexts xmi:type="architecture:ArchitectureDescriptionLanguage" xmi:id="_-tAb0Lp2EeiViqj5DY8SRQ" id="org.eclipse.papyrus.infra.services.edit.TypeContext" name="UML" creationCommandClass="org.eclipse.papyrus.uml.diagram.common.commands.CreateUMLModelCommand">
     <viewpoints xmi:type="architecture:ArchitectureViewpoint" xmi:id="_1tp4cOEIEeiLVapXeWCJtQ" id="org.eclipse.papyrus.uml.analysis" name="Software Analysis" icon="platform:/plugin/org.eclipse.papyrus.uml.architecture/icons/viewpoint.gif" representationKinds="_v6j60Ci7EeuXVsN3JsOSRg"/>
     <viewpoints xmi:type="architecture:ArchitectureViewpoint" xmi:id="_dmWHgLp3EeiViqj5DY8SRQ" id="org.eclipse.papyrus.uml.design" name="Software Design" description="" icon="platform:/plugin/org.eclipse.papyrus.uml.architecture/icons/viewpoint.gif" representationKinds="_v6j60Ci7EeuXVsN3JsOSRg"/>
-    <representationKinds xmi:type="representation:SiriusDiagramPrototype" xmi:id="_v6j60Ci7EeuXVsN3JsOSRg" id="org.eclipse.papyrus.infra.siriusdiag.class" name="New Class Diagram" description="Create a new class diagram." icon="platform:/plugin/org.eclipse.papyrus.uml.architecture/icons/viewpoint.gif" grayedIcon="" implementationID="ClassDiagramID" creationCommandClass="org.eclipse.papyrus.infra.siriusdiag.representation.architecture.CreatePapyrusSiriusClassDiagramEditorCommand" viewpointName="">
+    <representationKinds xmi:type="representation:SiriusDiagramPrototype" xmi:id="_v6j60Ci7EeuXVsN3JsOSRg" id="org.eclipse.papyrus.infra.siriusdiag.class" name="New Class Diagram" description="Create a new class diagram." icon="platform:/plugin/org.eclipse.papyrus.uml.architecture/icons/viewpoint.gif" grayedIcon="" implementationID="ClassDiagram" creationCommandClass="org.eclipse.papyrus.infra.siriusdiag.representation.architecture.CreatePapyrusSiriusClassDiagramEditorCommand" viewpointName="">
       <modelRules xmi:type="representation_1:ModelRule" xmi:id="_yQX7oCi7EeuXVsN3JsOSRg" permit="true" elementMultiplicity="1" multiplicity="-1">
         <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
       </modelRules>
@@ -12,21 +12,5 @@
       </owningRules>
     </representationKinds>
     <metamodel xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
-    <representationKinds xmi:type="representation:PapyrusDocumentPrototype" xmi:id="_v6j60Ci7EeuXVsN3JsOSRg" id="org.eclipse.papyrus.uml.sirius.diagram.architecture.clazz" name="New Class Diagram" description="Create a new class diagram." icon="platform:/plugin/org.eclipse.papyrus.uml.sirius.clazz.diagram/icons/NotFound.png" grayedIcon="" implementationID="ClassDiagramID" creationCommandClass="org.eclipse.papyrus.infra.siriusdiag.representation.architecture.CreatePapyrusSiriusClassDiagramEditorCommand">
-      <modelRules xmi:type="representation_1:ModelRule" xmi:id="_yQX7oCi7EeuXVsN3JsOSRg" permit="true" elementMultiplicity="1" multiplicity="-1">
-        <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
-      </modelRules>
-      <owningRules xmi:type="representation_1:OwningRule" xmi:id="_U1S2EI12Eeu4KoKaZDZjtg" permit="true" multiplicity="-1">
-        <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
-      </owningRules>
-    </representationKinds>
-    <representationKinds xmi:type="representation:PapyrusDocumentPrototype" xmi:id="_oRVPMKZoEeuKxaOU6J4aOw" id="org.eclipse.papyrus.uml.sirius.diagram.architecture.sequence" name="New Sequence Diagram" description="Create a new sequence diagram." icon="platform:/plugin/org.eclipse.papyrus.uml.sirius.sequence.diagram/icons/NotFound.png" grayedIcon="" implementationID="SequenceDiagramID" creationCommandClass="org.eclipse.papyrus.infra.siriusdiag.representation.architecture.CreatePapyrusSiriusStateMachineDiagramEditorCommand">
-      <modelRules xmi:type="representation_1:ModelRule" xmi:id="_oRVPMaZoEeuKxaOU6J4aOw" permit="true" elementMultiplicity="1" multiplicity="-1">
-        <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
-      </modelRules>
-      <owningRules xmi:type="representation_1:OwningRule" xmi:id="_oRVPMqZoEeuKxaOU6J4aOw" permit="true" multiplicity="-1">
-        <element xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
-      </owningRules>
-    </representationKinds>
   </contexts>
 </architecture:ArchitectureDomain>

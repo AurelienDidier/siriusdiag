@@ -153,15 +153,15 @@ public class SiriusDiagramModel extends AbstractDynamicModel<DSemanticDiagram> {
 								}
 								selected.selectViewpoint(
 										ViewpointRegistry.getInstance()
+												.getViewpoint(URI.createURI("viewpoint:/org.eclipse.papyrus.uml.sirius.clazz.diagram/ClassDiagram")),
+										session, new NullProgressMonitor());
+								selected.selectViewpoint(
+										ViewpointRegistry.getInstance()
 												.getViewpoint(URI.createURI("viewpoint:/org.eclipse.papyrus.uml.sirius.sequence.diagram/SequenceDiagram")),
 										session, new NullProgressMonitor());
 								selected.selectViewpoint(
 										ViewpointRegistry.getInstance()
 												.getViewpoint(URI.createURI("viewpoint:/org.eclipse.papyrus.uml.sirius.statemachine.diagram/StateMachineDiagram")),
-										session, new NullProgressMonitor());
-								selected.selectViewpoint(
-										ViewpointRegistry.getInstance()
-												.getViewpoint(URI.createURI("viewpoint:/org.eclipse.papyrus.uml.sirius.clazz.diagram/ClassDiagram")),
 										session, new NullProgressMonitor());
 							}
 							// selected.selectViewpoint(

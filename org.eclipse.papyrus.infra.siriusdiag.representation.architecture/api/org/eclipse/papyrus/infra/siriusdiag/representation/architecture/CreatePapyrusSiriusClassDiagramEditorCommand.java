@@ -101,7 +101,7 @@ public class CreatePapyrusSiriusClassDiagramEditorCommand extends AbstractCreate
 				return null; // the creation is cancelled
 			}
 
-			return super.execute(diagram, diagramName, graphicalContext, semanticContext, openAfterCreation);
+			return super.execute(diagram, diagramName, graphicalContext, semanticContext, openAfterCreation, docProto.getImplementationID());
 		}
 		return null;
 	};

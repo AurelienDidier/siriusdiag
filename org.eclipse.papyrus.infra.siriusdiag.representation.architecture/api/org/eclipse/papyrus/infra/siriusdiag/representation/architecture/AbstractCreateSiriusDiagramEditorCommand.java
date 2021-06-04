@@ -66,8 +66,8 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 * @return
 	 *         the created {@link DSemanticDiagram}
 	 */
-	protected DSemanticDiagram execute(final DSemanticDiagram diagramTemplatePrototype, final String diagramName, final EObject semanticContext, final boolean openAfterCreation) {
-		return execute(diagramTemplatePrototype, diagramName, semanticContext, semanticContext, openAfterCreation);
+	protected DSemanticDiagram execute(final DSemanticDiagram diagramTemplatePrototype, final String diagramName, final EObject semanticContext, final boolean openAfterCreation, final String id) {
+		return execute(diagramTemplatePrototype, diagramName, semanticContext, semanticContext, openAfterCreation, id);
 	}
 
 	/**
@@ -85,7 +85,7 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 * @return
 	 *         the created {@link DSemanticDiagram}
 	 */
-	public DSemanticDiagram execute(final DSemanticDiagram diagram, final String diagramName, final EObject semanticContext, final EObject graphicalContext, final boolean openAfterCreation) {
+	public DSemanticDiagram execute(final DSemanticDiagram diagram, final String diagramName, final EObject semanticContext, final EObject graphicalContext, final boolean openAfterCreation, final String id) {
 		final Resource res = semanticContext.eResource();
 		final URI semanticURI = res.getURI();
 		if (semanticURI.isPlatformPlugin()) {
@@ -100,7 +100,7 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 		// TODO: Changer le nom du diagram
 		final String siriusDiagramMainTitle = getSiriusDiagramMainTitle(semanticContext);
 
-		final CreateSiriusDiagramEditorViewCommand command = createDSemanticDiagramEditorCreationCommand(domain, diagram, diagramName, siriusDiagramMainTitle, semanticContext, openAfterCreation);
+		final CreateSiriusDiagramEditorViewCommand command = createDSemanticDiagramEditorCreationCommand(domain, diagram, diagramName, siriusDiagramMainTitle, semanticContext, openAfterCreation, id);
 
 		domain.getCommandStack().execute(command);
 
@@ -133,8 +133,9 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 			final String diagramMainTitle,
 			final EObject semanticContext,
 			final EObject graphicalContext,
-			final boolean openAfterCreation) {
-		return new CreateSiriusDiagramEditorViewCommand(editingDomain, diagramPrototype, diagramName, diagramMainTitle, semanticContext, graphicalContext, openAfterCreation);
+			final boolean openAfterCreation,
+			final String diagramId) {
+		return new CreateSiriusDiagramEditorViewCommand(editingDomain, diagramPrototype, diagramName, diagramMainTitle, semanticContext, graphicalContext, openAfterCreation, diagramId);
 	}
 
 	/**
@@ -159,8 +160,9 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 			final String diagramName,
 			final String diagramMainTitle,
 			final EObject semanticContext,
-			final boolean openAfterCreation) {
-		return new CreateSiriusDiagramEditorViewCommand(editingDomain, diagramPrototype, diagramName, diagramMainTitle, semanticContext, openAfterCreation);
+			final boolean openAfterCreation,
+			final String diagramId) {
+		return new CreateSiriusDiagramEditorViewCommand(editingDomain, diagramPrototype, diagramName, diagramMainTitle, semanticContext, openAfterCreation, diagramId);
 	}
 
 	/**
