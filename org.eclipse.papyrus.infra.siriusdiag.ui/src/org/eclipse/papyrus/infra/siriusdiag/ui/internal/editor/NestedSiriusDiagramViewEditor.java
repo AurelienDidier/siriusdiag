@@ -20,8 +20,6 @@ import java.util.EventObject;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -44,14 +42,12 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.GraphicalViewer;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart;
-import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.internationalization.common.editor.IInternationalizationEditor;
-import org.eclipse.papyrus.infra.internationalization.utils.utils.LabelInternationalizationUtils;
 import org.eclipse.papyrus.infra.siriusdiag.ui.Activator;
 import org.eclipse.papyrus.infra.ui.lifecycleevents.ISaveAndDirtyService;
 import org.eclipse.papyrus.infra.widgets.util.IRevealSemanticElement;
@@ -62,13 +58,12 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.provider.DiagramItemProviderAdapterFactory;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl;
+import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.part.FileEditorInput;
 
 /**
  * DocumenView Editor.
@@ -90,6 +85,10 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 */
 	private DSemanticDiagram diagram;
 
+	private Session session;
+
+	private URI uri;
+
 	private TransactionalEditingDomain editingDomain;
 
 	private CommandStackListener commandStackListener;
@@ -105,11 +104,11 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 * @param rawModel
 	 *            the edited element, it can't be <code>null</code>
 	 */
-	public NestedSiriusDiagramViewEditor(ServicesRegistry servicesRegistry, DSemanticDiagram rawModel) {
+	public NestedSiriusDiagramViewEditor(ServicesRegistry servicesRegistry, DSemanticDiagram rawModel, Session session, URI uri) {
 		super();
 
 		// Need to manage the part label synchronizer for the table labels
-		LabelInternationalizationUtils.managePartLabelSynchronizer(diagram, this);
+		// TODO: ReAdd this NPE because diagram is null LabelInternationalizationUtils.managePartLabelSynchronizer(diagram or rawModel, this);
 
 		// Register this part to the ISaveAndDirtyService.
 		// This will allows to be notified of saveAs events, and the isDirty
@@ -125,6 +124,8 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		saveAndDirtyService.registerIsaveablePart(this);
 
 		this.diagram = rawModel;
+		this.uri = uri;
+		this.session = session;
 		this.servicesRegistry = servicesRegistry;
 		try {
 			editingDomain = servicesRegistry.getService(TransactionalEditingDomain.class);
@@ -242,42 +243,17 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 * @param site
 	 * @param input
 	 */
-	// @Override
 	@Override
 	public void init(IEditorSite site, IEditorInput input) {// throws PartInitException {
-		try {
-			Resource eResource = this.diagram.eResource();
-			URI eUri = eResource.getURI();
-			if (eUri.isPlatformResource()) {
-				String platformString = eUri.toPlatformString(true);
-				IFile file = (IFile) ResourcesPlugin.getWorkspace().getRoot().findMember(platformString);
+		final SiriusDiagramEditorInput diagramViewEditorInput = new SiriusDiagramEditorInput(this.diagram);
+		// TODO: Try using the SpecificEditorInputTranformer
+		// SpecificEditorInputTransformer seit=new SpecificEditorInputTranformer();
+		final SessionEditorInput sessionEditorInput = new SessionEditorInput(null, fErrorLabel, this.getSession());
 
-				final FileEditorInput diagramEditorInput = new FileEditorInput(file);
-				this.setDocumentProvider(diagramEditorInput);
-				super.init(site, diagramEditorInput);
-			}
+		try {
+			super.init(site, diagramViewEditorInput);
 		} catch (PartInitException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		// TODO: change with internationalization commit
-		setPartName(this.diagram.getName());// TODO
-		// titleImage = DIAG_IMG_DESC.createImage();
-		// setTitleImage(titleImage);
-	}
-
-	@Override
-	public void setInput(IEditorInput input) {
-		try {
-			// Provide an URI with fragment in order to reuse the same Resource
-			// and set the diagram to the fragment.
-			// URIEditorInput uriInput = new URIEditorInput(EcoreUtil.getURI(getDiagram()));
-			doSetInput(input, true);
-		} catch (CoreException x) {
-			String title = "Problem opening"; //$NON-NLS-1$
-			String msg = "Cannot open input element:"; //$NON-NLS-1$
-			Shell shell = getSite().getShell();
-			ErrorDialog.openError(shell, title, msg, x.getStatus());
 		}
 	}
 

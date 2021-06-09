@@ -36,7 +36,7 @@ import org.eclipse.sirius.viewpoint.description.Viewpoint;
 
 
 /**
- * This class manages PapyrusDocument in notation model resource.
+ * This class manages PapyrusDocument in aird model resource.
  *
  *
  */

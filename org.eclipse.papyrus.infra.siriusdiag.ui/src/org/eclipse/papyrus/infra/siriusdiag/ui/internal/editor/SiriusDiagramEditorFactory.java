@@ -129,8 +129,8 @@ public class SiriusDiagramEditorFactory extends AbstractEditorFactory {
 		public IEditorPart createIEditorPart() throws PartInitException {
 			try {
 
-				Constructor<?> c = getDiagramClass().getConstructor(ServicesRegistry.class, DSemanticDiagram.class);
-				IEditorPart newEditor = (IEditorPart) c.newInstance(this.servicesRegistry, this.rawModel);// rawmodel est il un DSemanticDiagram?
+				Constructor<?> c = getDiagramClass().getConstructor(ServicesRegistry.class, DSemanticDiagram.class/* , Session.class, URI.class */);
+				IEditorPart newEditor = (IEditorPart) c.newInstance(this.servicesRegistry, this.rawModel/* , this.session, this.uri */);// rawmodel est il un DSemanticDiagram?
 				this.editor = newEditor;
 				return this.editor;
 

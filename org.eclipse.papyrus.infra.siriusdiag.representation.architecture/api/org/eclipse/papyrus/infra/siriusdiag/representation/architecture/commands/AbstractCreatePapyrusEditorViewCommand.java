@@ -197,13 +197,13 @@ public abstract class AbstractCreatePapyrusEditorViewCommand<T extends EObject> 
 	}
 
 	/**
-	 * Open the editor for the document template
+	 * Open the editor for the diagram
 	 *
-	 * @param template
-	 *            the document template
+	 * @param diagram
+	 *            the diagram
 	 */
-	protected final void openEditor(final DSemanticDiagram template) {
-		final ServicesRegistry sReg = getServiceRegistry(template.getTarget());
+	protected final void openEditor(final DSemanticDiagram diagram) {
+		final ServicesRegistry sReg = getServiceRegistry(diagram.getTarget());
 		if (null == sReg) {
 			return;
 		}
@@ -211,7 +211,7 @@ public abstract class AbstractCreatePapyrusEditorViewCommand<T extends EObject> 
 		if (null == pageManager) {
 			return;
 		}
-		pageManager.openPage(template);
+		pageManager.openPage(diagram);
 	}
 
 	/**

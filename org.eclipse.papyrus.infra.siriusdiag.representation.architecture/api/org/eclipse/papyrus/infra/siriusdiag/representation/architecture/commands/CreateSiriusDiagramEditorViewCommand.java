@@ -17,6 +17,7 @@ package org.eclipse.papyrus.infra.siriusdiag.representation.architecture.command
 import java.util.Collection;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -109,7 +110,9 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 		// Get Representation
 		EObject model = this.semanticContext;
 		String diagramName = this.editorViewName;
-		String diagramID = this.id;
+		diag.diagramID = this.diagramID;
+		Session session = this.session;
+		URI uri = this.uri;
 		Collection<RepresentationDescription> descs = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), model);
 		for (RepresentationDescription desc : descs) {
 			if (DialectManager.INSTANCE.canCreate(model, desc)) {
@@ -124,7 +127,7 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 						// Implement your write operations here,
 						// for example: set a new name
 						// TODO: Récupérer le nom
-						if (desc.getName() == diagramID) {
+						if (desc.getName().equals(diagramID)) {
 							newInstance = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation(diagramName, model, desc, session, new NullProgressMonitor());
 							session.save(new NullProgressMonitor());
 						}
