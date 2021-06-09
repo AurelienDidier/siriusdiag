@@ -16,7 +16,9 @@ package org.eclipse.papyrus.infra.siriusdiag.representation;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.papyrus.infra.architecture.representation.PapyrusRepresentationKind;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 /**
@@ -61,7 +63,13 @@ public interface SiriusDiagramPrototype extends PapyrusRepresentationKind {
 	 * @model required="true"
 	 * @generated
 	 */
-	DSemanticDiagram getSiriusDiagramPrototype();
+	DSemanticDiagram getDSemanticDiagram();
+
+	URI getUri();
+
+	Session getSession();
+
+	void setSession(Session session);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getSiriusDiagramPrototype <em>Sirius Diagram Prototype</em>}' reference.
@@ -70,7 +78,7 @@ public interface SiriusDiagramPrototype extends PapyrusRepresentationKind {
 	 *
 	 * @param value
 	 *            the new value of the '<em>Sirius Diagram Prototype</em>' reference.
-	 * @see #getSiriusDiagramPrototype()
+	 * @see #getDSemanticDiagram()
 	 * @generated
 	 */
 	void setSiriusDiagramPrototype(DSemanticDiagram value);
@@ -141,6 +149,8 @@ public interface SiriusDiagramPrototype extends PapyrusRepresentationKind {
 	 */
 	String getDiagramName();
 
+	String getDiagramId();
+
 	/**
 	 * Sets the value of the '{@link org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getDiagramName <em>Diagram Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -164,5 +174,12 @@ public interface SiriusDiagramPrototype extends PapyrusRepresentationKind {
 	 * @generated
 	 */
 	boolean isValidClass(DiagnosticChain chain, Map<Object, Object> context);
+
+	/**
+	 * @param uri
+	 */
+	void setUri(URI uri);
+
+	void setDiagramId(String diagramId);
 
 } // SiriusDiagramPrototype

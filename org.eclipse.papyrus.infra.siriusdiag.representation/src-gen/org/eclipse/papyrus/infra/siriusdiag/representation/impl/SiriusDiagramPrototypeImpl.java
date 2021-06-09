@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -30,6 +31,7 @@ import org.eclipse.papyrus.infra.architecture.representation.impl.PapyrusReprese
 import org.eclipse.papyrus.infra.siriusdiag.representation.RepresentationPackage;
 import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
 import org.eclipse.papyrus.infra.siriusdiag.representation.util.RepresentationValidator;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 /**
@@ -50,11 +52,11 @@ import org.eclipse.sirius.diagram.DSemanticDiagram;
  */
 public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl implements SiriusDiagramPrototype {
 	/**
-	 * The cached value of the '{@link #getSiriusDiagramPrototype() <em>Sirius Diagram Prototype</em>}' reference.
+	 * The cached value of the '{@link #getDSemanticDiagram() <em>Sirius Diagram Prototype</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
-	 * @see #getSiriusDiagramPrototype()
+	 * @see #getDSemanticDiagram()
 	 * @generated
 	 * @ordered
 	 */
@@ -126,6 +128,12 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 */
 	protected String diagramName = DIAGRAM_NAME_EDEFAULT;
 
+	private Session session;
+
+	private URI uri;
+
+	private String diagramId;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -154,7 +162,7 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 * @generated
 	 */
 	@Override
-	public DSemanticDiagram getSiriusDiagramPrototype() {
+	public DSemanticDiagram getDSemanticDiagram() {
 		if (siriusDiagramPrototype != null && siriusDiagramPrototype.eIsProxy()) {
 			InternalEObject oldSiriusDiagramPrototype = (InternalEObject) siriusDiagramPrototype;
 			siriusDiagramPrototype = (DSemanticDiagram) eResolveProxy(oldSiriusDiagramPrototype);
@@ -306,7 +314,7 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 		switch (featureID) {
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__SIRIUS_DIAGRAM_PROTOTYPE:
 			if (resolve) {
-				return getSiriusDiagramPrototype();
+				return getDSemanticDiagram();
 			}
 			return basicGetSiriusDiagramPrototype();
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS:
@@ -428,6 +436,72 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 		result.append(diagramName);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getUri()
+	 *
+	 * @return
+	 */
+	@Override
+	public URI getUri() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
+	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getSession()
+	 *
+	 * @return
+	 */
+	@Override
+	public Session getSession() {
+		// TODO Auto-generated method stub
+		return session;
+	}
+
+	/**
+	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#setUri(org.eclipse.papyrus.infra.siriusdiag.representation.URI)
+	 *
+	 * @param uri
+	 */
+	@Override
+	public void setUri(URI uri) {
+		// TODO Auto-generated method stub
+		this.uri = uri;
+	}
+
+	/**
+	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#setSession(org.eclipse.sirius.business.api.session.Session)
+	 *
+	 * @param session
+	 */
+	@Override
+	public void setSession(Session session) {
+		// TODO Auto-generated method stub
+		this.session = session;
+	}
+
+	/**
+	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getDiagramId()
+	 *
+	 * @return
+	 */
+	@Override
+	public String getDiagramId() {
+		// TODO Auto-generated method stub
+		return diagramId;
+	}
+
+	/**
+	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#setDiagramId(java.lang.String)
+	 *
+	 * @param diagramId
+	 */
+	@Override
+	public void setDiagramId(String diagramId) {
+		// TODO Auto-generated method stub
+		this.diagramId = diagramId;
 	}
 
 } // SiriusDiagramPrototypeImpl

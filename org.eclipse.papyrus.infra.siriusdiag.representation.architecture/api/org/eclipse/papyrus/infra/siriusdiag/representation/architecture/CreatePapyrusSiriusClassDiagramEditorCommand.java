@@ -94,14 +94,14 @@ public class CreatePapyrusSiriusClassDiagramEditorCommand extends AbstractCreate
 			SiriusDiagramPrototype docProto = (SiriusDiagramPrototype) representation;
 
 
-			DSemanticDiagram diagram = docProto.getSiriusDiagramPrototype();
+			DSemanticDiagram diagram = docProto.getDSemanticDiagram();
 			// TODO: Diagram is null atm
 			final String diagramName = (name == null || name.isEmpty()) ? askName(prototype, semanticContext) : name;
 			if (null == diagramName) {
 				return null; // the creation is cancelled
 			}
 
-			return super.execute(diagram, diagramName, graphicalContext, semanticContext, openAfterCreation, docProto.getImplementationID());
+			return super.execute(docProto, diagramName, graphicalContext, semanticContext, openAfterCreation, docProto.getImplementationID());
 		}
 		return null;
 	};

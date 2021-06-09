@@ -27,6 +27,7 @@ import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.emf.utils.ServiceUtilsForEObject;
 import org.eclipse.papyrus.infra.siriusdiag.architecture.internal.messages.Messages;
 import org.eclipse.papyrus.infra.siriusdiag.representation.ICreateSiriusDiagramEditorCommand;
+import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
 import org.eclipse.papyrus.infra.siriusdiag.representation.architecture.commands.CreateSiriusDiagramEditorViewCommand;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.swt.widgets.Display;
@@ -66,7 +67,7 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 * @return
 	 *         the created {@link DSemanticDiagram}
 	 */
-	protected DSemanticDiagram execute(final DSemanticDiagram diagramTemplatePrototype, final String diagramName, final EObject semanticContext, final boolean openAfterCreation, final String id) {
+	protected DSemanticDiagram execute(final SiriusDiagramPrototype diagramTemplatePrototype, final String diagramName, final EObject semanticContext, final boolean openAfterCreation, final String id) {
 		return execute(diagramTemplatePrototype, diagramName, semanticContext, semanticContext, openAfterCreation, id);
 	}
 
@@ -85,7 +86,7 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 * @return
 	 *         the created {@link DSemanticDiagram}
 	 */
-	public DSemanticDiagram execute(final DSemanticDiagram diagram, final String diagramName, final EObject semanticContext, final EObject graphicalContext, final boolean openAfterCreation, final String id) {
+	public DSemanticDiagram execute(final SiriusDiagramPrototype diagram, final String diagramName, final EObject semanticContext, final EObject graphicalContext, final boolean openAfterCreation, final String id) {
 		final Resource res = semanticContext.eResource();
 		final URI semanticURI = res.getURI();
 		if (semanticURI.isPlatformPlugin()) {
@@ -128,7 +129,7 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 *         the created {@link DSemanticDiagram}
 	 */
 	public CreateSiriusDiagramEditorViewCommand createDSemanticDiagramEditorCreationCommand(final TransactionalEditingDomain editingDomain,
-			final DSemanticDiagram diagramPrototype,
+			final SiriusDiagramPrototype diagramPrototype,
 			final String diagramName,
 			final String diagramMainTitle,
 			final EObject semanticContext,
@@ -156,7 +157,7 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 *         the created {@link DSemanticDiagram}
 	 */
 	public CreateSiriusDiagramEditorViewCommand createDSemanticDiagramEditorCreationCommand(final TransactionalEditingDomain editingDomain,
-			final DSemanticDiagram diagramPrototype,
+			final SiriusDiagramPrototype diagramPrototype,
 			final String diagramName,
 			final String diagramMainTitle,
 			final EObject semanticContext,

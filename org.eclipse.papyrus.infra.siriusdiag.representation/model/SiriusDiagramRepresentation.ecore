@@ -21,8 +21,8 @@
         </eGenericType>
       </eParameters>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="siriusDiagramPrototype"
-        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.sirius.diagram/model/diagram.ecore#//DSemanticDiagram">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="diagram" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.sirius.diagram/model/diagram.ecore#//DSemanticDiagram">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This feature references the SiriusDiagramPrototype to use to create a new SiriusDiagram"/>
       </eAnnotations>
@@ -34,6 +34,13 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="viewpointName" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diagramName" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="ecore:EDataType platform:/plugin/org.eclipse.sirius/model/viewpoint.ecore#//description/URI"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="session" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diagramId" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This feature allows to define the class to use to create the new document. The class must implements ICreateSiriusDiagramEditorCommand."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

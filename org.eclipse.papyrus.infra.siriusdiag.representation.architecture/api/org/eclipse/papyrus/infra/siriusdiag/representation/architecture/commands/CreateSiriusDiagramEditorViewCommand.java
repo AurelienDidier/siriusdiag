@@ -37,8 +37,8 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 	 * the {@link SiriusDiagramPrototype} used to create the {@link DSemanticDiagram} model and its editor view
 	 */
 	// TODO: A supprimer le prototype sert a rien en fait.
-	private final DSemanticDiagram prototype;
-	private DSemanticDiagram newInstance;
+	private final SiriusDiagramPrototype prototype;
+	private DSemanticDiagram diagram;
 	private String id;
 
 	/**
@@ -58,7 +58,7 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 	 * @param graphicalContext
 	 * @param openAfterCreation
 	 */
-	public CreateSiriusDiagramEditorViewCommand(final TransactionalEditingDomain domain, final DSemanticDiagram diagramTemplatePrototype, final String diagramName, final String diagramMainTitle, final EObject semanticContext,
+	public CreateSiriusDiagramEditorViewCommand(final TransactionalEditingDomain domain, final SiriusDiagramPrototype diagramTemplatePrototype, final String diagramName, final String diagramMainTitle, final EObject semanticContext,
 			final EObject graphicalContext, final boolean openAfterCreation, final String diagramId) {
 		super(domain, "Create new Sirius Diagram", diagramName, semanticContext, graphicalContext, openAfterCreation, diagramId); //$NON-NLS-1$
 		this.prototype = diagramTemplatePrototype;
@@ -77,7 +77,7 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 	 * @param semanticContext
 	 * @param openAfterCreation
 	 */
-	public CreateSiriusDiagramEditorViewCommand(final TransactionalEditingDomain domain, final DSemanticDiagram diagramTemplatePrototype, final String diagramName, final String diagramMainTitle, final EObject semanticContext,
+	public CreateSiriusDiagramEditorViewCommand(final TransactionalEditingDomain domain, final SiriusDiagramPrototype diagramTemplatePrototype, final String diagramName, final String diagramMainTitle, final EObject semanticContext,
 			final boolean openAfterCreation, final String diagramId) {
 		this(domain, diagramTemplatePrototype, diagramName, diagramMainTitle, semanticContext, null, openAfterCreation, diagramId);
 	}
@@ -89,9 +89,10 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 	 */
 	@Override
 	protected void doExecute() {
-		final DSemanticDiagram diag = this.prototype;
+		final SiriusDiagramPrototype proto = this.prototype;
+		final DSemanticDiagram diagram = this.prototype.getDSemanticDiagram();
 
-		attachToResource(semanticContext, newInstance);
+		attachToResource(semanticContext, diagram);
 		// if (SiriusDiagramPrototype instanceof DDiagram) {
 
 		// TODO get Session
@@ -110,9 +111,9 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 		// Get Representation
 		EObject model = this.semanticContext;
 		String diagramName = this.editorViewName;
-		diag.diagramID = this.diagramID;
-		Session session = this.session;
-		URI uri = this.uri;
+		proto.setImplementationID(this.diagramId);
+		proto.setSession(session);
+		URI uri = null;
 		Collection<RepresentationDescription> descs = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), model);
 		for (RepresentationDescription desc : descs) {
 			if (DialectManager.INSTANCE.canCreate(model, desc)) {
@@ -127,8 +128,10 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 						// Implement your write operations here,
 						// for example: set a new name
 						// TODO: Récupérer le nom
-						if (desc.getName().equals(diagramID)) {
-							newInstance = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation(diagramName, model, desc, session, new NullProgressMonitor());
+						if (desc.getName().equals(diagramId)) {
+							DSemanticDiagram diagram = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation(diagramName, model, desc, session, new NullProgressMonitor());
+							proto.setSiriusDiagramPrototype(diagram);
+							// TODO: add Uri of the diagram proto.setUri(diagram.get);
 							session.save(new NullProgressMonitor());
 						}
 						// TODO: A supprimer.
@@ -137,11 +140,11 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 					}
 				});
 				if (this.openAfterCreation) {
-					openEditor(newInstance);
+					openEditor(diagram);
 				}
-				if (newInstance.eResource() != null) {
+				if (diagram.eResource() != null) {
 					// we suppose all is ok
-					this.createdEditorView = newInstance;
+					this.createdEditorView = diagram;
 				}
 			}
 		}

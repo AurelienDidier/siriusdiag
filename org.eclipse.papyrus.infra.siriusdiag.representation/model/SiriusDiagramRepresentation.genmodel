@@ -15,10 +15,11 @@
       disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
       extensibleProviderFactory="true" childCreationExtenders="true" ecorePackage="SiriusDiagramRepresentation.ecore#/">
     <genClasses ecoreClass="SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/siriusDiagramPrototype"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/diagram"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/creationCommandClass"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/viewpointName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/diagramName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/uri"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/session"/>
       <genOperations ecoreOperation="SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/isValidClass">
         <genParameters ecoreParameter="SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/isValidClass/chain"/>
         <genParameters ecoreParameter="SiriusDiagramRepresentation.ecore#//SiriusDiagramPrototype/isValidClass/context"/>

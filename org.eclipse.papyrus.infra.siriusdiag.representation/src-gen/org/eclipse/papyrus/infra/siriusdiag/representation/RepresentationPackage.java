@@ -295,7 +295,7 @@ public interface RepresentationPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 *
 	 * @return the meta object for the reference '<em>Sirius Diagram Prototype</em>'.
-	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getSiriusDiagramPrototype()
+	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype#getDSemanticDiagram()
 	 * @see #getSiriusDiagramPrototype()
 	 * @generated
 	 */
