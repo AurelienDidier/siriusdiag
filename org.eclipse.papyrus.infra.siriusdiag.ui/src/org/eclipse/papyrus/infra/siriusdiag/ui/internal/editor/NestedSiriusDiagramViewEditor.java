@@ -48,6 +48,7 @@ import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.internationalization.common.editor.IInternationalizationEditor;
+import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
 import org.eclipse.papyrus.infra.siriusdiag.ui.Activator;
 import org.eclipse.papyrus.infra.ui.lifecycleevents.ISaveAndDirtyService;
 import org.eclipse.papyrus.infra.widgets.util.IRevealSemanticElement;
@@ -101,10 +102,10 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 *
 	 * @param servicesRegistry
 	 *            the Papyrus service registry, it can't be <code>null</code>
-	 * @param rawModel
+	 * @param prototype
 	 *            the edited element, it can't be <code>null</code>
 	 */
-	public NestedSiriusDiagramViewEditor(ServicesRegistry servicesRegistry, DSemanticDiagram rawModel, Session session, URI uri) {
+	public NestedSiriusDiagramViewEditor(ServicesRegistry servicesRegistry, SiriusDiagramPrototype prototype) {
 		super();
 
 		// Need to manage the part label synchronizer for the table labels
@@ -123,9 +124,9 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		}
 		saveAndDirtyService.registerIsaveablePart(this);
 
-		this.diagram = rawModel;
-		this.uri = uri;
-		this.session = session;
+		this.diagram = prototype.getDSemanticDiagram();
+		this.uri = prototype.getUri();
+		this.session = prototype.getSession();
 		this.servicesRegistry = servicesRegistry;
 		try {
 			editingDomain = servicesRegistry.getService(TransactionalEditingDomain.class);

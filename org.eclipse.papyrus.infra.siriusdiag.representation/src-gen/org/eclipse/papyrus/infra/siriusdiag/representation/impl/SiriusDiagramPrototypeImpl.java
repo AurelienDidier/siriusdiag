@@ -60,7 +60,7 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 * @generated
 	 * @ordered
 	 */
-	protected DSemanticDiagram siriusDiagramPrototype;
+	protected DSemanticDiagram semanticDiagram;
 
 	/**
 	 * The default value of the '{@link #getCreationCommandClass() <em>Creation Command Class</em>}' attribute.
@@ -163,16 +163,16 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 */
 	@Override
 	public DSemanticDiagram getDSemanticDiagram() {
-		if (siriusDiagramPrototype != null && siriusDiagramPrototype.eIsProxy()) {
-			InternalEObject oldSiriusDiagramPrototype = (InternalEObject) siriusDiagramPrototype;
-			siriusDiagramPrototype = (DSemanticDiagram) eResolveProxy(oldSiriusDiagramPrototype);
-			if (siriusDiagramPrototype != oldSiriusDiagramPrototype) {
+		if (semanticDiagram != null && semanticDiagram.eIsProxy()) {
+			InternalEObject oldSiriusDiagramPrototype = (InternalEObject) semanticDiagram;
+			semanticDiagram = (DSemanticDiagram) eResolveProxy(oldSiriusDiagramPrototype);
+			if (semanticDiagram != oldSiriusDiagramPrototype) {
 				if (eNotificationRequired()) {
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__SIRIUS_DIAGRAM_PROTOTYPE, oldSiriusDiagramPrototype, siriusDiagramPrototype));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__SIRIUS_DIAGRAM_PROTOTYPE, oldSiriusDiagramPrototype, semanticDiagram));
 				}
 			}
 		}
-		return siriusDiagramPrototype;
+		return semanticDiagram;
 	}
 
 	/**
@@ -182,7 +182,7 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 * @generated
 	 */
 	public DSemanticDiagram basicGetSiriusDiagramPrototype() {
-		return siriusDiagramPrototype;
+		return semanticDiagram;
 	}
 
 	/**
@@ -193,10 +193,10 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 */
 	@Override
 	public void setSiriusDiagramPrototype(DSemanticDiagram newSiriusDiagramPrototype) {
-		DSemanticDiagram oldSiriusDiagramPrototype = siriusDiagramPrototype;
-		siriusDiagramPrototype = newSiriusDiagramPrototype;
+		DSemanticDiagram oldSiriusDiagramPrototype = semanticDiagram;
+		semanticDiagram = newSiriusDiagramPrototype;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__SIRIUS_DIAGRAM_PROTOTYPE, oldSiriusDiagramPrototype, siriusDiagramPrototype));
+			eNotify(new ENotificationImpl(this, Notification.SET, RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__SIRIUS_DIAGRAM_PROTOTYPE, oldSiriusDiagramPrototype, semanticDiagram));
 		}
 	}
 
@@ -388,7 +388,7 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__SIRIUS_DIAGRAM_PROTOTYPE:
-			return siriusDiagramPrototype != null;
+			return semanticDiagram != null;
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__CREATION_COMMAND_CLASS:
 			return CREATION_COMMAND_CLASS_EDEFAULT == null ? creationCommandClass != null : !CREATION_COMMAND_CLASS_EDEFAULT.equals(creationCommandClass);
 		case RepresentationPackage.SIRIUS_DIAGRAM_PROTOTYPE__VIEWPOINT_NAME:

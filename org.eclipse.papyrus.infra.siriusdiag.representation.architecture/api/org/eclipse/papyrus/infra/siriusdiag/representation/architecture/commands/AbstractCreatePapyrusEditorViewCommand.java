@@ -27,6 +27,7 @@ import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.emf.utils.ServiceUtilsForEObject;
+import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
 import org.eclipse.papyrus.infra.siriusdiag.representation.architecture.Activator;
 import org.eclipse.papyrus.infra.siriusdiag.ui.modelresource.SiriusDiagramModel;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
@@ -199,11 +200,11 @@ public abstract class AbstractCreatePapyrusEditorViewCommand<T extends EObject> 
 	/**
 	 * Open the editor for the diagram
 	 *
-	 * @param diagram
+	 * @param proto
 	 *            the diagram
 	 */
-	protected final void openEditor(final DSemanticDiagram diagram) {
-		final ServicesRegistry sReg = getServiceRegistry(diagram.getTarget());
+	protected final void openEditor(final SiriusDiagramPrototype proto) {
+		final ServicesRegistry sReg = getServiceRegistry(proto.getDSemanticDiagram().getTarget());
 		if (null == sReg) {
 			return;
 		}
@@ -211,7 +212,7 @@ public abstract class AbstractCreatePapyrusEditorViewCommand<T extends EObject> 
 		if (null == pageManager) {
 			return;
 		}
-		pageManager.openPage(diagram);
+		pageManager.openPage(proto);
 	}
 
 	/**

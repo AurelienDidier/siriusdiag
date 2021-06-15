@@ -24,6 +24,7 @@ import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.services.labelprovider.service.LabelProviderService;
+import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
 import org.eclipse.papyrus.infra.siriusdiag.ui.Activator;
 import org.eclipse.papyrus.infra.siriusdiag.ui.internal.provider.SiriusDiagramLabelProvider;
 import org.eclipse.papyrus.infra.ui.extension.diagrameditor.AbstractEditorFactory;
@@ -104,7 +105,7 @@ public class SiriusDiagramEditorFactory extends AbstractEditorFactory {
 		/**
 		 * The raw model stored in the SashProvider.
 		 */
-		private DSemanticDiagram rawModel;
+		private SiriusDiagramPrototype rawModel;
 
 		/**
 		 *
@@ -113,7 +114,7 @@ public class SiriusDiagramEditorFactory extends AbstractEditorFactory {
 		public DiagramViewEditorModel(Object pageIdentifier, ServicesRegistry servicesRegistry, ILabelProvider labels) {
 			super(labels);
 
-			this.rawModel = (DSemanticDiagram) pageIdentifier;
+			this.rawModel = (SiriusDiagramPrototype) pageIdentifier;
 			this.servicesRegistry = servicesRegistry;
 		}
 
@@ -129,7 +130,7 @@ public class SiriusDiagramEditorFactory extends AbstractEditorFactory {
 		public IEditorPart createIEditorPart() throws PartInitException {
 			try {
 
-				Constructor<?> c = getDiagramClass().getConstructor(ServicesRegistry.class, DSemanticDiagram.class/* , Session.class, URI.class */);
+				Constructor<?> c = getDiagramClass().getConstructor(ServicesRegistry.class, SiriusDiagramPrototype.class/* , Session.class, URI.class */);
 				IEditorPart newEditor = (IEditorPart) c.newInstance(this.servicesRegistry, this.rawModel/* , this.session, this.uri */);// rawmodel est il un DSemanticDiagram?
 				this.editor = newEditor;
 				return this.editor;
@@ -137,7 +138,7 @@ public class SiriusDiagramEditorFactory extends AbstractEditorFactory {
 			} catch (Exception e) {
 				// Lets propagate. This is an implementation problem that should be solved by
 				// programmer.
-				throw new PartInitException("Can't create DocumentStructureTemplateView", e); //$NON-NLS-1$
+				throw new PartInitException("Can't create Sirius Diagram View", e); //$NON-NLS-1$
 			}
 
 		}

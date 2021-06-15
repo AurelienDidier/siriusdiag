@@ -58,7 +58,7 @@ public interface SiriusDiagramPrototype extends PapyrusRepresentationKind {
 	 * <!-- end-model-doc -->
 	 *
 	 * @return the value of the '<em>Sirius Diagram Prototype</em>' reference.
-	 * @see #setSiriusDiagramPrototype(DSemanticDiagram)
+	 * @see # (DSemanticDiagram)
 	 * @see org.eclipse.papyrus.infra.siriusdiag.representation.RepresentationPackage#getSiriusDiagramPrototype_SiriusDiagramPrototype()
 	 * @model required="true"
 	 * @generated
