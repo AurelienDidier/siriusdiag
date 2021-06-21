@@ -59,7 +59,9 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.provider.DiagramItemProviderAdapterFactory;
+import org.eclipse.sirius.diagram.tools.api.command.IDiagramCommandFactoryProvider;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.ui.IEditorInput;
@@ -95,19 +97,25 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 
 	private CommandStackListener commandStackListener;
 
-	private ComposedAdapterFactory adapterFactory;
+	private AdapterFactory adapterFactory;
 
 	private DSemanticDiagram diagram;
 
 
-	@Override
-	public Object getAdapter(final Class type) {
-		Object adapter = super.getAdapter(type);
-		if (adapter == null) {
-			adapter = this;
-		}
-		return (adapter != null || session == null) ? adapter : super.getAdapter(type);
-	}
+	// @Override
+	// public Object getAdapter(final Class type) {
+	// Object adapter = null;
+	// if (type == IDiagramCommandFactoryProvider.class) {
+	// adapter = this.emfCommandFactoryProvider;
+	// } else if (type == IContentOutlinePage.class) {
+	// adapter = initOutline();
+	// } else if (type == EditingDomain.class || type == TransactionalEditingDomain.class) {
+	// adapter = this.getEditingDomain();
+	// } else if (type == IDiagramWorkbenchPart.class) {
+	// adapter = this;
+	// }
+	// return (adapter != null || session == null) ? adapter : super.getAdapter(type);
+	// }
 
 	/**
 	 *
@@ -142,14 +150,13 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		this.uri = prototype.getUri();
 		this.session = prototype.getSession();
 		this.servicesRegistry = servicesRegistry;
-		// editingDomain = prototype.getSession().getTransactionalEditingDomain();
-		// TODO: before I tried
-		try {
-			editingDomain = servicesRegistry.getService(TransactionalEditingDomain.class);
-		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		editingDomain = prototype.getSession().getTransactionalEditingDomain();
+		// TODO: before I tried : servicesRegistry.getService(TransactionalEditingDomain.class);
+		// try {
+		// } catch (ServiceException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
 
 		Assert.isNotNull(this.proto, "The edited diagram is null. The Diagram Editor creation failed"); //$NON-NLS-1$
 		Assert.isNotNull(this.servicesRegistry, "The papyrus ServicesRegistry is null. The Diagram Editor creation failed."); //$NON-NLS-1$
@@ -200,11 +207,12 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 * Init the adapter factory
 	 */
 	protected void initAdapterFactory() {
-		adapterFactory = createComposedAdapterFactory();
-		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new DiagramItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+//		adapterFactory = createComposedAdapterFactory();
+//		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+//		adapterFactory.addAdapterFactory(new DiagramItemProviderAdapterFactory());
+//		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
+//		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+        adapterFactory = DialectUIManager.INSTANCE.createAdapterFactory();
 	}
 
 	/**
