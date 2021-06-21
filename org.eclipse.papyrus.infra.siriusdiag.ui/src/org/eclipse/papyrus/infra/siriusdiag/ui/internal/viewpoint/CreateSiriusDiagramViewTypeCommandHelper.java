@@ -30,7 +30,6 @@ import org.eclipse.papyrus.infra.tools.util.ClassLoaderHelper;
 import org.eclipse.papyrus.infra.viewpoints.policy.IViewTypeHelper;
 import org.eclipse.papyrus.infra.viewpoints.policy.PolicyChecker;
 import org.eclipse.papyrus.infra.viewpoints.policy.ViewPrototype;
-import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 /**
  * Represents a helper for the handling of Sirius Diagram Template View Type creation commands.
@@ -62,7 +61,7 @@ public class CreateSiriusDiagramViewTypeCommandHelper implements IViewTypeHelper
 	 */
 	@Override
 	public boolean isSupported(EObject view) {
-		return (view instanceof DSemanticDiagram);
+		return (view instanceof SiriusDiagramPrototype);
 	}
 
 	/**

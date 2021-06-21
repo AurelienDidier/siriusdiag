@@ -19,6 +19,7 @@ import java.util.Collection;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
@@ -31,7 +32,7 @@ import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 /**
  * Create a DSemanticDiagram Editor view
  */
-public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusEditorViewCommand<DSemanticDiagram> {
+public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusEditorViewCommand<SiriusDiagramPrototype> {
 
 	/**
 	 * the {@link SiriusDiagramPrototype} used to create the {@link DSemanticDiagram} model and its editor view
@@ -113,7 +114,6 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 		String diagramName = this.editorViewName;
 		proto.setImplementationID(this.diagramId);
 		proto.setSession(session);
-		URI uri = null;
 		Collection<RepresentationDescription> descs = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), model);
 		for (RepresentationDescription desc : descs) {
 			if (DialectManager.INSTANCE.canCreate(model, desc)) {
@@ -132,6 +132,9 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 							DSemanticDiagram diagram = (DSemanticDiagram) DialectManager.INSTANCE.createRepresentation(diagramName, model, desc, session, new NullProgressMonitor());
 							proto.setSiriusDiagramPrototype(diagram);
 							// TODO: add Uri of the diagram proto.setUri(diagram.get);
+							URI uri = EcoreUtil.getURI(diagram);
+							proto.setUri(uri);
+
 							session.save(new NullProgressMonitor());
 						}
 						// TODO: A supprimer.
@@ -144,7 +147,7 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 				}
 				if (proto.getDSemanticDiagram().eResource() != null) {
 					// we suppose all is ok
-					this.createdEditorView = proto.getDSemanticDiagram();
+					this.createdEditorView = proto;
 				}
 			}
 		}

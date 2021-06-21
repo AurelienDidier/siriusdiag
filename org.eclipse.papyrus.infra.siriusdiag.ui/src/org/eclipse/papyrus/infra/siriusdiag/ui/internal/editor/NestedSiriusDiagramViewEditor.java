@@ -38,6 +38,7 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProvider;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceSetItemProvider;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.GraphicalViewer;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -84,7 +85,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	/**
 	 * The edited document template
 	 */
-	private DSemanticDiagram diagram;
+	private SiriusDiagramPrototype proto;
 
 	private Session session;
 
@@ -95,6 +96,18 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	private CommandStackListener commandStackListener;
 
 	private ComposedAdapterFactory adapterFactory;
+
+	private DSemanticDiagram diagram;
+
+
+	@Override
+	public Object getAdapter(final Class type) {
+		Object adapter = super.getAdapter(type);
+		if (adapter == null) {
+			adapter = this;
+		}
+		return (adapter != null || session == null) ? adapter : super.getAdapter(type);
+	}
 
 	/**
 	 *
@@ -125,9 +138,12 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		saveAndDirtyService.registerIsaveablePart(this);
 
 		this.diagram = prototype.getDSemanticDiagram();
+		this.proto = prototype;
 		this.uri = prototype.getUri();
 		this.session = prototype.getSession();
 		this.servicesRegistry = servicesRegistry;
+		// editingDomain = prototype.getSession().getTransactionalEditingDomain();
+		// TODO: before I tried
 		try {
 			editingDomain = servicesRegistry.getService(TransactionalEditingDomain.class);
 		} catch (ServiceException e) {
@@ -135,7 +151,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 			e.printStackTrace();
 		}
 
-		Assert.isNotNull(this.diagram, "The edited diagram is null. The Diagram Editor creation failed"); //$NON-NLS-1$
+		Assert.isNotNull(this.proto, "The edited diagram is null. The Diagram Editor creation failed"); //$NON-NLS-1$
 		Assert.isNotNull(this.servicesRegistry, "The papyrus ServicesRegistry is null. The Diagram Editor creation failed."); //$NON-NLS-1$
 		initializeEditingDomain();
 	}
@@ -155,13 +171,6 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 
 
 	}
-
-	// public TransactionalEditingDomain getEditingDomain() {
-	// if (this.editingDomain instanceof TransactionalEditingDomain) {
-	// return this.editingDomain;
-	// }
-	// return null;
-	// }
 
 
 	/**
@@ -246,16 +255,23 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 */
 	@Override
 	public void init(IEditorSite site, IEditorInput input) {// throws PartInitException {
-		final SiriusDiagramEditorInput diagramViewEditorInput = new SiriusDiagramEditorInput(this.diagram);
+		final SiriusDiagramEditorInput diagramViewEditorInput = new SiriusDiagramEditorInput(this.proto);
 		// TODO: Try using the SpecificEditorInputTranformer
 		// SpecificEditorInputTransformer seit=new SpecificEditorInputTranformer();
-		final SessionEditorInput sessionEditorInput = new SessionEditorInput(null, fErrorLabel, this.getSession());
 
-		try {
-			super.init(site, diagramViewEditorInput);
-		} catch (PartInitException e) {
-			e.printStackTrace();
-		}
+		this.editingDomain.getCommandStack().execute(new RecordingCommand(this.editingDomain) {
+
+			@Override
+			protected void doExecute() {
+				final SessionEditorInput sessionEditorInput = new SessionEditorInput(uri, diagram.getName(), session);
+				try {
+					NestedSiriusDiagramViewEditor.super.init(site, sessionEditorInput);
+				} catch (PartInitException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	@Override
@@ -385,7 +401,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		 */
 		@Override
 		public Collection<?> getElements(Object object) {
-			return Collections.singleton(diagram.eResource());
+			return Collections.singleton(proto.eResource());
 		}
 	}
 
@@ -454,7 +470,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		@Override
 		public Collection<?> getChildren(Object object) {
 			if (object instanceof Resource) {
-				return Collections.singletonList(diagram);
+				return Collections.singletonList(proto);
 			}
 			return super.getChildren(object);
 		}

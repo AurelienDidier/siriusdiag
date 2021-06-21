@@ -67,7 +67,7 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 * @return
 	 *         the created {@link DSemanticDiagram}
 	 */
-	protected DSemanticDiagram execute(final SiriusDiagramPrototype diagramTemplatePrototype, final String diagramName, final EObject semanticContext, final boolean openAfterCreation, final String id) {
+	protected SiriusDiagramPrototype execute(final SiriusDiagramPrototype diagramTemplatePrototype, final String diagramName, final EObject semanticContext, final boolean openAfterCreation, final String id) {
 		return execute(diagramTemplatePrototype, diagramName, semanticContext, semanticContext, openAfterCreation, id);
 	}
 
@@ -86,7 +86,7 @@ public abstract class AbstractCreateSiriusDiagramEditorCommand implements ICreat
 	 * @return
 	 *         the created {@link DSemanticDiagram}
 	 */
-	public DSemanticDiagram execute(final SiriusDiagramPrototype diagram, final String diagramName, final EObject semanticContext, final EObject graphicalContext, final boolean openAfterCreation, final String id) {
+	public SiriusDiagramPrototype execute(final SiriusDiagramPrototype diagram, final String diagramName, final EObject semanticContext, final EObject graphicalContext, final boolean openAfterCreation, final String id) {
 		final Resource res = semanticContext.eResource();
 		final URI semanticURI = res.getURI();
 		if (semanticURI.isPlatformPlugin()) {

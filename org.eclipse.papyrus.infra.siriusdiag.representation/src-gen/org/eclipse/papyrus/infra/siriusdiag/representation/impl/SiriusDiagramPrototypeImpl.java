@@ -446,7 +446,7 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	@Override
 	public URI getUri() {
 		// TODO Auto-generated method stub
-		return null;
+		return uri;
 	}
 
 	/**

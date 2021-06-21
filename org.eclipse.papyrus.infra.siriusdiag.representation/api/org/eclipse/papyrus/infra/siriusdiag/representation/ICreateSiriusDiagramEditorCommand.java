@@ -16,7 +16,6 @@ package org.eclipse.papyrus.infra.siriusdiag.representation;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.infra.viewpoints.policy.ViewPrototype;
-import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 
 /**
@@ -39,7 +38,7 @@ public interface ICreateSiriusDiagramEditorCommand {
 	 * @return
 	 *         the created document template
 	 */
-	public DSemanticDiagram execute(final ViewPrototype prototype, final String name, final EObject semanticContext, boolean open);
+	public SiriusDiagramPrototype execute(final ViewPrototype prototype, final String name, final EObject semanticContext, boolean open);
 
 	/**
 	 *
@@ -56,6 +55,6 @@ public interface ICreateSiriusDiagramEditorCommand {
 	 * @return
 	 *         the created document template
 	 */
-	public DSemanticDiagram execute(final ViewPrototype prototype, final String name, final EObject semanticContext, final EObject graphicalContext, final boolean open);
+	public SiriusDiagramPrototype execute(final ViewPrototype prototype, final String name, final EObject semanticContext, final EObject graphicalContext, final boolean open);
 
 }

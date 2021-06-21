@@ -29,7 +29,6 @@ import org.eclipse.papyrus.infra.siriusdiag.ui.Activator;
 import org.eclipse.papyrus.infra.siriusdiag.ui.internal.provider.SiriusDiagramLabelProvider;
 import org.eclipse.papyrus.infra.ui.extension.diagrameditor.AbstractEditorFactory;
 import org.eclipse.papyrus.infra.ui.multidiagram.actionbarcontributor.ActionBarContributorRegistry;
-import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.EditorActionBarContributor;
@@ -82,7 +81,7 @@ public class SiriusDiagramEditorFactory extends AbstractEditorFactory {
 	 */
 	@Override
 	public boolean isPageModelFactoryFor(Object pageIdentifier) {
-		return pageIdentifier instanceof DSemanticDiagram;
+		return pageIdentifier instanceof SiriusDiagramPrototype;
 	}
 
 	/**

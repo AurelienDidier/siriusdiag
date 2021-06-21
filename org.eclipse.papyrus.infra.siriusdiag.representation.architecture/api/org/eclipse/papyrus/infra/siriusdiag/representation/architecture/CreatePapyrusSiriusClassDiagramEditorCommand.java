@@ -71,7 +71,7 @@ public class CreatePapyrusSiriusClassDiagramEditorCommand extends AbstractCreate
 	 * @return
 	 */
 	@Override
-	public DSemanticDiagram execute(final ViewPrototype prototype, final String name, final EObject semanticContext, final boolean openAfterCreation) {
+	public SiriusDiagramPrototype execute(final ViewPrototype prototype, final String name, final EObject semanticContext, final boolean openAfterCreation) {
 		return execute(prototype, name, semanticContext, semanticContext, openAfterCreation);
 	}
 
@@ -87,7 +87,7 @@ public class CreatePapyrusSiriusClassDiagramEditorCommand extends AbstractCreate
 	 * @return
 	 */
 	@Override
-	public DSemanticDiagram execute(final ViewPrototype prototype, final String name, final EObject semanticContext, final EObject graphicalContext, boolean openAfterCreation) {
+	public SiriusDiagramPrototype execute(final ViewPrototype prototype, final String name, final EObject semanticContext, final EObject graphicalContext, boolean openAfterCreation) {
 		if (prototype instanceof SiriusDiagramViewPrototype) {
 			final PapyrusRepresentationKind representation = prototype.getRepresentationKind();
 			Assert.isTrue(representation instanceof SiriusDiagramPrototype, "The representation associated to the PapyrusDSemanticDiagramViewPrototype must be an instanceof SiriusDiagramPrototype."); //$NON-NLS-1$

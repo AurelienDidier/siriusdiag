@@ -16,6 +16,7 @@ package org.eclipse.papyrus.infra.siriusdiag.ui.internal.editor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
 import org.eclipse.papyrus.infra.siriusdiag.ui.internal.messages.Messages;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.ui.IEditorInput;
@@ -28,7 +29,7 @@ import org.eclipse.ui.IPersistableElement;
 public class SiriusDiagramEditorInput implements IEditorInput {
 
 	/** The input for the Document widget */
-	private final DSemanticDiagram diagramInstance;
+	private final SiriusDiagramPrototype protoInstance;
 
 	/**
 	 *
@@ -38,8 +39,8 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	 *            the document template to edit
 	 */
 	// TODO:Essayer sans la classe SiriusDiagramEditorInput
-	public SiriusDiagramEditorInput(final DSemanticDiagram siriusDiagram) {
-		this.diagramInstance = siriusDiagram;
+	public SiriusDiagramEditorInput(final SiriusDiagramPrototype siriusDiagram) {
+		this.protoInstance = siriusDiagram;
 	}
 
 	/**
@@ -47,8 +48,8 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	 * @return
 	 *         the document template for which we are opening an editor
 	 */
-	public DSemanticDiagram getDSemanticDiagram() {
-		return this.diagramInstance;
+	public SiriusDiagramPrototype getSiriusDiagramPrototype() {
+		return this.protoInstance;
 	}
 
 	/**
@@ -81,7 +82,7 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	 */
 	@Override
 	public String getName() {
-		final String name = this.diagramInstance.getName();
+		final String name = this.protoInstance.getName();
 		return name == null || name.isEmpty() ? Messages.SiriusDiagramEditorInput_NoName : name;
 	}
 
@@ -102,7 +103,7 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	 *         the description
 	 */
 	private String getDescription() {
-		final String description = this.diagramInstance.getDocumentation();
+		final String description = this.protoInstance.getDSemanticDiagram().getDocumentation();
 		return description == null || description.isEmpty() ? Messages.SiriusDiagramEditorInput_NoDescription : description;
 	}
 
@@ -129,10 +130,10 @@ public class SiriusDiagramEditorInput implements IEditorInput {
 	@Override
 	public <T> T getAdapter(Class<T> adapter) {
 		if (adapter == URI.class) {
-			return adapter.cast(this.diagramInstance.eResource().getURI());
+			return adapter.cast(this.protoInstance.eResource().getURI());
 		}
 		if (adapter == DSemanticDiagram.class) {
-			return adapter.cast(this.diagramInstance);
+			return adapter.cast(this.protoInstance);
 		}
 		return null;
 	}

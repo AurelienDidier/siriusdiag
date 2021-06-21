@@ -15,6 +15,7 @@
 package org.eclipse.papyrus.infra.siriusdiag.ui.internal.viewpoint;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
 
 /**
  * Interface for ViewPrototype to get the result of the instantiation instead of a boolean
@@ -35,6 +36,6 @@ public interface ExtendedViewPrototype<T extends EObject> {
 	 * @return
 	 *         the instantiated view
 	 */
-	public T instantiateOn(EObject semanticOwner, EObject graphicalOwner, String name, boolean openCreatedView);
+	public SiriusDiagramPrototype instantiateOn(EObject semanticOwner, EObject graphicalOwner, String name, boolean openCreatedView);
 
 }

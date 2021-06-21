@@ -149,7 +149,7 @@ public class SiriusDiagramViewPrototype extends ViewPrototype implements Extende
 	 * @return
 	 */
 	@Override
-	public DSemanticDiagram instantiateOn(final EObject semanticOwner, final EObject graphicalOwner, final String name, final boolean openCreatedView) {
+	public SiriusDiagramPrototype instantiateOn(final EObject semanticOwner, final EObject graphicalOwner, final String name, final boolean openCreatedView) {
 		return command.execute(this, name, semanticOwner, graphicalOwner, openCreatedView);
 	}
 
