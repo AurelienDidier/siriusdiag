@@ -142,14 +142,14 @@ public class CreateSiriusDiagramEditorViewCommand extends AbstractCreatePapyrusE
 
 					}
 				});
-				if (this.openAfterCreation) {
-					openEditor(proto);
-				}
-				if (proto.getDSemanticDiagram().eResource() != null) {
-					// we suppose all is ok
-					this.createdEditorView = proto;
-				}
 			}
+		}
+		if (this.openAfterCreation) {
+			openEditor(proto);
+		}
+		if (proto.getDSemanticDiagram().eResource() != null) {
+			// we suppose all is ok
+			this.createdEditorView = proto;
 		}
 
 		// DialectUIManager.INSTANCE.openEditor(session, myDiagram,

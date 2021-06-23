@@ -25,22 +25,21 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProvider;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceSetItemProvider;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.GraphicalViewer;
+import org.eclipse.gef.commands.CommandStackListener;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -57,13 +56,22 @@ import org.eclipse.papyrus.infra.widgets.util.NavigationTarget;
 import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.common.tools.api.util.EclipseUtil;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
-import org.eclipse.sirius.diagram.provider.DiagramItemProviderAdapterFactory;
-import org.eclipse.sirius.diagram.tools.api.command.IDiagramCommandFactoryProvider;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUI;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
+import org.eclipse.sirius.ui.business.internal.dialect.DialectUIManagerImpl;
 import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.sirius.viewpoint.description.audit.provider.AuditItemProviderAdapterFactory;
+import org.eclipse.sirius.viewpoint.description.provider.DescriptionItemProviderAdapterFactory;
+import org.eclipse.sirius.viewpoint.description.style.provider.StyleItemProviderAdapterFactory;
+import org.eclipse.sirius.viewpoint.description.tool.provider.ToolItemProviderAdapterFactory;
+import org.eclipse.sirius.viewpoint.description.validation.provider.ValidationItemProviderAdapterFactory;
+import org.eclipse.sirius.viewpoint.provider.ViewpointItemProviderAdapterFactory;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
@@ -89,7 +97,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 */
 	private SiriusDiagramPrototype proto;
 
-	private Session session;
+	private Session protoSession;
 
 	private URI uri;
 
@@ -97,25 +105,21 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 
 	private CommandStackListener commandStackListener;
 
-	private AdapterFactory adapterFactory;
+	private ComposedAdapterFactory composedAdapterFactory;
 
 	private DSemanticDiagram diagram;
 
-
-	// @Override
-	// public Object getAdapter(final Class type) {
-	// Object adapter = null;
-	// if (type == IDiagramCommandFactoryProvider.class) {
-	// adapter = this.emfCommandFactoryProvider;
-	// } else if (type == IContentOutlinePage.class) {
-	// adapter = initOutline();
-	// } else if (type == EditingDomain.class || type == TransactionalEditingDomain.class) {
-	// adapter = this.getEditingDomain();
-	// } else if (type == IDiagramWorkbenchPart.class) {
-	// adapter = this;
-	// }
-	// return (adapter != null || session == null) ? adapter : super.getAdapter(type);
-	// }
+	// TODO: MAYBE THIS SHOULD BE DELETED
+	@Override
+	public Object getAdapter(final Class type) {
+		Object adapter = null;
+		// if (type == EditingDomain.class || type == TransactionalEditingDomain.class) {
+		// adapter = this.getEditingDomain();
+		// } else if (type == IDiagramWorkbenchPart.class) {
+		// adapter = this;
+		// }
+		return super.getAdapter(type);
+	}
 
 	/**
 	 *
@@ -148,9 +152,9 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		this.diagram = prototype.getDSemanticDiagram();
 		this.proto = prototype;
 		this.uri = prototype.getUri();
-		this.session = prototype.getSession();
+		this.protoSession = prototype.getSession();
 		this.servicesRegistry = servicesRegistry;
-		editingDomain = prototype.getSession().getTransactionalEditingDomain();
+		this.editingDomain = prototype.getSession().getTransactionalEditingDomain();
 		// TODO: before I tried : servicesRegistry.getService(TransactionalEditingDomain.class);
 		// try {
 		// } catch (ServiceException e) {
@@ -184,35 +188,134 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 * this method is in charge to init the Editing Domain and the CommandStack
 	 */
 	protected void initDomainAndStack() {
-		this.editingDomain = TransactionalEditingDomain.Factory.INSTANCE.createEditingDomain();
-		addCommandStackListener(this.editingDomain.getCommandStack());
+		/* TODO Add or not? */this.editingDomain = TransactionalEditingDomain.Factory.INSTANCE.createEditingDomain();
+		final CommandStack stack = this.editingDomain.getCommandStack();
+		// addCommandStackListener(stack);
 
 		// final CommandStack commandStack = new BasicCommandStack();
 		// addCommandStackListener(commandStack);
 		// editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+
+		final TransactionalEditingDomain domain = getEditingDomain();
+		Assert.isTrue(domain instanceof AdapterFactoryEditingDomain);
+		this.editingDomain = domain;
+		// this.protoSession.
+		configureDiagramEditDomain();
+
 	}
 
-	protected void addCommandStackListener(final CommandStack commandStack) {
-		commandStack.addCommandStackListener(this.commandStackListener = new CommandStackListener() {
+	/**
+	 * @generated
+	 */
+	@Override
+	protected void configureDiagramEditDomain() {
+		super.configureDiagramEditDomain();
+		getDiagramEditDomain().getDiagramCommandStack().addCommandStackListener(new CommandStackListener() {
 
 			@Override
 			public void commandStackChanged(EventObject event) {
-				// TODO Auto-generated method stub
+				if (Display.getCurrent() == null) {
+					Display.getDefault().asyncExec(new Runnable() {
 
+						@Override
+						public void run() {
+							firePropertyChange(IEditorPart.PROP_DIRTY);
+						}
+					});
+				} else {
+					firePropertyChange(IEditorPart.PROP_DIRTY);
+				}
 			}
 		});
+	}
+
+	// protected void addCommandStackListener(final CommandStack commandStack) {
+	// commandStack.addCommandStackListener(this.commandStackListener = new CommandStackListener() {
+	//
+	// @Override
+	// public void commandStackChanged(EventObject event) {
+	// final Composite container = NestedSiriusDiagramViewEditor.this.getRulerComposite();
+	// if (container.isDisposed()) {
+	// return; // to avoid an exception!
+	// }
+	// container.getDisplay().asyncExec(new Runnable() {
+	// @Override
+	// public void run() {
+	// firePropertyChange(IEditorPart.PROP_DIRTY);
+	//
+	// // Try to select the affected objects.
+	// //
+	// Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
+	// if (mostRecentCommand != null) {
+	// setSelectionToViewer(mostRecentCommand.getAffectedObjects());
+	// }
+	// // for (Iterator<PropertySheetPage> i = propertySheetPages.iterator(); i.hasNext();) {
+	// // PropertySheetPage propertySheetPage = i.next();
+	// // if (propertySheetPage.getControl().isDisposed()) {
+	// // i.remove();
+	// // } else {
+	// // propertySheetPage.refresh();
+	// // }
+	// // }
+	// }
+	// });
+	// }
+	// });
+	//
+	// }
+
+
+	/**
+	 * This sets the selection into whichever viewer is active.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public void setSelectionToViewer(Collection<?> collection) {
+		final Collection<?> theSelection = collection;
+		// Make sure it's okay.
+		//
+		if (theSelection != null && !theSelection.isEmpty()) {
+			Runnable runnable = new Runnable() {
+				@Override
+				public void run() {
+					// Try to select the items in the current content viewer of the editor.
+					//
+					// NestedSiriusDiagramViewEditor editor = NestedSiriusDiagramViewEditor.this.get;
+					// editor.get
+					// if (currentViewer != null) {
+					// currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
+					// }
+				}
+			};
+			getSite().getShell().getDisplay().asyncExec(runnable);
+		}
 	}
 
 	/**
 	 * Init the adapter factory
 	 */
 	protected void initAdapterFactory() {
-//		adapterFactory = createComposedAdapterFactory();
-//		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-//		adapterFactory.addAdapterFactory(new DiagramItemProviderAdapterFactory());
-//		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
-//		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-        adapterFactory = DialectUIManager.INSTANCE.createAdapterFactory();
+
+		final DialectUIManagerImpl manager = new DialectUIManagerImpl();
+		composedAdapterFactory = new ComposedAdapterFactory();
+		if (SiriusPlugin.IS_ECLIPSE_RUNNING) {
+			final List<DialectUI> parsedDialects = EclipseUtil.getExtensionPlugins(DialectUI.class, DialectUIManager.ID, DialectUIManager.CLASS_ATTRIBUTE);
+			for (final DialectUI dialect : parsedDialects) {
+				// manager.enableDialectUI(dialect);
+				composedAdapterFactory.addAdapterFactory(dialect.getServices().createAdapterFactory());
+			}
+		}
+
+
+		composedAdapterFactory.addAdapterFactory(new DescriptionItemProviderAdapterFactory());
+		composedAdapterFactory.addAdapterFactory(new ViewpointItemProviderAdapterFactory());
+		composedAdapterFactory.addAdapterFactory(new StyleItemProviderAdapterFactory());
+		composedAdapterFactory.addAdapterFactory(new ToolItemProviderAdapterFactory());
+		composedAdapterFactory.addAdapterFactory(new ValidationItemProviderAdapterFactory());
+		composedAdapterFactory.addAdapterFactory(new AuditItemProviderAdapterFactory());
+
 	}
 
 	/**
@@ -271,7 +374,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 
 			@Override
 			protected void doExecute() {
-				final SessionEditorInput sessionEditorInput = new SessionEditorInput(uri, diagram.getName(), session);
+				final SessionEditorInput sessionEditorInput = new SessionEditorInput(uri, diagram.getName(), protoSession);
 				try {
 					NestedSiriusDiagramViewEditor.super.init(site, sessionEditorInput);
 				} catch (PartInitException e) {
@@ -288,6 +391,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		// if (getDiagram() != null && !DiagramVersioningUtils.isOfCurrentPapyrusVersion(getDiagram())) {
 		// new ReconcileHelper(getEditingDomain()).reconcileDiagram(getDiagram());
 		// }
+
 	}
 
 
@@ -602,7 +706,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 			return;// see bug 551530
 		}
 
-		// TODO: Implement a better refresh that good
+		// TODO: Implement a better refresh
 		DRepresentation representation = getRepresentation();
 		if (representation != null) {
 			Session session = SessionManager.INSTANCE.getSession(representation.eContainer());
