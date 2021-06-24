@@ -1,13 +1,16 @@
-/*******************************************************************************
- * Copyright (c) 2009, 2011 Obeo.
+/******************************************************************************
+ * Copyright (c) 2021 CEA LIST, Artal Technologies
+ *
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *     Obeo - initial API and implementation
- *******************************************************************************/
+ *    Aurelien Didier (ARTAL) - aurelien.didier51@gmail.com - Bug 569174
+ *****************************************************************************/
 package org.eclipse.papyrus.uml.sirius.common.diagram.core.services;
 
 import java.util.List;
@@ -26,8 +29,6 @@ import org.eclipse.uml2.uml.UMLFactory;
 /**
  * Utility services to manage label edition on templateBindings.
  *
- * @author Hugo Marchadour
- *         <a href="mailto:hugo.marchadour@obeo.fr">hugo.marchadour@obeo.fr</a>
  */
 public final class TemplateBindingServices {
     /**

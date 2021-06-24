@@ -49,7 +49,6 @@ public class SiriusDiagramDirectEditorPreferenceInitializer extends AbstractPref
 		// required to get the good preference store
 		IPreferenceStore store = org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors.Activator.getDefault().getPreferenceStore();
 		store.setDefault(PREFIX_PAPYRUS_EDITOR + DSemanticDiagram.class.getName(), EDITOR_NAME);
-		// papyrus.directeditor.org.eclipse.sirius.diagram.DSemanticDiagram
 	}
 
 }

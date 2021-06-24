@@ -105,15 +105,9 @@ public class SiriusDiagramViewPrototype extends ViewPrototype implements Extende
 				Activator.log.error(ex);
 				return false;
 			}
-			// Object result = this.command.execute(UNAVAILABLE_VIEW, name, owner, isOwnerReassignable());
-			// return result != null;
-			// }
-			// return false;
 		}
 		return instantiateOn(owner, name, true);
-
 	}
-
 
 	/**
 	 * @see org.eclipse.papyrus.infra.viewpoints.policy.ViewPrototype#getOwnerOf(org.eclipse.emf.ecore.EObject)

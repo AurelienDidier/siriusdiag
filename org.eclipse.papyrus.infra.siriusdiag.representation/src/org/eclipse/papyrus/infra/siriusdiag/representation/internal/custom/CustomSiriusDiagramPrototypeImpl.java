@@ -37,7 +37,6 @@ import org.eclipse.papyrus.infra.types.ElementTypeSetConfiguration;
 public class CustomSiriusDiagramPrototypeImpl extends SiriusDiagramPrototypeImpl {
 
 	// the 2 next field could be in org.eclipse.papyrus.infra.siriusdiag.types, but we want to avoid a dependency between these plugins
-	// TODO : try to solve this point
 	/**
 	 * the name of the required element type
 	 */

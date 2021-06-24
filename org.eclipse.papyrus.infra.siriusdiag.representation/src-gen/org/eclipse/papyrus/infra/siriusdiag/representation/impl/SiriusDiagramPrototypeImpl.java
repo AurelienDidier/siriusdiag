@@ -445,7 +445,6 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 */
 	@Override
 	public URI getUri() {
-		// TODO Auto-generated method stub
 		return uri;
 	}
 
@@ -456,7 +455,6 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 */
 	@Override
 	public Session getSession() {
-		// TODO Auto-generated method stub
 		return session;
 	}
 
@@ -467,7 +465,6 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 */
 	@Override
 	public void setUri(URI uri) {
-		// TODO Auto-generated method stub
 		this.uri = uri;
 	}
 
@@ -478,7 +475,6 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 */
 	@Override
 	public void setSession(Session session) {
-		// TODO Auto-generated method stub
 		this.session = session;
 	}
 
@@ -489,7 +485,6 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 */
 	@Override
 	public String getDiagramId() {
-		// TODO Auto-generated method stub
 		return diagramId;
 	}
 
@@ -500,7 +495,6 @@ public class SiriusDiagramPrototypeImpl extends PapyrusRepresentationKindImpl im
 	 */
 	@Override
 	public void setDiagramId(String diagramId) {
-		// TODO Auto-generated method stub
 		this.diagramId = diagramId;
 	}
 

@@ -19,7 +19,6 @@ import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototyp
 
 /**
  * Interface for ViewPrototype to get the result of the instantiation instead of a boolean
- * TODO : propose me to Papyrus
  */
 public interface ExtendedViewPrototype<T extends EObject> {
 

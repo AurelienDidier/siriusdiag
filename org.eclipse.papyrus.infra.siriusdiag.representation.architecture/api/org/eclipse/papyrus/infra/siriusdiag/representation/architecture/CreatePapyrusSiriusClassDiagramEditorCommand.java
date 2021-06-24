@@ -95,7 +95,6 @@ public class CreatePapyrusSiriusClassDiagramEditorCommand extends AbstractCreate
 
 
 			DSemanticDiagram diagram = docProto.getDSemanticDiagram();
-			// TODO: Diagram is null atm
 			final String diagramName = (name == null || name.isEmpty()) ? askName(prototype, semanticContext) : name;
 			if (null == diagramName) {
 				return null; // the creation is cancelled

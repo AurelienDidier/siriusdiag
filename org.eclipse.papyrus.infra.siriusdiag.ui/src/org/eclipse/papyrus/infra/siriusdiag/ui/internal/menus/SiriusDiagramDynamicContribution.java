@@ -69,7 +69,6 @@ public class SiriusDiagramDynamicContribution extends DynamicContribution {
 			data.add(proto);
 		}
 
-		// sort them
 		Collections.sort(data, new ViewPrototype.Comp());
 
 		// build the full labels

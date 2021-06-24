@@ -33,8 +33,6 @@ import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 
-
-
 /**
  * This class manages PapyrusDocument in aird model resource.
  *
@@ -124,24 +122,20 @@ public class SiriusDiagramModel extends AbstractDynamicModel<DSemanticDiagram> {
 				targetResource = getResource();
 			}
 			if (targetResource != null) {
-				// targetResource.getContents().add(newInstance);
+
 				URI uri = contextResource.getURI();
 				uri = uri.trimFileExtension();
 				uri = uri.appendFileExtension(getModelFileExtension());
 
-				// URI airdUri = URI.createURI(uri);
-				// final Session session = SessionManager.INSTANCE.getSession(uri, new NullProgressMonitor());
 				SessionCreationOperation o = new DefaultLocalSessionCreationOperation(uri, new NullProgressMonitor());
 				try {
 					o.execute();
 				} catch (CoreException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				Session session = o.getCreatedSession();
 				context.eAdapters().add(new SessionTransientAttachment(session));
 
-				// session.open(new NullProgressMonitor());
 				session.getTransactionalEditingDomain().getCommandStack()
 						.execute(new RecordingCommand(session.getTransactionalEditingDomain()) {
 							@Override
@@ -164,18 +158,11 @@ public class SiriusDiagramModel extends AbstractDynamicModel<DSemanticDiagram> {
 												.getViewpoint(URI.createURI("viewpoint:/org.eclipse.papyrus.uml.sirius.statemachine.diagram/StateMachineDiagram")),
 										session, new NullProgressMonitor());
 							}
-							// selected.selectViewpoint(
-							// ViewpointRegistry.getInstance()
-							// .getViewpoint(URI.createURI("viewpoint:/org.eclipse.papyrus.uml.sirius.clazz.diagram/ClassDiagram")),
-							// session, new NullProgressMonitor());
-							//
-							// }
 						});
 				session.open(new NullProgressMonitor());
 				SessionManager.INSTANCE.add(session);
 				SessionUIManager.INSTANCE.getOrCreateUISession(session);
 				session.save(new NullProgressMonitor());
-				// session.close(new NullProgressMonitor());
 			}
 		}
 	}

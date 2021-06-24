@@ -62,8 +62,6 @@ import com.google.common.collect.Lists;
 /**
  * Manage the diagram elements' labels.
  *
- * @author Melanie Bats
- *         <a href="mailto:melanie.bats@obeo.fr">melanie.bats@obeo.fr</a>
  */
 public class LabelServices {
     /**

@@ -24,13 +24,12 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProvider;
@@ -39,17 +38,17 @@ import org.eclipse.emf.edit.provider.resource.ResourceSetItemProvider;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.GraphicalViewer;
-import org.eclipse.gef.commands.CommandStackListener;
+import org.eclipse.gef.commands.CommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditDomain;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
-import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.internationalization.common.editor.IInternationalizationEditor;
 import org.eclipse.papyrus.infra.siriusdiag.representation.SiriusDiagramPrototype;
-import org.eclipse.papyrus.infra.siriusdiag.ui.Activator;
 import org.eclipse.papyrus.infra.ui.lifecycleevents.ISaveAndDirtyService;
 import org.eclipse.papyrus.infra.widgets.util.IRevealSemanticElement;
 import org.eclipse.papyrus.infra.widgets.util.NavigationTarget;
@@ -58,6 +57,7 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.util.EclipseUtil;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramCommandStack;
 import org.eclipse.sirius.diagram.ui.tools.internal.editor.DDiagramEditorImpl;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUI;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
@@ -71,7 +71,6 @@ import org.eclipse.sirius.viewpoint.description.style.provider.StyleItemProvider
 import org.eclipse.sirius.viewpoint.description.tool.provider.ToolItemProviderAdapterFactory;
 import org.eclipse.sirius.viewpoint.description.validation.provider.ValidationItemProviderAdapterFactory;
 import org.eclipse.sirius.viewpoint.provider.ViewpointItemProviderAdapterFactory;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
@@ -86,8 +85,6 @@ import org.eclipse.ui.PartInitException;
  */
 @SuppressWarnings("restriction")
 public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements IEditingDomainProvider, IInternationalizationEditor, IRevealSemanticElement, NavigationTarget {
-
-	// shall use SiriusDiagramEditorInput
 
 	/** the service registry */
 	protected ServicesRegistry servicesRegistry;
@@ -109,15 +106,9 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 
 	private DSemanticDiagram diagram;
 
-	// TODO: MAYBE THIS SHOULD BE DELETED
 	@Override
 	public Object getAdapter(final Class type) {
 		Object adapter = null;
-		// if (type == EditingDomain.class || type == TransactionalEditingDomain.class) {
-		// adapter = this.getEditingDomain();
-		// } else if (type == IDiagramWorkbenchPart.class) {
-		// adapter = this;
-		// }
 		return super.getAdapter(type);
 	}
 
@@ -133,18 +124,10 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	public NestedSiriusDiagramViewEditor(ServicesRegistry servicesRegistry, SiriusDiagramPrototype prototype) {
 		super();
 
-		// Need to manage the part label synchronizer for the table labels
-		// TODO: ReAdd this NPE because diagram is null LabelInternationalizationUtils.managePartLabelSynchronizer(diagram or rawModel, this);
-
-		// Register this part to the ISaveAndDirtyService.
-		// This will allows to be notified of saveAs events, and the isDirty
-		// flag will be taken into
-		// account.
 		ISaveAndDirtyService saveAndDirtyService = null;
 		try {
 			saveAndDirtyService = servicesRegistry.getService(ISaveAndDirtyService.class);
 		} catch (ServiceException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		saveAndDirtyService.registerIsaveablePart(this);
@@ -155,12 +138,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		this.protoSession = prototype.getSession();
 		this.servicesRegistry = servicesRegistry;
 		this.editingDomain = prototype.getSession().getTransactionalEditingDomain();
-		// TODO: before I tried : servicesRegistry.getService(TransactionalEditingDomain.class);
-		// try {
-		// } catch (ServiceException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+
 
 		Assert.isNotNull(this.proto, "The edited diagram is null. The Diagram Editor creation failed"); //$NON-NLS-1$
 		Assert.isNotNull(this.servicesRegistry, "The papyrus ServicesRegistry is null. The Diagram Editor creation failed."); //$NON-NLS-1$
@@ -176,11 +154,8 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		if (this.servicesRegistry == null) {
 			return;
 		}
-		// super.initializeEditingDomain();
 		initAdapterFactory();
 		initDomainAndStack();
-
-
 	}
 
 
@@ -188,19 +163,16 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 * this method is in charge to init the Editing Domain and the CommandStack
 	 */
 	protected void initDomainAndStack() {
-		/* TODO Add or not? */this.editingDomain = TransactionalEditingDomain.Factory.INSTANCE.createEditingDomain();
-		final CommandStack stack = this.editingDomain.getCommandStack();
-		// addCommandStackListener(stack);
+		// this.editingDomain = TransactionalEditingDomain.Factory.INSTANCE.createEditingDomain();
+		this.editingDomain.getCommandStack().addCommandStackListener(new CommandStackListener() {
 
-		// final CommandStack commandStack = new BasicCommandStack();
-		// addCommandStackListener(commandStack);
-		// editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
-
-		final TransactionalEditingDomain domain = getEditingDomain();
-		Assert.isTrue(domain instanceof AdapterFactoryEditingDomain);
-		this.editingDomain = domain;
-		// this.protoSession.
-		configureDiagramEditDomain();
+			@Override
+			public void commandStackChanged(final EventObject event) {
+				getSite().getShell().getDisplay().asyncExec(() -> {
+					firePropertyChange(IEditorPart.PROP_DIRTY);
+				});
+			}
+		});
 
 	}
 
@@ -209,89 +181,32 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 */
 	@Override
 	protected void configureDiagramEditDomain() {
-		super.configureDiagramEditDomain();
-		getDiagramEditDomain().getDiagramCommandStack().addCommandStackListener(new CommandStackListener() {
 
-			@Override
-			public void commandStackChanged(EventObject event) {
-				if (Display.getCurrent() == null) {
-					Display.getDefault().asyncExec(new Runnable() {
+		DiagramEditDomain editDomain = new DiagramEditDomain(this);
+		editDomain.setActionManager(createActionManager());
+		setEditDomain(editDomain);
 
-						@Override
-						public void run() {
-							firePropertyChange(IEditorPart.PROP_DIRTY);
-						}
-					});
-				} else {
-					firePropertyChange(IEditorPart.PROP_DIRTY);
-				}
+		if (editDomain != null) {
+			final CommandStack stack = editDomain.getCommandStack();
+
+			if (stack != null) {
+				// dispose the old stack
+				stack.dispose();
 			}
-		});
-	}
 
-	// protected void addCommandStackListener(final CommandStack commandStack) {
-	// commandStack.addCommandStackListener(this.commandStackListener = new CommandStackListener() {
-	//
-	// @Override
-	// public void commandStackChanged(EventObject event) {
-	// final Composite container = NestedSiriusDiagramViewEditor.this.getRulerComposite();
-	// if (container.isDisposed()) {
-	// return; // to avoid an exception!
-	// }
-	// container.getDisplay().asyncExec(new Runnable() {
-	// @Override
-	// public void run() {
-	// firePropertyChange(IEditorPart.PROP_DIRTY);
-	//
-	// // Try to select the affected objects.
-	// //
-	// Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
-	// if (mostRecentCommand != null) {
-	// setSelectionToViewer(mostRecentCommand.getAffectedObjects());
-	// }
-	// // for (Iterator<PropertySheetPage> i = propertySheetPages.iterator(); i.hasNext();) {
-	// // PropertySheetPage propertySheetPage = i.next();
-	// // if (propertySheetPage.getControl().isDisposed()) {
-	// // i.remove();
-	// // } else {
-	// // propertySheetPage.refresh();
-	// // }
-	// // }
-	// }
-	// });
-	// }
-	// });
-	//
-	// }
+			// create and assign the new stack
+			final DiagramCommandStack diagramStack = new DDiagramCommandStack(getDiagramEditDomain());
+			diagramStack.setOperationHistory(getOperationHistory());
 
+			// changes made on the stack can be undone from this editor
+			diagramStack.setUndoContext(getUndoContext());
 
-	/**
-	 * This sets the selection into whichever viewer is active.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	public void setSelectionToViewer(Collection<?> collection) {
-		final Collection<?> theSelection = collection;
-		// Make sure it's okay.
-		//
-		if (theSelection != null && !theSelection.isEmpty()) {
-			Runnable runnable = new Runnable() {
-				@Override
-				public void run() {
-					// Try to select the items in the current content viewer of the editor.
-					//
-					// NestedSiriusDiagramViewEditor editor = NestedSiriusDiagramViewEditor.this.get;
-					// editor.get
-					// if (currentViewer != null) {
-					// currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
-					// }
-				}
-			};
-			getSite().getShell().getDisplay().asyncExec(runnable);
+			editDomain.setCommandStack(diagramStack);
 		}
+
 	}
+
+
 
 	/**
 	 * Init the adapter factory
@@ -315,6 +230,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 		composedAdapterFactory.addAdapterFactory(new ToolItemProviderAdapterFactory());
 		composedAdapterFactory.addAdapterFactory(new ValidationItemProviderAdapterFactory());
 		composedAdapterFactory.addAdapterFactory(new AuditItemProviderAdapterFactory());
+		// composedAdapterFactory.addAdapterFactory(new EMFCommandFactory());
 
 	}
 
@@ -335,27 +251,8 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	 */
 	@Override
 	public TransactionalEditingDomain getEditingDomain() {
-		try {
-			return ServiceUtils.getInstance().getTransactionalEditingDomain(this.servicesRegistry);
-		} catch (final ServiceException e) {
-			Activator.log.error(e);
-		}
-		return null;
+		return this.editingDomain;
 	}
-
-	// @Override
-	// public void doSave(IProgressMonitor monitor) {
-	// // manage by the Papyrus main editor
-	// }
-
-	/**
-	 *
-	 * @see org.eclipse.papyrus.infra.siriusdiag.presentation.DocumentStructureTemplateEditor#doSaveAs()
-	 *
-	 */
-	// @Override
-	// public void doSaveAs() {
-	// }
 
 	/**
 	 *
@@ -367,8 +264,6 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	@Override
 	public void init(IEditorSite site, IEditorInput input) {// throws PartInitException {
 		final SiriusDiagramEditorInput diagramViewEditorInput = new SiriusDiagramEditorInput(this.proto);
-		// TODO: Try using the SpecificEditorInputTranformer
-		// SpecificEditorInputTransformer seit=new SpecificEditorInputTranformer();
 
 		this.editingDomain.getCommandStack().execute(new RecordingCommand(this.editingDomain) {
 
@@ -376,7 +271,7 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 			protected void doExecute() {
 				final SessionEditorInput sessionEditorInput = new SessionEditorInput(uri, diagram.getName(), protoSession);
 				try {
-					NestedSiriusDiagramViewEditor.super.init(site, sessionEditorInput);
+					NestedSiriusDiagramViewEditor.super.init(site, diagramViewEditorInput);
 				} catch (PartInitException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -388,10 +283,6 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	@Override
 	public void doSetInput(IEditorInput input, boolean releaseEditorContents) throws CoreException {
 		super.doSetInput(input, releaseEditorContents);
-		// if (getDiagram() != null && !DiagramVersioningUtils.isOfCurrentPapyrusVersion(getDiagram())) {
-		// new ReconcileHelper(getEditingDomain()).reconcileDiagram(getDiagram());
-		// }
-
 	}
 
 
@@ -421,42 +312,17 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 	}
 
 
-	// /**
-	// *
-	// * @param commandStack
-	// */
-	// @Override
-	// protected void initDomainAndStack() {
-	// final TransactionalEditingDomain domain = getEditingDomain();
-	// Assert.isTrue(domain instanceof AdapterFactoryEditingDomain);
-	// this.editingDomain = (AdapterFactoryEditingDomain) domain;
-	// final CommandStack stack = this.editingDomain.getCommandStack();
-	// addCommandStackListener(stack);
-	// }
-
-	// /**
-	// * @see org.eclipse.papyrus.infra.siriusdiag.ui.internal.editor.CustomDocumentStructureTemplateEditor#initAdapterFactory()
-	// *
-	// */
-	// @Override
-	// protected void initAdapterFactory() {
-	// adapterFactory = createComposedAdapterFactory();
-	// adapterFactory.addAdapterFactory(new CustomResourceItemProviderAdapterFactory());
-	// adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
-	// adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-	// }
-
-	// /**
-	// * @see org.eclipse.ui.part.MultiPageEditorPart#createSite(org.eclipse.ui.IEditorPart)
-	// *
-	// * @param editor
-	// * @return
-	// */
-	// @Override
+	/**
+	 * @see org.eclipse.ui.part.MultiPageEditorPart#createSite(org.eclipse.ui.IEditorPart)
+	 *
+	 * @param editor
+	 * @return
+	 */
 	protected IEditorSite createSite(IEditorPart editor) {
 		// used to be able to have the error editor part nested in the embedded emf editor
 		return getEditorSite();
 	}
+
 
 	/**
 	 *
@@ -712,52 +578,6 @@ public class NestedSiriusDiagramViewEditor extends DDiagramEditorImpl implements
 			Session session = SessionManager.INSTANCE.getSession(representation.eContainer());
 			session.getTransactionalEditingDomain().getCommandStack().execute(new RefreshRepresentationsCommand(session.getTransactionalEditingDomain(), new NullProgressMonitor(), representation));
 		}
-
 		// old version DiagramHelper.forceRefresh(getDiagramEditPart());
 	}
-
-
-	/**
-	 *
-	 * The command stack listener (implementation duplicated from the super class)
-	 *
-	 */
-	// private class CustomCommandStackListener implements CommandStackListener {
-	//
-	// /**
-	// *
-	// * @see org.eclipse.emf.common.command.CommandStackListener#commandStackChanged(java.util.EventObject)
-	// *
-	// * @param event
-	// */
-	// @Override
-	// public void commandStackChanged(final EventObject event) {
-	// final Composite container = getContainer();
-	// if (container.isDisposed()) {
-	// return; // to avoid an exception!
-	// }
-	// getContainer().getDisplay().asyncExec(new Runnable() {
-	// @Override
-	// public void run() {
-	// firePropertyChange(IEditorPart.PROP_DIRTY);
-	//
-	// // Try to select the affected objects.
-	// //
-	// Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
-	// if (mostRecentCommand != null) {
-	// setSelectionToViewer(mostRecentCommand.getAffectedObjects());
-	// }
-	// for (Iterator<PropertySheetPage> i = propertySheetPages.iterator(); i.hasNext();) {
-	// PropertySheetPage propertySheetPage = i.next();
-	// if (propertySheetPage.getControl().isDisposed()) {
-	// i.remove();
-	// } else {
-	// propertySheetPage.refresh();
-	// }
-	// }
-	// }
-	// });
-	// }
-	// }
-
 }
