@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name
+Bundle-SymbolicName: org.eclipse.papyrus.infra.siriusdiag.properties;sin
+ gleton:=true
+Bundle-Version: 1.0.0.202111041121
+Bundle-Vendor: %Bundle-Vendor
+Automatic-Module-Name: org.eclipse.papyrus.infra.siriusdiag.properties
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.papyrus.infra.core.log;bundle-version="[2.0.
+ 0,3.0.0)",org.eclipse.ui.workbench;bundle-version="[3.122.0,4.0.0)",org
+ .eclipse.ui.views.properties.tabbed;bundle-version="[3.9.0,4.0.0)",org.
+ eclipse.emf.edit.ui;bundle-version="[2.19.0,3.0.0)",org.eclipse.emf.eco
+ re;bundle-version="[2.23.0,3.0.0)",org.eclipse.osgi;bundle-version="[3.
+ 16.0,4.0.0)",org.eclipse.core.runtime;bundle-version="[3.20.0,4.0.0)",o
+ rg.eclipse.sirius.diagram;bundle-version="[6.4.0,7.0.0)",org.eclipse.pa
+ pyrus.emf.ui;bundle-version="[2.0.0,3.0.0)",org.eclipse.papyrus.infra.e
+ mf;bundle-version="[4.1.0,5.0.0)"
+Bundle-Activator: org.eclipse.papyrus.infra.siriusdiag.properties.Activa
+ tor
+Bundle-ActivationPolicy: lazy
+Eclipse-SourceReferences: scm:git:git://git.eclipse.org/gitroot/papyrus/
+ org.eclipse.papyrus.git;path="plugins/infra/siriusdiag/org.eclipse.papy
+ rus.infra.siriusdiag.properties";commitId=2853cbbdfc4acf019aa576861f21a
+ 3e3fcff1f2c
+

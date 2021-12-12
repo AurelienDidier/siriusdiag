@@ -1,0 +1,41 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Papyrus- SiriusDiagram - Sirius Contribution for UML Archit
+ ecture (Incubation)
+Bundle-SymbolicName: org.eclipse.papyrus.uml.sirius.diagram.architecture
+ ;singleton:=true
+Bundle-Version: 1.0.0.202111041121
+Bundle-Activator: org.eclipse.papyrus.uml.sirius.diagram.architecture.Ac
+ tivator
+Bundle-Vendor: Eclipse Modeling Project
+Require-Bundle: org.eclipse.ui;bundle-version="[3.119.0,4.0.0)",org.ecli
+ pse.core.runtime;bundle-version="[3.20.0,4.0.0)",org.eclipse.papyrus.in
+ fra.architecture;bundle-version="[3.1.0,4.0.0)",org.eclipse.papyrus.inf
+ ra.siriusdiag.representation.architecture;bundle-version="[1.0.0,2.0.0)
+ ",org.eclipse.papyrus.infra.siriusdiag.representation;bundle-version="[
+ 1.0.0,2.0.0)",org.eclipse.sirius.diagram;bundle-version="[6.4.0,7.0.0)"
+ ,org.eclipse.papyrus.uml.diagram.common;bundle-version="[4.1.0,5.0.0)",
+ org.eclipse.papyrus.uml.diagram.activity;bundle-version="[4.1.0,5.0.0)"
+ ,org.eclipse.papyrus.uml.diagram.clazz;bundle-version="[4.1.0,5.0.0)",o
+ rg.eclipse.papyrus.uml.diagram.communication;bundle-version="[5.1.0,6.0
+ .0)",org.eclipse.papyrus.uml.diagram.component;bundle-version="[4.0.0,5
+ .0.0)",org.eclipse.papyrus.uml.diagram.composite;bundle-version="[4.1.0
+ ,5.0.0)",org.eclipse.papyrus.uml.diagram.deployment;bundle-version="[4.
+ 0.0,5.0.0)",org.eclipse.papyrus.uml.diagram.interactionoverview;bundle-
+ version="[4.1.0,5.0.0)",org.eclipse.papyrus.uml.diagram.profile;bundle-
+ version="[4.1.0,5.0.0)",org.eclipse.papyrus.uml.diagram.sequence;bundle
+ -version="[6.1.0,7.0.0)",org.eclipse.papyrus.uml.diagram.statemachine;b
+ undle-version="[4.1.0,5.0.0)",org.eclipse.papyrus.uml.diagram.timing;bu
+ ndle-version="[2.0.0,3.0.0)",org.eclipse.papyrus.uml.diagram.usecase;bu
+ ndle-version="[5.0.0,6.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: org.eclipse.papyrus.uml.sirius.diagram.architectu
+ re
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.papyrus.uml.sirius.diagram.architecture.inte
+ rnal.utils
+Eclipse-SourceReferences: scm:git:git://git.eclipse.org/gitroot/papyrus/
+ org.eclipse.papyrus.git;path="plugins/uml/sirius/org.eclipse.papyrus.um
+ l.sirius.diagram.architecture";commitId=2853cbbdfc4acf019aa576861f21a3e
+ 3fcff1f2c
+

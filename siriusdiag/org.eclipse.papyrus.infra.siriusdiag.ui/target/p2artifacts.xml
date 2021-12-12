@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<artifacts size='2'>
+  <artifact classifier='osgi.bundle' id='org.eclipse.papyrus.infra.siriusdiag.ui' version='1.0.0.202111041121'>
+    <properties size='5'>
+      <property name='artifact.size' value='66004'/>
+      <property name='download.size' value='66004'/>
+      <property name='maven-groupId' value='org.eclipse.papyrus'/>
+      <property name='maven-artifactId' value='org.eclipse.papyrus.infra.siriusdiag.ui'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+    </properties>
+  </artifact>
+  <artifact classifier='osgi.bundle' id='org.eclipse.papyrus.infra.siriusdiag.ui.source' version='1.0.0.202111041121'>
+    <properties size='6'>
+      <property name='artifact.size' value='44807'/>
+      <property name='download.size' value='44807'/>
+      <property name='maven-groupId' value='org.eclipse.papyrus'/>
+      <property name='maven-artifactId' value='org.eclipse.papyrus.infra.siriusdiag.ui'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      <property name='maven-classifier' value='sources'/>
+    </properties>
+  </artifact>
+</artifacts>

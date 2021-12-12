@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='2'>
+  <unit id='org.eclipse.papyrus.uml.sirius.diagram.architecture' version='1.0.0.202111041121' generation='2'>
+    <update id='org.eclipse.papyrus.uml.sirius.diagram.architecture' range='[0.0.0,1.0.0.202111041121)' severity='0'/>
+    <properties size='5'>
+      <property name='org.eclipse.equinox.p2.name' value='Papyrus- SiriusDiagram - Sirius Contribution for UML Architecture (Incubation)'/>
+      <property name='org.eclipse.equinox.p2.provider' value='Eclipse Modeling Project'/>
+      <property name='maven-groupId' value='org.eclipse.papyrus'/>
+      <property name='maven-artifactId' value='org.eclipse.papyrus.uml.sirius.diagram.architecture'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+    </properties>
+    <provides size='5'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.papyrus.uml.sirius.diagram.architecture' version='1.0.0.202111041121'/>
+      <provided namespace='osgi.bundle' name='org.eclipse.papyrus.uml.sirius.diagram.architecture' version='1.0.0.202111041121'/>
+      <provided namespace='java.package' name='org.eclipse.papyrus.uml.sirius.diagram.architecture.internal.utils' version='0.0.0'/>
+      <provided namespace='osgi.identity' name='org.eclipse.papyrus.uml.sirius.diagram.architecture' version='1.0.0.202111041121'>
+        <properties size='1'>
+          <property name='type' value='osgi.bundle'/>
+        </properties>
+      </provided>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='20'>
+      <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.119.0,4.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.20.0,4.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.infra.architecture' range='[3.1.0,4.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.infra.siriusdiag.representation.architecture' range='[1.0.0,2.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.infra.siriusdiag.representation' range='[1.0.0,2.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.sirius.diagram' range='[6.4.0,7.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.common' range='[4.1.0,5.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.activity' range='[4.1.0,5.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.clazz' range='[4.1.0,5.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.communication' range='[5.1.0,6.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.component' range='[4.0.0,5.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.composite' range='[4.1.0,5.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.deployment' range='[4.0.0,5.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.interactionoverview' range='[4.1.0,5.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.profile' range='[4.1.0,5.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.sequence' range='[6.1.0,7.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.statemachine' range='[4.1.0,5.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.timing' range='[2.0.0,3.0.0)'/>
+      <required namespace='osgi.bundle' name='org.eclipse.papyrus.uml.diagram.usecase' range='[5.0.0,6.0.0)'/>
+      <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+        <description>
+          org.eclipse.papyrus.uml.sirius.diagram.architecture
+        </description>
+      </requiredProperties>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='org.eclipse.papyrus.uml.sirius.diagram.architecture' version='1.0.0.202111041121'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: org.eclipse.papyrus.uml.sirius.diagram.architecture;singleton:=true&#xA;Bundle-Version: 1.0.0.202111041121&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+  <unit id='org.eclipse.papyrus.uml.sirius.diagram.architecture.source' version='1.0.0.202111041121' singleton='false'>
+    <update id='org.eclipse.papyrus.uml.sirius.diagram.architecture.source' range='[0.0.0,1.0.0.202111041121)' severity='0'/>
+    <properties size='9'>
+      <property name='df_LT.bundleVendor' value='Eclipse Modeling Project'/>
+      <property name='df_LT.bundleName' value='Papyrus- SiriusDiagram - Sirius Contribution for UML Architecture (Incubation) Source'/>
+      <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+      <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+      <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+      <property name='maven-groupId' value='org.eclipse.papyrus'/>
+      <property name='maven-artifactId' value='org.eclipse.papyrus.uml.sirius.diagram.architecture'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      <property name='maven-classifier' value='sources'/>
+    </properties>
+    <provides size='5'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.papyrus.uml.sirius.diagram.architecture.source' version='1.0.0.202111041121'/>
+      <provided namespace='osgi.bundle' name='org.eclipse.papyrus.uml.sirius.diagram.architecture.source' version='1.0.0.202111041121'/>
+      <provided namespace='osgi.identity' name='org.eclipse.papyrus.uml.sirius.diagram.architecture.source' version='1.0.0.202111041121'>
+        <properties size='1'>
+          <property name='type' value='osgi.bundle'/>
+        </properties>
+      </provided>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+    </provides>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='org.eclipse.papyrus.uml.sirius.diagram.architecture.source' version='1.0.0.202111041121'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: org.eclipse.papyrus.uml.sirius.diagram.architecture.source&#xA;Bundle-Version: 1.0.0.202111041121&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>
